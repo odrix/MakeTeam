@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<script src="js/angular.min.js"></script>
+	<script src="js/team.js"></script>
+</head>
+<body>
+	<div ng-controller="TeamCtrl">
+		
+		
+		
+		<div class="timeBox" ng-repeat="timebox in timeBoxes">
+			<div class="teamList">
+				<h3>Remplaçent(s)</h3>
+				<div class="present" ng-repeat="subs in timebox.substitutes">
+					<a href="#" class="nop">{{subs.nom}}</a>
+					<select ng-model="no" ng-options="p.no for p in places" ng-change="playing">
+						<option value="undefined">place</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="playground" class="wrapper">
+				<div class="player" ng-repeat="player in timbox.players">
+					<a href="#" class="nop">{{player.nom}}</a>
+					
+				</div>
+			</div>
+			
+			<div class="commande">
+				<button>Nouvelle période</button>
+				<div>
+					<span class="startTime"></span> - 
+					<span class="endTime"></span>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+	</div>
+</body>
+</html>

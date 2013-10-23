@@ -1,18 +1,27 @@
  jQuery(function(){
 	
+	var tplSubstitute = $('#substituteTpl').html();
+	var tplPlayground = $('#playgroundTpl').html();
 	
 	$.getJSON('js/team.json', function(data) {
-		var template = $('#personTpl').html();
-		var html = Mustache.to_html(template, data);
-		$('#teamList').html(html);
 		
-		var playgroundTpl = $('#playgroundTpl').html();
-		var htmlplay = Mustache.to_html(playgroundTpl, data);
-		$('#playground').html(htmlplay);
+		var html = Mustache.to_html(tplSubstitute, data);
+		$('.teamList').html(html);
+				
+		var htmlplay = Mustache.to_html(tplPlayground, data);
+		$('.playground').html(htmlplay);
+				
+		initTimeBox($('.timeBox'));
+		refreshTimeBoxTime();
 		
-		$('.present').draggable({cursor: 'crosshair',cursorAt: { top: 10, rigth: 10 }, opacity: 0.7, helper: 'clone', revert: 'invalid'});
+		//$(".present a").on("click", tooglePresence);		
+	});
+	
+	function initTimeBox(timeBox) {
+		timeBox.find('.present').draggable({cursor: 'crosshair',cursorAt: { top: 10, rigth: 10 }, opacity: 0.7, helper: 'clone', revert: 'invalid'});
+		timeBox.find('.player').draggable({cursor: 'crosshair',cursorAt: { top: 10, rigth: 10 }, opacity: 0.7, helper: 'clone', revert: 'invalid'});
 		
-		$('.fieldPlay').droppable({
+		timeBox.find('.fieldPlay').droppable({
 			accept: acceptPlayer,
 			activeClass: "ui-state-hover",
 			hoverClass: "ui-state-active",
@@ -28,9 +37,7 @@
 				}
 			}
 		});
-		
-		//$(".present a").on("click", tooglePresence);		
-	});
+	}
 	
 	function addPlayerInField(field, player) {
 		var place = field.data("no")
@@ -43,19 +50,20 @@
 	}
 	
 	function removePlayerFromSubstitue(player) {
-		if(player.parent().is('#teamList'))
+		if(player.parent().hasClass('teamList'))
 			player.remove()
 	}
 	
 	function addPlayerToSubstitute(player) {
 		player.removeClass('player').addClass('present')
-		$('#teamList').append(player)
+		player.parents('.timeBox').find('.teamList').append(player)
 	}
 	
 	function removePlayerLastPlace(player) {
-		if(player.parent().hasClass('fieldPlay'))
+		var field = player.parent();
+		if(field.hasClass('fieldPlay'))
 		{
-			player.parent().html(player.data('no'))
+			field.html(field.data('no'))
 		}
 	}
 	
@@ -76,6 +84,24 @@
 			$(this).parent().draggable('disable');
 		else
 			$(this).parent().draggable('enable');
+	}
+	
+	$('.commande button').click(function() {
+		var timeBox = $(this).parents('.timeBox')
+		var timeBoxClone = timeBox.clone()
+		initTimeBox(timeBoxClone)
+		timeBox.after(timeBoxClone)
+		refreshTimeBoxTime()
+	});
+	
+	function refreshTimeBoxTime() {
+		var nbTime = $('.timeBox').length
+		var totalTime = 90;
+		var timeBoxDuration = totalTime / nbTime;
+		$('.timeBox').each(function (i, item) {
+			$(item).find('.startTime').html(i*timeBoxDuration)
+			$(item).find('.endTime').html((i+1)*timeBoxDuration)
+		})
 	}
 });
 

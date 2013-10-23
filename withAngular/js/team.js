@@ -1,37 +1,47 @@
     function TeamCtrl($scope) {
-		var _players = [{nom: "Tom", no:''},
-						{nom: "Harry", no:''},
-						{nom: "Larry", no:''},
-						{nom: "Luke", no:''},
-						{nom: "Paul", no:function(o) {
-							return ''
-						}},
-						{nom: "Jean", no:''},
-						{nom: 'gille', no:''}
+		var _players = [{nom: "Tom"},
+						{nom: "Harry"},
+						{nom: "Larry"},
+						{nom: "Luke"},
+						{nom: "Paul"},
+						{nom: "Jean"},
+						{nom: 'Gille'},
+						{nom: 'Claude'}
 					];
 		
 			
 		$scope.timeBoxes = [{substitutes:_players, players: []}];
-		$scope.places = [{no:1},{no:2},{no:3},{no:4},{no:5},{no:6},{no:7},{no:8},{no:9},{no:10},{no:11}];
+		$scope.places = [1,2,3,4,5,6,7,8,9,10,11];
+
 		
-		// $scope.$watchCollection('timeBoxes.substitutes', function(newValue) {
+		// $scope.$watch('timeBoxes.substitutes', function(newValue) {
 			// alert("newValue:" + angular.toJson(newValue))
-		// })
-		
-		$scope.$watch('timeBoxes.substitutes', function(newValue) {
-			alert("newValue:" + angular.toJson(newValue))
-		}, true);
-		
-		$scope.playing = function() {
-			alert(item);
-		};
+		// }, true);
 		 
 		 
-		$scope.archive = function() {
-			var oldTodos = $scope.todos;
-			$scope.todos = [];
-			angular.forEach(oldTodos, function(todo) {
-			if (!todo.done) $scope.todos.push(todo);
-			});
+		$scope.placement = function(player, timeBox) {
+			
+			var indexPlayer = timeBox.substitutes.indexOf(player)
+			if(indexPlayer>-1)
+				timeBox.substitutes.splice(indexPlayer, 1)
+				
+			var indexPlayer = timeBox.players.indexOf(player)
+			if(indexPlayer>-1)
+				timeBox.players.splice(indexPlayer, 1)
+			
+			if(isAlreadyPlayer(player, timeBox))
+				alert("y a déjà un joueur")
+			
+			timeBox.players.push(player)
 		};
+		
+		function isAlreadyPlayer(player, timeBox) {
+			var result = false
+			var i=0
+			for(i=0;i<timeBox.players.length;i++){
+				if(timeBox.players[i].no == player.no)
+					result = true
+			}
+			return result
+		}
     }

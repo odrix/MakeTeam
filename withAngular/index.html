@@ -14,8 +14,8 @@
 				<h3>Remplaçent(s)</h3>
 				<div class="present" ng-repeat="subs in timebox.substitutes">
 					<a href="#" class="nop">{{subs.nom}}</a>
-					<select ng-model="subs.no" ng-options="p for p in places">
-						<option value="undefined">place</option>
+					<select ng-model="subs.no" ng-options="p for p in placesNo">
+						<option value="">place</option>
 					</select>
 					<a href="#" ng-click="placement(subs, timebox)" >ok</a>
 				</div>
@@ -23,13 +23,18 @@
 
 			<hr>
 			Terrain
-			<div class="playground" class="wrapper">
-				<div class="player" ng-repeat="player in timebox.players">
-					<a href="#" class="nop">{{player.nom}}</a>
-					<select ng-model="player.no" ng-options="p for p in places">
-						<option value="undefined">place</option>
-					</select>
-					<a href="#" ng-click="placement(player, timebox)" >ok</a>
+			<div class="playground" class="wrapper" >
+				<div class="player" ng-repeat="player in timebox.playground.places" >
+					<div ng-show="player.no > 0">
+						<a href="#" class="nop">{{player.nom}}</a>
+						<select ng-model="player.no" ng-options="p for p in placesNo">
+							<option value="undefined">place</option>
+						</select>
+						<a href="#" ng-click="changement(player, timebox)" >ok</a>
+					</div>
+					<div ng-hide="player.no > 0">
+						{{$index}}.
+					</div>
 				</div>
 			</div>
 			

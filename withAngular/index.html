@@ -3,11 +3,12 @@
 <head>
 	<script src="js/angular.min.js"></script>
 	<script src="js/team.js"></script>
+	
+	<!-- <link media="all" rel="stylesheet" type="text/css" href="css/all.css" /> -->
+	<link media="all" rel="stylesheet" type="text/css" href="css/team.css" />
 </head>
 <body>
 	<div ng-controller="TeamCtrl">
-		
-		
 		
 		<div class="timeBox" ng-repeat="timebox in timeBoxes">
 			<div class="teamList">
@@ -17,12 +18,10 @@
 					<select ng-model="noPlace" ng-options="p for p in placesNo">
 						<option value="">place</option>
 					</select>
-					<a href="#" ng-click="timebox.jouer(subs, noPlace)" >ok</a>
+					<button ng-click="timebox.jouer(subs, noPlace-1)" >ok</button>
 				</div>
 			</div>
 
-			<hr>
-			Terrain
 			<div class="playground" class="wrapper" >
 				<div class="player" ng-repeat="player in timebox.playground.places" >
 					<div ng-show="player.nom">
@@ -30,11 +29,11 @@
 						<select name="noPlace" ng-model="noPlace" ng-options="p for p in placesNo">
 							<option value="undefined">place</option>
 						</select>
-						<a href="#" ng-click="timebox.playground.echanger(player,noPlace )" >ok</a>
-						<a href="#" ng-click="timebox.reposer(player)" >sortir</a>
+						<button ng-click="timebox.playground.echanger(player, noPlace-1)" >ok</button>
+						<button ng-click="timebox.reposer(player)" >sortir</button>
 					</div>
 					<div ng-hide="player.nom">
-						{{$index}}.
+						{{$index + 1}}.
 					</div>
 				</div>
 			</div>
@@ -50,6 +49,14 @@
 			<div class="clear"></div>
 		</div>
 		
+		
+		
+		<div id="timeResume">
+			<h3>récap des temps de jeu</h3>
+			<div class="player" ng-repeat="player in players" >
+				{{player.nom}} - {{player.duration}}
+			</div>
+		</div>
 	</div>
 </body>
 </html>

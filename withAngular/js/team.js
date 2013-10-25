@@ -1,26 +1,44 @@
     function TeamCtrl($scope) {
-		var _players = [{nom: 'Tom'},
-						{nom: 'Harry'},
-						{nom: 'Larry'},
-						{nom: 'Luke'},
-						{nom: 'Roger'},
-						{nom: 'Paul'},
-						{nom: "Jean"},
-						{nom: 'Gille'},
-						{nom: 'Claude'}
+		var _players = [{id:1, nom: 'Tom'},
+						{id:2, nom: 'Harry'},
+						{id:3, nom: 'Larry'},
+						{id:4, nom: 'Luke'},
+						{id:5, nom: 'Roger'},
+						{id:6, nom: 'Paul'},
+						{id:7, nom: "Jean"},
+						{id:8, nom: 'Gille'},
+						{id:9, nom: 'Claude'}
 					];
 		
-		var maxTime = 90;
 		
-		// _players[0].__proto__.goto = function(placeNo) {
-										
-									// }	
+		
+		_players[0].__proto__.updateDuration = function() {
+		// function getDuration() {
+			this.duration = 0
+			if($scope.timeBoxes) {			
+				for(var i=0;i<$scope.timeBoxes.length;i++) {
+					if($scope.timeBoxes[i].playground.places) {
+						for(var j=0;j<$scope.timeBoxes[i].playground.places.length;j++) {
+							var p = $scope.timeBoxes[i].playground.places[j]
+							if(p && this.id == p.id) {
+								this.duration += $scope.timeBoxes[i].duration
+								break
+							}
+						}
+					}
+				}
+			}
+		}
+									
+		
+		var nbMaxPlayers = 11;	
+		var maxTime = 90;
+		$scope.placesNo = [1,2,3,4,5,6,7,8,9,10,11];
 		
 		$scope.timeBoxes = [{duration: maxTime,						
-							substitutes:_players,
+							substitutes: angular.copy(_players),
 							playground: {
-								nbMaxPlayers: 11,
-								places: new Array(11),
+								places: new Array(nbMaxPlayers),
 								goIn: function(no, player) {
 									if(no) {
 										this.places[no] = player
@@ -72,6 +90,7 @@
 									
 									// pour aller sur le terrain
 									this.playground.goIn(no, player)
+									updatePlayerDuration(player)
 								}
 							},
 							reposer: function(player) {
@@ -83,10 +102,11 @@
 								// et il devient remplaçant
 								if(this.substitutes.indexOf(player) == -1)
 									this.substitutes.push(player)
+								
+								updatePlayerDuration(player)
 							}
 						}];
-		$scope.placesNo = [1,2,3,4,5,6,7,8,9,10,11];
-
+		$scope.players = _players;
 		
 		// $scope.$watch('timeBoxes.substitutes', function(newValue) {
 			// alert("newValue:" + angular.toJson(newValue))
@@ -100,11 +120,25 @@
 			for(var i=0;i<$scope.timeBoxes.length;i++) {
 				$scope.timeBoxes[i].duration = maxTime / $scope.timeBoxes.length
 			}			
-		}	
+		}
+
+		function updatePlayerDuration(player) {
+			for(var i=0;i<$scope.players.length;i++) {
+				if(player) {
+					if($scope.players[i].id == player.id) {
+						$scope.players[i].updateDuration()
+						break;
+					}
+				} else {
+					$scope.players[i].updateDuration()
+				}
+			}			
+		}		
 		
 		$scope.newTimeBox = function (timebox){
 			$scope.timeBoxes.push(angular.copy(timebox))
 			updateTimeBoxesDuration()
+			updatePlayerDuration()
 		}
 		
 		$scope.deleteTimeBox = function(timebox) {
@@ -112,6 +146,7 @@
 			if(indexTimebox>-1) {
 				$scope.timeBoxes.splice(indexTimebox, 1)
 				updateTimeBoxesDuration()
+				updatePlayerDuration()
 			}
 		}
 		

@@ -10,11 +10,14 @@
 						{nom: 'Claude'}
 					];
 		
+		var maxTime = 90;
+		
 		// _players[0].__proto__.goto = function(placeNo) {
 										
 									// }	
 		
-		$scope.timeBoxes = [{substitutes:_players,
+		$scope.timeBoxes = [{duration: maxTime,						
+							substitutes:_players,
 							playground: {
 								nbMaxPlayers: 11,
 								places: new Array(11),
@@ -89,16 +92,27 @@
 			// alert("newValue:" + angular.toJson(newValue))
 		// }, true);
 		 
-			
+		function nbTimebox() {
+			return 
+		}
+
+		function updateTimeBoxesDuration() {
+			for(var i=0;i<$scope.timeBoxes.length;i++) {
+				$scope.timeBoxes[i].duration = maxTime / $scope.timeBoxes.length
+			}			
+		}	
 		
 		$scope.newTimeBox = function (timebox){
 			$scope.timeBoxes.push(angular.copy(timebox))
+			updateTimeBoxesDuration()
 		}
 		
 		$scope.deleteTimeBox = function(timebox) {
 			var indexTimebox = $scope.timeBoxes.indexOf(timebox)
-			if(indexTimebox>-1)
+			if(indexTimebox>-1) {
 				$scope.timeBoxes.splice(indexTimebox, 1)
+				updateTimeBoxesDuration()
+			}
 		}
 		
     }

@@ -43,8 +43,8 @@
 				<button ng-click="newTimeBox(timebox)">Nouvelle période</button>
 				<button ng-click="deleteTimeBox(timebox)">Supprimer la période</button>
 				<div>
-					<span class="startTime"></span> - 
-					<span class="endTime"></span>
+					<span class="startTime">{{$index * timebox.duration}}</span> - 
+					<span class="endTime">{{($index+1) * timebox.duration}}</span>
 				</div>
 			</div>
 			<div class="clear"></div>

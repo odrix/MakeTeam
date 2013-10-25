@@ -33,7 +33,7 @@
 							<button ng-click="timebox.playground.echanger(place.player, noPlace)" >ok</button>
 							<button ng-click="timebox.reposer(place.player)" >sortir</button>
 						</div>
-						<div ng-hide="place.player">
+						<div ng-hide="place.player" class="empty">
 							{{place.no}}.
 						</div>
 					</div>
@@ -41,8 +41,8 @@
 			</div>
 			
 			<div class="commande">
-				<button ng-click="newTimeBox(timebox)">Nouvelle période</button>
-				<button ng-click="deleteTimeBox(timebox)">Supprimer la période</button>
+				<button ng-click="newTimeBox(timebox)" class="button btn-new" title="Dupliquer période"></button>
+				<button ng-click="deleteTimeBox(timebox)" class="button btn-cancel" title="Supprimer la période" ng-show="timeboxes.length > 1"></button>
 				<div>
 					<span class="startTime">{{$index * timebox.duration}}</span> - 
 					<span class="endTime">{{($index+1) * timebox.duration}}</span>

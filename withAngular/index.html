@@ -1,7 +1,11 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="mkTeamApp">
 <head>
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+
 	<script src="js/angular.min.js"></script>
+	<script src="js/angular-dragdrop.js"></script>
 	<script src="js/team.js"></script>
 	
 	<!-- <link media="all" rel="stylesheet" type="text/css" href="css/all.css" /> -->
@@ -11,27 +15,27 @@
 	<div ng-controller="TeamCtrl">
 		
 		<div class="timeBox" ng-repeat="timebox in timeBoxes">
-			<div class="teamList">
+			<div class="teamList" ng-model='timebox.substitutes'>
 				<h3>Remplaçent(s)</h3>
-				<div class="present" ng-repeat="subs in timebox.substitutes">
-					<a href="#" class="nop">{{subs.nom}}</a>
-					<select ng-model="noPlace" ng-options="p for p in placesNo">
+				<div class="present" ng-repeat="subs in timebox.substitutes" ng-model="timebox.substitutes" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}}}" >
+					<a href="#" class="nop" ng-show="subs">{{subs.nom}}</a>
+					<!-- <select ng-model="noPlace" ng-options="p for p in placesNo">
 						<option value="">place</option>
 					</select>
-					<button ng-click="timebox.jouer(subs, noPlace)" >ok</button>
+					<button ng-click="timebox.jouer(subs, noPlace)" >ok</button> -->
 				</div>
 			</div>
 
 			<div class="playground" class="wrapper" >
 				<div class="row" ng-repeat="r in timebox.playground.places">
-					<div class="fieldPlay player" ng-repeat="place in r" >
+					<div class="fieldPlay player" ng-repeat="place in r" data-drop="true" ng-model="place.player" jqyoui-droppable="{index:{{$index}}}">
 						<div ng-show="place.player">
 							<a href="#" class="nop">{{place.player.nom}}</a>
-							<select name="noPlace" ng-model="noPlace" ng-options="p for p in placesNo">
+							<!-- <select name="noPlace" ng-model="noPlace" ng-options="p for p in placesNo">
 								<option value="undefined">place</option>
 							</select>
 							<button ng-click="timebox.playground.echanger(place.player, noPlace)" >ok</button>
-							<button ng-click="timebox.reposer(place.player)" >sortir</button>
+							<button ng-click="timebox.reposer(place.player)" >sortir</button> -->
 						</div>
 						<div ng-hide="place.player">
 							{{place.no}}.

@@ -36,7 +36,51 @@
 										return this.places[no]
 									}
 									return undefined
-								}}
+								},
+								echanger: function(player, no) {
+									if(no){
+										var index = this.getPlaceIndex(player)			
+										this.goOut(index)
+										
+										// si un joueur est déjà, ils échangent de place
+										var playerInPlace = this.getPlayer(no)
+										if(playerInPlace) {
+											//this.reposer(playerInPlace)
+											this.goOut(no)
+											this.goIn(index, playerInPlace)
+										}
+										
+										// le joueur prend sa place
+										this.goIn(no, player)
+									}
+								}
+							},
+							jouer: function(player, no) {
+								if(no && no != '') {
+									// le joueur sort du banc
+									var indexPlayer = this.substitutes.indexOf(player)
+									if(indexPlayer>-1)
+										this.substitutes.splice(indexPlayer, 1)
+										
+									// si un joueur est déjà il est remplacé (va sur le banc)
+									var playerInPlace = this.playground.getPlayer(no)
+									if(playerInPlace)
+										this.reposer(playerInPlace)
+									
+									// pour aller sur le terrain
+									this.playground.goIn(no, player)
+								}
+							},
+							reposer: function(player) {
+								// le joueur sort du terrain
+								var index = this.playground.getPlaceIndex(player)
+								if(index > -1)
+									this.playground.goOut(index)
+								
+								// et il devient remplaçant
+								if(this.substitutes.indexOf(player) == -1)
+									this.substitutes.push(player)
+							}
 						}];
 		$scope.placesNo = [1,2,3,4,5,6,7,8,9,10,11];
 
@@ -45,56 +89,16 @@
 			// alert("newValue:" + angular.toJson(newValue))
 		// }, true);
 		 
-		 
-		$scope.jouer = function(timebox, player, no) {
-			if(no && no != '')
-			{
-				// le joueur sort du banc
-				var indexPlayer = timebox.substitutes.indexOf(player)
-				if(indexPlayer>-1)
-					timebox.substitutes.splice(indexPlayer, 1)
-					
-				// si un joueur est déjà il est remplacé (va sur le banc)
-				var playerInPlace = timebox.playground.getPlayer(no)
-				if(playerInPlace)
-					$scope.reposer(timebox, playerInPlace)
-				
-				// pour aller sur le terrain
-				timebox.playground.goIn(no, player)
-			}
-		};
-		
-		$scope.reposer = function(timebox, player) {
-			// le joueur sort du terrain
-			var index = timebox.playground.getPlaceIndex(player)
-			if(index > -1)
-				timebox.playground.goOut(index)
 			
-			// et il devient remplaçant
-			if(timebox.substitutes.indexOf(player) == -1)
-				timebox.substitutes.push(player)
+		
+		$scope.newTimeBox = function (timebox){
+			$scope.timeBoxes.push(angular.copy(timebox))
 		}
 		
-		$scope.echanger = function(timebox, player, no) {
-			if(no)
-			{		
-				var index = timebox.playground.getPlaceIndex(player)			
-				timebox.playground.goOut(index)
-				
-				// si un joueur est déjà, ils échangent de place
-				var playerInPlace = timebox.playground.getPlayer(no)
-				if(playerInPlace)
-				{
-					//reposer(timebox, playerInPlace)
-					timebox.playground.goOut(no)
-					timebox.playground.goIn(index, playerInPlace)
-				}
-				
-				// le joueur prend sa place
-				timebox.playground.goIn(no, player)
-			}
-		};
-		
-		
+		$scope.deleteTimeBox = function(timebox) {
+			var indexTimebox = $scope.timeBoxes.indexOf(timebox)
+			if(indexTimebox>-1)
+				$scope.timeBoxes.splice(indexTimebox, 1)
+		}
 		
     }

@@ -18,22 +18,24 @@
 					<select ng-model="noPlace" ng-options="p for p in placesNo">
 						<option value="">place</option>
 					</select>
-					<button ng-click="timebox.jouer(subs, noPlace-1)" >ok</button>
+					<button ng-click="timebox.jouer(subs, noPlace)" >ok</button>
 				</div>
 			</div>
 
 			<div class="playground" class="wrapper" >
-				<div class="player" ng-repeat="player in timebox.playground.places" >
-					<div ng-show="player.nom">
-						<a href="#" class="nop">{{player.nom}}</a>
-						<select name="noPlace" ng-model="noPlace" ng-options="p for p in placesNo">
-							<option value="undefined">place</option>
-						</select>
-						<button ng-click="timebox.playground.echanger(player, noPlace-1)" >ok</button>
-						<button ng-click="timebox.reposer(player)" >sortir</button>
-					</div>
-					<div ng-hide="player.nom">
-						{{$index + 1}}.
+				<div class="row" ng-repeat="r in timebox.playground.places">
+					<div class="fieldPlay player" ng-repeat="place in r" >
+						<div ng-show="place.player">
+							<a href="#" class="nop">{{place.player.nom}}</a>
+							<select name="noPlace" ng-model="noPlace" ng-options="p for p in placesNo">
+								<option value="undefined">place</option>
+							</select>
+							<button ng-click="timebox.playground.echanger(place.player, noPlace)" >ok</button>
+							<button ng-click="timebox.reposer(place.player)" >sortir</button>
+						</div>
+						<div ng-hide="place.player">
+							{{place.no}}.
+						</div>
 					</div>
 				</div>
 			</div>

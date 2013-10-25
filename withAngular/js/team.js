@@ -19,18 +19,21 @@
 				for(var i=0;i<$scope.timeBoxes.length;i++) {
 					if($scope.timeBoxes[i].playground.places) {
 						for(var j=0;j<$scope.timeBoxes[i].playground.places.length;j++) {
-							var p = $scope.timeBoxes[i].playground.places[j]
-							if(p && this.id == p.id) {
-								this.duration += $scope.timeBoxes[i].duration
-								break
+							for(var k=0;k<$scope.timeBoxes[i].playground.places[j].length;k++) {
+								var p = $scope.timeBoxes[i].playground.places[j][k]
+								if(p && p.player && this.id == p.player.id) {
+									this.duration += $scope.timeBoxes[i].duration
+									break
+								}
 							}
 						}
 					}
 				}
 			}
 		}
-									
 		
+		var _places = [[{no:1}], [{no:2},{no:4},{no:5},{no:3}], [{no:6}], [{no:7},{no:8}], [{no:10}, {no:9},{no:11}]]
+								
 		var nbMaxPlayers = 11;	
 		var maxTime = 90;
 		$scope.placesNo = [1,2,3,4,5,6,7,8,9,10,11];
@@ -38,23 +41,35 @@
 		$scope.timeBoxes = [{duration: maxTime,						
 							substitutes: angular.copy(_players),
 							playground: {
-								places: new Array(nbMaxPlayers),
+								places: _places,
+								getPlace: function(no) {
+									for(var i=0;i<this.places.length;i++){
+										for(var j=0;j<this.places[i].length;j++) {
+											if(this.places[i][j].no == no) return this.places[i][j]
+										}
+									}
+								},
 								goIn: function(no, player) {
 									if(no) {
-										this.places[no] = player
+										this.getPlace(no).player = player
+										//this.places[no] = player
 									}
 								},
 								goOut: function(no) {
 									if(no) {
-										this.places[no] = undefined
+										this.getPlace(no).player = null
 									}
 								},
 								getPlaceIndex: function(player) {
-									return this.places.indexOf(player)
+									for(var i=0;i<this.places.length;i++){
+										for(var j=0;j<this.places[i].length;j++) {
+											if(this.places[i][j].player && this.places[i][j].player == player) return this.places[i][j].no
+										}
+									}
 								},
 								getPlayer: function(no) {
 									if(no) {
-										return this.places[no]
+										return this.getPlace(no).player
 									}
 									return undefined
 								},
@@ -95,9 +110,9 @@
 							},
 							reposer: function(player) {
 								// le joueur sort du terrain
-								var index = this.playground.getPlaceIndex(player)
-								if(index > -1)
-									this.playground.goOut(index)
+								var no = this.playground.getPlaceIndex(player)
+								if(no && no > -1)
+									this.playground.goOut(no)
 								
 								// et il devient remplaçant
 								if(this.substitutes.indexOf(player) == -1)
@@ -112,9 +127,6 @@
 			// alert("newValue:" + angular.toJson(newValue))
 		// }, true);
 		 
-		function nbTimebox() {
-			return 
-		}
 
 		function updateTimeBoxesDuration() {
 			for(var i=0;i<$scope.timeBoxes.length;i++) {

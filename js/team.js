@@ -26,6 +26,7 @@ App.config(['$routeProvider', function($rp) {
         templateUrl: 'views/composition.html',
         controller: 'TeamCtrl'
       }).
+	  when('/p', {}).
       otherwise({
         redirectTo: '/debut'
       });

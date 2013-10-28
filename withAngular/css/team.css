@@ -1,9 +1,4 @@
-
-
-.double {
-	width:240px;
-}
-
+.double {width:240px;}
 .clear {clear:both;}
 
 .timeBox {
@@ -13,13 +8,12 @@
 	margin:9px;
 }
 
-
 .teamList {float: left;width: 160px;}
-.playground {text-align: center;	float: left;width: 600px;}
+.playground {text-align: center;	float: left;width: 600px;padding:36px 0 0 0;}
 .commande {float: left;width: 160px;}
 
 .fieldPlay {	display: inline-block;width: 120px;padding: 4px;}
-.fieldPlay .empty {padding: 32px 26px 0 26px;}
+.fieldPlay .empty {padding: 12px 26px 0 26px;}
 
 
 .present{margin: 4px;}

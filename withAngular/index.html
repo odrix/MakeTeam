@@ -16,7 +16,7 @@
 		
 		<div class="timeBox" ng-repeat="timebox in timeBoxes">
 			<div class="teamList" ng-model='timebox.substitutes' data-drop="true" jqyoui-droppable="{onDrop:'updatePlayersDuration', multiple:true}" >
-				<h3>Remplaçent(s)</h3>
+				<h3>Remplaçant(s)</h3>
 				<div class="present" ng-repeat="subs in timebox.substitutes" ng-model="timebox.substitutes" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}}}" >
 					<a href="#" class="nop" ng-show="subs">{{subs.nom}}</a>
 				</div>
@@ -29,11 +29,7 @@
 						<div ng-show="place.player && place.player.nom">
 							<a href="#" class="nop">{{place.player.nom}}</a>
 						</div>
-<<<<<<< HEAD
-						<div ng-hide="place.player" class="empty">
-=======
-						<div ng-hide="place.player && place.player.nom">
->>>>>>> origin/DragDrop_jQueryUI
+						<div ng-hide="place.player && place.player.nom" class="empty">
 							{{place.no}}.
 						</div>
 					</div>

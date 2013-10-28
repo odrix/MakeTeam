@@ -1,12 +1,13 @@
 <div ng-controller="StartCtrl">
-	Bonjour, et Bienvenue !!
+	<h1>Bonjour, et Bienvenue !!</h1>
 	
-	<div>
-		<label>Liste des joueurs</label>
-		<textarea ng-model="playerList"></textarea>
+	<div class="line players">
+		<label for="txtplayers">Liste des joueurs (participant au match)</label>
+		<div class="help">liste de nom séparés par une virgule, point-virgule, espace ou même entrée (retour à la ligne)</div>
+		<textarea ng-model="playerList" id="txtplayers"></textarea>
 	</div>
 	
-	<div>
+	<div class="line">
 		<button ng-click="validationPlayers()">ok</button>
 	</div>
 	

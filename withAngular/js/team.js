@@ -1,18 +1,54 @@
 var App = angular.module('mkTeamApp', ['ngDragDrop']);
 
-App.controller('TeamCtrl', function($scope, $timeout) {
-	var _players = [{id:1, nom: 'Tom'},
-					{id:2, nom: 'Harry'},
-					{id:3, nom: 'Larry'},
-					{id:4, nom: 'Luke'},
-					{id:5, nom: 'Roger'},
-					{id:6, nom: 'Paul'},
-					{id:7, nom: "Jean"},
-					{id:8, nom: 'Gille'},
-					{id:9, nom: 'Claude'}
-				];
+App.service('teamService', function (){
+   var _players = [];
+    return{
+		addPlayer:function (name){
+			if(name && name != '')
+			{
+				var p = { id: _players.length + 1, name: name}
+				_players.push(p)
+			}
+		},
+		getPlayers:function (){
+		  return _players;
+		}
+	};
+});
+
+App.config(['$routeProvider', function($rp) {
+    $rp.
+      when('/debut', {
+        templateUrl: 'views/player_list.html',
+        controller: 'StartCtrl'
+      }).
+      when('/composer', {
+        templateUrl: 'views/composition.html',
+        controller: 'TeamCtrl'
+      }).
+      otherwise({
+        redirectTo: '/debut'
+      });
+}]);
+
+
+App.controller('StartCtrl', function($scope, teamService, $location,$timeout) {
+	$scope.playerList = "Damien,Vincent    ;Jack Yoan,  Guillaume;Mathieu,David;Goubi";
 	
+	$scope.validationPlayers = function() {
+		var reg=new RegExp("[ ,;]+", "g");
+		var players = $scope.playerList.split(reg)
+		for(var i=0;i<players.length;i++) {
+			teamService.addPlayer(players[i].trim())
+		}
 	
+		$location.path("/composer", false)
+		// $scope.$apply()
+	}
+});
+
+
+App.controller('TeamCtrl', function($scope, teamService, $timeout) {
 	
 	// _players[0].__proto__.updateDuration = function() {
 	 function updateDuration(p) {
@@ -41,16 +77,15 @@ App.controller('TeamCtrl', function($scope, $timeout) {
 	$scope.placesNo = [1,2,3,4,5,6,7,8,9,10,11];
 	
 	$scope.timeBoxes = [{duration: maxTime,						
-						substitutes: angular.copy(_players),
+						substitutes: angular.copy(teamService.getPlayers()),
 						places: _places
 					}];
-	$scope.players = _players;
-		 
-
+	$scope.players = teamService.getPlayers();
+	
 	function updateTimeBoxesDuration() {
 		for(var i=0;i<$scope.timeBoxes.length;i++) {
 			$scope.timeBoxes[i].duration = maxTime / $scope.timeBoxes.length
-		}			
+		}
 	}
 	
 	$scope.newTimeBox = function (timebox){

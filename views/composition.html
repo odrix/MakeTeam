@@ -35,8 +35,8 @@
 	
 	
 	<div id="timeResume">
-		<h3>récap des temps de jeu</h3>
-		<div class="player" ng-repeat="player in players" >
+		<h3>Temps de jeu</h3>
+		<div class="player" ng-repeat="player in players | orderBy:'duration':true" >
 			{{player.name}} - {{player.duration}}
 		</div>
 	</div>

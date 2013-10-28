@@ -30,6 +30,8 @@ body {margin: 52px 24px;background: #ececec;}
 .row:first-child .fieldPlay:first-child  {border: solid 1px white;width:160px;height:72px;margin:-26px 0 6px 0;background: #9ab26b;padding:0;}
 .row:first-child .fieldPlay:first-child:before {position: relative;top: 0;left: 0;padding: 6px 45px;border: inherit;z-index: 0;content: '';} /* petit zone du gardien */
 
+.drop-hover{background: #9ac26b;border-radius:25%;}
+
 .present{margin: 4px;}
 .present a{
    display: inline-block;

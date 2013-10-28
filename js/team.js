@@ -43,7 +43,6 @@ App.controller('StartCtrl', function($scope, teamService, $location,$timeout) {
 		}
 	
 		$location.path("/composer", false)
-		// $scope.$apply()
 	}
 });
 

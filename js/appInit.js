@@ -19,6 +19,10 @@ App.config(['$routeProvider', function($rp) {
       });
 }]);
 
+App.config( ['$compileProvider',function( $compileProvider ) {   
+	$compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
+}]);
+
 
 
 

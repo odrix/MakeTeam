@@ -1,5 +1,5 @@
 App.controller('StartCtrl', function($scope, teamService, $location,$timeout) {
-	$scope.playerList = "Damien,Vincent    ;Jack Yoan,  Guillaume;Mathieu,David;Goubi";
+	$scope.playerList = "Dark-vador,c6po;R2D2 Luke,Han,Cheewie;ewok Palpatine,Doku,Yoda,Maul,Boba-Fet";
 	
 	$scope.validationPlayers = function() {
 		var reg=new RegExp("[ ,;\n]+", "g");

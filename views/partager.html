@@ -1,0 +1,24 @@
+<div ng-controller="ShareCtrl">
+	<div class="timeBox" ng-repeat="timebox in timeBoxes">
+		<div class="timeboxDuration">
+			de 
+			<span class="startTime">{{$index * timebox.duration}}</span> à			
+			<span class="endTime">{{($index+1) * timebox.duration}}</span> minutes
+		</div>
+		<div class="playground" class="wrapper" >
+			<div class="marquageSol">
+			<div class="row" ng-repeat="r in timebox.places">
+				<div class="fieldPlay player" ng-repeat="place in r" data-drop="true" jqyoui-droppable="{index:{{$index}}, onDrop:'updatePlayersDuration'}"
+											ng-model="place.player"	 data-drag="true" jqyoui-draggable data-jqyoui-options="{revert: 'invalid',opacity: 0.80,hoverClass: 'drop-hover'}" >
+					<a href="" ng-show="place.player && place.player.name">{{place.player.name}}</a>
+					<span class="empty" ng-hide="place.player && place.player.name">{{place.no}}.</span>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div>
+			Remplaçant(s) : 
+			<span ng-repeat="subs in timebox.substitutes" ng-show="subs.name" >{{subs.name}}, </span>
+		</div>
+	</div>
+</div>

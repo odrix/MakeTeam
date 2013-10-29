@@ -19,7 +19,8 @@ body {margin: 52px 24px;background: #ececec;}
 }
 
 .teamList {float: left;width: 160px;}
-.playground {text-align: center;	float: left;width: 600px;margin:36px 24px 9px; padding: 4px;background: #9ab26b;}
+.playground {text-align: center;	width: 600px;margin:9px;padding: 4px;background: #9ab26b;}
+#composer .playground {float: left;margin:36px 24px 9px;}
 .commande {float: left;width: 160px;}
 
 .marquageSol{margin:4px;border:solid 1px white;overflow:hidden;height:302px;}

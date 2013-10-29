@@ -10,7 +10,9 @@ en premier
 
 peut être après
 ----------------
+* introduction (demo)
 * autre chose que du foot (d'autre sport)
+* marquer les changements dans le résultat (surligné)
 * sauvegarder la composition
 * gestion de compte
 * partager les resultats par email (lien de  la composition dans l'email)

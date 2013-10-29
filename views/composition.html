@@ -1,4 +1,4 @@
-<div ng-controller="TeamCtrl">
+<div ng-controller="TeamCtrl" id="composer">
 	<div class="timeBox" ng-repeat="timebox in timeBoxes">
 		<div class="teamList" ng-model='timebox.substitutes' data-drop="true" jqyoui-droppable="{onDrop:'updatePlayersDuration', multiple:true}" >
 			<h3>Remplaçant(s)</h3>
@@ -38,5 +38,6 @@
 		<div class="player" ng-repeat="player in players | orderBy:'duration':true" >
 			{{player.name}} - {{player.duration}}
 		</div>
+		<a href="#/partager" ng-show="isAllPlaceOk()">Partager</a>
 	</div>
 </div>

@@ -3,11 +3,9 @@ TODO
 
 en premier
 -----------
-* choisir sa liste de joueurs
 * partager les resultats par email (contenu dans l'email)
 * impression du resultat
 * un design plus sympa
- * un terrain de foot en background
  * des animation/transition sur les evennements
 
 peut être après

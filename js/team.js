@@ -26,6 +26,7 @@ App.config(['$routeProvider', function($rp) {
         templateUrl: 'views/composition.html',
         controller: 'TeamCtrl'
       }).
+	  when('/p', {}).
       otherwise({
         redirectTo: '/debut'
       });
@@ -36,7 +37,7 @@ App.controller('StartCtrl', function($scope, teamService, $location,$timeout) {
 	$scope.playerList = "Damien,Vincent    ;Jack Yoan,  Guillaume;Mathieu,David;Goubi";
 	
 	$scope.validationPlayers = function() {
-		var reg=new RegExp("[ ,;]+", "g");
+		var reg=new RegExp("[ ,;\n]+", "g");
 		var players = $scope.playerList.split(reg)
 		for(var i=0;i<players.length;i++) {
 			teamService.addPlayer(players[i].trim())

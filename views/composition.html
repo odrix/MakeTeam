@@ -3,31 +3,30 @@
 		<div class="teamList" ng-model='timebox.substitutes' data-drop="true" jqyoui-droppable="{onDrop:'updatePlayersDuration', multiple:true}" >
 			<h3>Remplaçant(s)</h3>
 			<div class="present" ng-repeat="subs in timebox.substitutes" ng-model="timebox.substitutes" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}}}" >
-				<a href="#" class="nop" ng-show="subs">{{subs.name}}</a>
+				<a href="" class="nop" ng-show="subs">{{subs.name}}</a>
 			</div>
 		</div>
 
 		<div class="playground" class="wrapper" >
+			<div class="marquageSol">
 			<div class="row" ng-repeat="r in timebox.places">
 				<div class="fieldPlay player" ng-repeat="place in r" data-drop="true" jqyoui-droppable="{index:{{$index}}, onDrop:'updatePlayersDuration'}"
-											ng-model="place.player"	 data-drag="true" jqyoui-draggable data-jqyoui-options="{revert: 'invalid'}" >
-					<div ng-show="place.player && place.player.name">
-						<a href="#" class="nop">{{place.player.name}}</a>
-					</div>
-					<div ng-hide="place.player && place.player.name" class="empty">
-						{{place.no}}.
-					</div>
+											ng-model="place.player"	 data-drag="true" jqyoui-draggable data-jqyoui-options="{revert: 'invalid',opacity: 0.80,hoverClass: 'drop-hover'}" >
+					<a href="" ng-show="place.player && place.player.name">{{place.player.name}}</a>
+					<span class="empty" ng-hide="place.player && place.player.name">{{place.no}}.</span>
 				</div>
+			</div>
 			</div>
 		</div>
 		
 		<div class="commande">
-			<button ng-click="newTimeBox(timebox)" class="button btn-new" title="Dupliquer période"></button>
-			<button ng-click="deleteTimeBox(timebox)" class="button btn-cancel" title="Supprimer la période" ng-hide="$index == 0"></button>
-			<div>
+			<div class="timeboxDuration">
+				Temps : 
 				<span class="startTime">{{$index * timebox.duration}}</span> - 
 				<span class="endTime">{{($index+1) * timebox.duration}}</span>
 			</div>
+			<button ng-click="newTimeBox(timebox)" class="button btn-new" title="Dupliquer période"></button>
+			<button ng-click="deleteTimeBox(timebox)" class="button btn-cancel" title="Supprimer la période" ng-hide="$index == 0"></button>
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -35,8 +34,8 @@
 	
 	
 	<div id="timeResume">
-		<h3>récap des temps de jeu</h3>
-		<div class="player" ng-repeat="player in players" >
+		<h3>Temps de jeu</h3>
+		<div class="player" ng-repeat="player in players | orderBy:'duration':true" >
 			{{player.name}} - {{player.duration}}
 		</div>
 	</div>

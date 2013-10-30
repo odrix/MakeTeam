@@ -4,6 +4,14 @@ App.service('teamService', function (){
     var _timeboxes = [];
 	var _maxtime = 0;
 	
+	_timeboxes.getIndexById = function(timebox){
+		for(var i=0;i<this.length;i++) {
+			if(this[i].id == timebox.id)
+				return i
+		}
+		return -1
+	}
+	
     return {
 		addPlayer:function (name){
 			if(name && name != '')
@@ -33,7 +41,8 @@ App.service('teamService', function (){
 		},
 		createTimebox: function(maxTime, _places) {
 			_maxtime = maxTime
-			_timeboxes.push({duration: maxTime,						
+			_timeboxes.push({id:1,
+						duration: maxTime,						
 						substitutes: angular.copy(_players),
 						places: _places
 					})
@@ -46,12 +55,17 @@ App.service('teamService', function (){
 				_timeboxes[i].duration = _maxtime / _timeboxes.length
 			}
 		},
-		addTimebox: function(newTimebox) {
-			_timeboxes.push(newTimebox)
+		duplicTimebox: function(newTimebox) {
+			var indexItem = _timeboxes.getIndexById(newTimebox)
+			newTimebox.id == _timeboxes.length
+			if(indexItem == -1)
+				_timeboxes.push(newTimebox)
+			else
+				_timeboxes.splice(indexItem, 0, newTimebox)
 			this.updateTimeBoxesDuration()
 		},
 		removeTimebox: function(timebox) {
-			var indexTimebox = _timeboxes.indexOf(timebox)
+			var indexTimebox = _timeboxes.getIndexById(timebox)
 			if(indexTimebox>-1) {
 				_timeboxes.splice(indexTimebox, 1)
 				this.updateTimeBoxesDuration()

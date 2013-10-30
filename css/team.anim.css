@@ -1,0 +1,31 @@
+.timeBox {
+    /* opacity: 0; */
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+	top: -400px;
+    -webkit-transition:all 1s ease;
+    -moz-transition:all 1s ease;
+}
+
+.in {
+    opacity: 100;
+}
+
+.showDown {
+	top: 0;
+}
+
+.hideUp{
+    position:relative;
+    height:200px;
+    width:200px;
+    background:blue;
+    display:block;
+}
+
+.hideUp:focus{
+    top:-200px;
+}

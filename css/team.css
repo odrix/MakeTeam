@@ -16,6 +16,7 @@ body {margin: 52px 24px;background: #ececec;}
 	border-bottom: solid 2px black;
 	padding:7px;
 	margin:9px;
+	background: inherit;
 }
 
 .teamList {float: left;width: 160px;}

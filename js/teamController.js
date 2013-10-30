@@ -3,12 +3,13 @@ App.controller('TeamCtrl', function($scope, teamService, $timeout) {
 	$scope.timeBoxes = teamService.getTimeboxes()
 	$scope.players = teamService.getPlayers()
 	
+
 	$scope.isAllPlaceOk = function() {
 		return teamService.isAllPlaceOk();
 	}
 	
 	$scope.newTimeBox = function (timebox){
-		teamService.addTimebox(angular.copy(timebox))
+		teamService.duplicTimebox(angular.copy(timebox))
 		$scope.updatePlayersDuration()
 	}
 	

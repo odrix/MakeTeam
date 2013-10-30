@@ -1,0 +1,38 @@
+<div ng-controller="ShareCtrl">
+	<!-- <div>
+		<div>
+			<label>Sujet du mail</label>
+			<input type="text" ng-model="mailSubject" />
+		</div>
+		<div>
+			<label>à qui</label>
+			<textarea ng-model="mailTos" />
+		</div>			
+	</div>
+	<a ng-href="mailto:{{mailTos}}">Envoi par mail</a> -->
+	Vous pouvez copier/coller le resultat ci-dessous dans un mail et le partager avec votre équipe !<br/>
+	<div id="partage">
+	<div class="timeBox" ng-repeat="timebox in timeBoxes">
+		<div class="timeboxDuration">
+			de 
+			<span class="startTime">{{$index * timebox.duration}}</span> à			
+			<span class="endTime">{{($index+1) * timebox.duration}}</span> minutes
+		</div>
+		<div class="playground" class="wrapper" >
+			<div class="marquageSol">
+			<div class="row" ng-repeat="r in timebox.places">
+				<div class="fieldPlay player" ng-repeat="place in r" >
+					<a href="">{{place.player.name}}</a>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div>
+			Remplaçant(s) : 
+			<span ng-repeat="subs in timebox.substitutes" ng-show="subs.name" >{{subs.name}}, </span>
+		</div>
+	</div>
+	&nbsp;
+	-- copier jusqu'a la fin !
+	</div>
+</div>

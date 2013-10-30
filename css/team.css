@@ -16,19 +16,21 @@ body {margin: 52px 24px;background: #ececec;}
 	border-bottom: solid 2px black;
 	padding:7px;
 	margin:9px;
+	background: inherit;
 }
 
 .teamList {float: left;width: 160px;}
-.playground {text-align: center;	float: left;width: 600px;margin:36px 24px 9px; padding: 4px;background: #9ab26b;}
+.playground {text-align: center;	width: 600px;margin:9px;padding: 4px;background: #9ab26b;}
+#composer .playground {float: left;margin:36px 24px 9px;}
 .commande {float: left;width: 160px;}
 
 .marquageSol{margin:4px;border:solid 1px white;overflow:hidden;height:302px;}
-.marquageSol:before{position: relative;top: 57px;left: 0;padding: 10px 18px;border: inherit;content: '';border-radius: 50%;} /* rond du gardien */
-.marquageSol:after {content: '';border-radius: 50%;position: relative;top: 42px;left: 0;padding: 100px;border: inherit;z-index: 0;} /* rond central */
+#composer .marquageSol:before{position: relative;top: 57px;left: 0;padding: 10px 18px;border: inherit;content: '';border-radius: 50%;} /* rond du gardien */
+#composer .marquageSol:after {content: '';border-radius: 50%;position: relative;top: 42px;left: 0;padding: 100px;border: inherit;z-index: 0;} /* rond central */
 .fieldPlay {	display: inline-block;width: 136px;padding: 4px;font-size: 20px;z-index: 99;margin: 3px 3px;height:50px;}
 .fieldPlay .empty {padding: 12px 26px 0 26px;color:#ececec;}
 .row:first-child .fieldPlay:first-child  {border: solid 1px white;width:160px;height:72px;margin:-26px 0 6px 0;background: #9ab26b;padding:0;}
-.row:first-child .fieldPlay:first-child:before {position: relative;top: 0;left: 0;padding: 6px 45px;border: inherit;z-index: 0;content: '';} /* petit zone du gardien */
+#composer .row:first-child .fieldPlay:first-child:before {position: relative;top: 0;left: 0;padding: 6px 45px;border: inherit;z-index: 0;content: '';} /* petit zone du gardien */
 
 .drop-hover{background: #9ac26b;border-radius:25%;}
 
@@ -79,6 +81,9 @@ body {margin: 52px 24px;background: #ececec;}
 	-webkit-margin-before: 0em;
 }
 
+#partage .row:first-child .fieldPlay:first-child {margin: 0;}
+#partage {padding:6px;} 
+#partage .row {width:600px;}
 
 
 .button{
@@ -156,3 +161,4 @@ body {margin: 52px 24px;background: #ececec;}
    width: 26px;
    height: 30px;
 }
+

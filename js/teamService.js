@@ -93,6 +93,8 @@ App.service('teamService', function (){
 			return false
 		},
 		isAllPlaceOk: function() {
+            if(_timeboxes.length == 0) return false
+
 			for(var i=0;i<_timeboxes.length;i++) {
 				if(_timeboxes[i].places) {
 					for(var j=0;j<_timeboxes[i].places.length;j++) {
@@ -105,6 +107,10 @@ App.service('teamService', function (){
 				}
 			}
 			return true;
-		}
+		},
+        reinit: function() {
+            _timeboxes.length = 0
+            _players.length = 0
+        }
 	};
 });

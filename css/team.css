@@ -1,6 +1,11 @@
 .headerline {background:black; color:#ececec; font-weight:bold;position:fixed;top:0;left:0;width:100%;z-index:10000;}
 .headerline a {color:inherit;text-decoration:none;}
 body {margin: 52px 24px;background: #ececec;}
+
+header a{font-size: 140%;margin:0 26px 0 16px;padding:10px;display: inline-block;  }
+header span {width: 90px; height:100%;display: inline-block;border-left: solid 1px lightgray; padding:16px 6px 8px 9px; font-size: 90%;position:relative;top:6px;cursor: pointer;}
+header span:hover{font-size: 100%;color: lightsalmon;}
+
 .double {width:240px;}
 .clear {clear:both;}
 .help {color:#a2a2a2; font-size:70%;line-height:70%;}
@@ -27,7 +32,7 @@ body {margin: 52px 24px;background: #ececec;}
 .marquageSol{margin:4px;border:solid 1px white;overflow:hidden;height:302px;}
 #composer .marquageSol:before{position: relative;top: 57px;left: 0;padding: 10px 18px;border: inherit;content: '';border-radius: 50%;} /* rond du gardien */
 #composer .marquageSol:after {content: '';border-radius: 50%;position: relative;top: 42px;left: 0;padding: 100px;border: inherit;z-index: 0;} /* rond central */
-.fieldPlay {	display: inline-block;width: 136px;padding: 4px;font-size: 20px;z-index: 99;margin: 3px 3px;height:50px;}
+.fieldPlay {display: inline-block;width: 136px;padding: 4px;font-size: 20px;z-index: 99;margin: 3px 3px;height:50px;}
 .fieldPlay .empty {padding: 12px 26px 0 26px;color:#ececec;}
 .row:first-child .fieldPlay:first-child  {border: solid 1px white;width:160px;height:72px;margin:-26px 0 6px 0;background: #9ab26b;padding:0;}
 #composer .row:first-child .fieldPlay:first-child:before {position: relative;top: 0;left: 0;padding: 6px 45px;border: inherit;z-index: 0;content: '';} /* petit zone du gardien */
@@ -35,7 +40,7 @@ body {margin: 52px 24px;background: #ececec;}
 .drop-hover{background: #9ac26b;border-radius:25%;}
 
 .present{margin: 4px;}
-.present a{
+.present span{
    display: inline-block;
    background: #DA7416;
    position: relative;
@@ -49,9 +54,10 @@ body {margin: 52px 24px;background: #ececec;}
    -webkit-border-radius: 15px;
    -moz-border-radius: 15px;
    border-radius: 15px;
+   white-space: nowrap;
 }
 
-.player a{
+.player span{
    display: inline-block;
    position: relative;
    height: 40px;
@@ -61,6 +67,7 @@ body {margin: 52px 24px;background: #ececec;}
    text-align: center;
    color: #fff;
    text-decoration: none;
+   white-space: nowrap;
 }
 
 .timeboxDuration {padding:4px;}
@@ -84,7 +91,7 @@ body {margin: 52px 24px;background: #ececec;}
 #partage {padding:6px;} 
 #partage .row {width:600px;}
 
-.nextSubstitute {background: #f1ef4c;color: #000000;}
+.nextSubstitute, span.nextSubstitute {background: #f1ef4c;color: #000000;}
 
 .button{
    position: relative;

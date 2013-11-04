@@ -1,5 +1,7 @@
 TODO
 ====
+fait
+----
 
 en premier
 -----------
@@ -7,7 +9,6 @@ en premier
 * impression du resultat
 * un design plus sympa
  * des animation/transition sur les evennements
-* marquer les changements dans le résultat (surligné)
 * sauvegarder la composition
 
 peut être après

@@ -12,6 +12,25 @@ App.service('teamService', function (){
 		return -1
 	}
 	
+	_timeboxes.updateNextOut = function() {
+		for(var i=0;i<_timeboxes.length;i++) {
+			var iNext = i+1;
+			if(iNext < _timeboxes.length && _timeboxes[i].places) {
+				for(var j=0;j<_timeboxes[i].places.length;j++) {
+					for(var k=0;k<_timeboxes[i].places[j].length;k++) {
+                        var tmpp = _timeboxes[i].places[j][k];
+						for(var l=0;l<_timeboxes[iNext].substitutes.length;l++)
+						{
+							if(tmpp && tmpp.player && _timeboxes[iNext].substitutes[l] && tmpp.player.id == _timeboxes[iNext].substitutes[l].id) {
+								tmpp.nextSubstitute = true
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
     return {
 		addPlayer:function (name){
 			if(name && name != '')

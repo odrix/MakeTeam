@@ -22,7 +22,7 @@
 			<div class="marquageSol">
 			<div class="row" ng-repeat="r in timebox.places">
 				<div class="fieldPlay player" ng-repeat="place in r" >
-					<a href="">{{place.player.name}}</a>
+					<a href="" ng-class="{'nextSubstitute': place.nextSubstitute}">{{place.player.name}}</a>
 				</div>
 			</div>
 			</div>

@@ -13,6 +13,7 @@
 	<script src="js/startController.js"></script>
 	<script src="js/teamController.js"></script>
 	<script src="js/shareController.js"></script>
+    <script src="js/menuController.js"></script>
 	
 	<script src="js/animateDirective.js"></script>
 	
@@ -21,10 +22,15 @@
 	<link media="all" rel="stylesheet" type="text/css" href="css/knacss.custom.css" >
 	<link media="all" rel="stylesheet" type="text/css" href="css/team.css" />
 	<link media="all" rel="stylesheet" type="text/css" href="css/team.anim.css" />
+
+    <link media="print" rel="stylesheet" type="text/css" href="css/print.css" />
 </head>
 <body>
-	<header id="header" role="banner" class="line ma0 pas headerline">
-		<a href="#/home">#Team maker</a>
+	<header id="header" role="banner" class="line ma0 headerline" ng-controller="menuCtrl">
+		<a href="#/home" ng-click="new()">#Team maker</a>
+        <span ng-click="new()" ng-show="isNotNew()">Nouveau</span>
+        <span ng-click="share()" ng-show="isAllPlaceOk()">Partager</span>
+        <span ng-click="save()" ng-show="false">Enregistrer</span>
 	</header>
 	<div ng-view></div>
 	<footer id="footer" role="contentinfo" class="line pam txtcenter">

@@ -143,7 +143,7 @@ var jqyoui = angular.module('ngDragDrop', []).service('ngDragDropService', ['$ti
     this.mutateDroppable = function(scope, dropSettings, dragSettings, dropModel, dragItem, jqyoui_pos) {
       var dropModelValue = scope.$eval(dropModel);
 
-      scope.__dragItem = dragItem;
+      scope.ppdragItem = dragItem;
 
       if (angular.isArray(dropModelValue)) {
         if (dropSettings && dropSettings.index >= 0) {
@@ -155,7 +155,7 @@ var jqyoui = angular.module('ngDragDrop', []).service('ngDragDropService', ['$ti
           dropModelValue[dropModelValue.length - 1]['jqyoui_pos'] = jqyoui_pos;
         }
       } else {
-        $parse(dropModel + ' = __dragItem')(scope);
+        $parse(dropModel + ' = ppdragItem')(scope);
         if (dragSettings && dragSettings.placeholder === true) {
           dropModelValue['jqyoui_pos'] = jqyoui_pos;
         }

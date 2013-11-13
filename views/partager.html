@@ -15,7 +15,7 @@
         <div>
             <span class="nextSubstitute">En surligné</span> les joueurs qui vont sortir au prochain changement.
         </div>
-	<div class="timeBox" ng-repeat="timebox in timeBoxes">
+	<div class="timeBox" ng-repeat="timebox in timeBoxes track by $index">
 		<div class="timeboxDuration">
 			de 
 			<span class="startTime">{{$index * timebox.duration}}</span> à			
@@ -23,8 +23,8 @@
 		</div>
 		<div class="wrapper playground">
 			<div class="marquageSol">
-			<div class="row" ng-repeat="r in timebox.places">
-				<div class="fieldPlay player" ng-repeat="place in r" >
+			<div class="row" ng-repeat="row in timebox.places track by $index">
+				<div class="fieldPlay player" ng-repeat="place in row track by $index" >
 					<span ng-class="{'nextSubstitute': place.nextSubstitute}">{{place.player.name}}</span>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 		</div>
 		<div>
 			Remplaçant(s) : 
-			<span ng-repeat="subs in timebox.substitutes" ng-show="subs.name" >{{subs.name}}, </span>
+			<span ng-repeat="subs in timebox.substitutes track by $index" ng-show="subs.name" >{{subs.name}}, </span>
 		</div>
 	</div>
 	&nbsp;

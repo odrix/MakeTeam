@@ -11,6 +11,7 @@
     <script src="js/lib/angular-route.min.js"></script>
     <script src="js/lib/angular-animate.min.js"></script>
 	<script src="js/lib/angular-dragdrop.min.js"></script>
+    <script src="js/lib/angular-local-storage.js"></script>
 	
 	<script src="js/appInit.js"></script>
 	<script src="js/teamService.js"></script>
@@ -38,7 +39,7 @@
 		<a href="#/home" ng-click="new()">#Team maker</a>
         <span ng-click="new()" ng-show="isNotNew()">Nouveau</span>
         <span ng-click="share()" ng-show="isAllPlaceOk()">Partager</span>
-        <span ng-click="save()" ng-show="false">Enregistrer</span>
+        <span ng-click="save()" ng-show="isNotNew()">Enregistrer</span>
 	</header>
 	<div ng-view></div>
 	<footer id="footer" role="contentinfo" class="line pam txtcenter">

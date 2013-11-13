@@ -1,4 +1,4 @@
-App.controller('menuCtrl', function($scope, teamService, $location, $timeout) {
+App.controller('menuCtrl', function($scope, localStorageService, teamService, $location, $timeout) {
     $scope.new = function() {
         teamService.reinit()
         $location.path("/debut", false)
@@ -9,7 +9,8 @@ App.controller('menuCtrl', function($scope, teamService, $location, $timeout) {
     }
 
     $scope.save = function(){
-
+        localStorageService.add('players', teamService.getPlayers())
+        localStorageService.add('compo', teamService.getTimeboxes())
     }
 
     $scope.isNotNew = function() {

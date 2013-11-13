@@ -56,7 +56,6 @@ App.service('teamService', function (){
 			_timeboxes.foreachPlaces(function(place, i, timebox) {
                 if(place && place.player && place.player.id == p.id) {
                     p.duration += timebox.duration
-                    return false
                 }
             })
 		},

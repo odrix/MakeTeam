@@ -26,5 +26,30 @@ function timebox (id,duration,playerSubstitutes,playgroundField) {
         })
         return result
     }
+}
 
+
+Array.prototype.duplicate = function(item) {
+    var indexItem = this.getIndexById(item)
+    item.id = this.length + 1
+    if(indexItem == this.length - 1)
+        this.push(item)
+    else
+        this.splice(indexItem, 0, item)
+}
+
+Array.prototype.remove = function(item) {
+    var indexItem = this.getIndexById(item)
+    if(indexItem>-1) {
+        this.splice(indexItem, 1)
+        return
+    }
+}
+
+Array.prototype.getIndexById = function(item){
+    for(var i=0;i<this.length;i++) {
+        if(this[i].id == item.id)
+            return i
+    }
+    return -1
 }

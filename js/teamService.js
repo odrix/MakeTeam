@@ -4,22 +4,14 @@ App.service('teamService', function (){
     var _timeboxes = [];
 	var _maxtime = 0;
 	
-	_timeboxes.getIndexById = function(timebox){
-		for(var i=0;i<this.length;i++) {
-			if(this[i].id == timebox.id)
-				return i
-		}
-		return -1
-	}
-
 	_timeboxes.updateNextOut = function() {
-        for(var i=0;i<_timeboxes.length;i++) {
+        for(var i=0;i<this.length;i++) {
             var iNext = i+1;
-            _timeboxes[i].foreachPlacesDo(function(place) {
+            this[i].foreachPlacesDo(function(place) {
                     if(iNext < _timeboxes.length) {
-                        for(var l=0;l<_timeboxes[iNext].playerSubstitutes.length;l++)
+                        for(var l=0;l<this[iNext].playerSubstitutes.length;l++)
                         {
-                            if(place && place.player && _timeboxes[iNext].playerSubstitutes[l] && place.player.id == _timeboxes[iNext].playerSubstitutes[l].id) {
+                            if(place && place.player && this[iNext].playerSubstitutes[l] && place.player.id == this[iNext].playerSubstitutes[l].id) {
                                 place.nextSubstitute = true
                             }
                         }
@@ -40,6 +32,9 @@ App.service('teamService', function (){
 		getPlayers:function (){
 		  return _players;
 		},
+        getTimeboxes: function() {
+            return _timeboxes;
+        },
 		getPlayerDuration: function(p) {
 			p.duration = 0
             for(var i=0;i<_timeboxes.length;i++) {
@@ -54,31 +49,25 @@ App.service('teamService', function (){
 			_maxtime = maxTime
 			_timeboxes.push(new timebox(1,maxTime,angular.copy(_players),_places))
 		},
-		getTimeboxes: function() {
-			return _timeboxes;
-		},
 		updateTimeBoxesDuration: function() {
 			for(var i=0;i<_timeboxes.length;i++) {
 				_timeboxes[i].duration = _maxtime / _timeboxes.length
 			}
 		},
-		duplicTimebox: function(newTimebox) {
-			var indexItem = _timeboxes.getIndexById(newTimebox)
-			newTimebox.id = _timeboxes.length + 1
-			if(indexItem == _timeboxes.length - 1)
-				_timeboxes.push(newTimebox)
-			else
-				_timeboxes.splice(indexItem, 0, newTimebox)
+        updatePlayersDuration: function() {
+            for(var i=0;i<_players.length;i++) {
+                this.getPlayerDuration(_players[i])
+            }
+        },
+		duplicTimeboxAndUpdate: function(newTimebox) {
+			_timeboxes.duplicate(newTimebox)
 			this.updateTimeBoxesDuration()
+            this.updatePlayersDuration()
 		},
-		removeTimebox: function(timebox) {
-			var indexTimebox = _timeboxes.getIndexById(timebox)
-			if(indexTimebox>-1) {
-				_timeboxes.splice(indexTimebox, 1)
-				this.updateTimeBoxesDuration()
-				return true
-			}
-			return false
+		removeTimeboxAndUpdate: function(timebox) {
+			_timeboxes.remove(timebox)
+			this.updateTimeBoxesDuration()
+            this.updatePlayersDuration()
 		},
 		isAllPlaceOk: function() {
             if(_timeboxes.length == 0) return false

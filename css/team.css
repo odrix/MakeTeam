@@ -25,8 +25,8 @@ header span:hover{font-size: 100%;color: lightsalmon;}
 }
 
 .teamList {float: left;width: 160px;}
-.playground {text-align: center;	width: 600px;margin:9px;padding: 4px;background: #9ab26b;}
-#composer .playground {float: left;margin:36px 24px 9px;}
+playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4px;background: #9ab26b;position: relative;overflow: hidden;}
+#composer playground {float: left;margin:36px 24px 9px;}
 .commande {float: left;width: 160px;}
 
 .marquageSol{margin:4px;border:solid 1px white;overflow:hidden;height:302px;}

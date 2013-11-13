@@ -12,32 +12,21 @@ App.service('teamService', function (){
 		return -1
 	}
 
-    _timeboxes.foreachPlaces = function(action) {
-        for(var i=0;i<_timeboxes.length;i++) {
-            if(_timeboxes[i].places) {
-                for(var j=0;j<_timeboxes[i].places.length;j++) {
-                    for(var k=0;k<_timeboxes[i].places[j].length;k++) {
-                        var tmpp = _timeboxes[i].places[j][k]
-                        var result = action(tmpp, i, _timeboxes[i])
-                        if(result != undefined) return result
-                    }
-                }
-            }
-        }
-    }
-	
 	_timeboxes.updateNextOut = function() {
-        _timeboxes.foreachPlaces(function(place, i) {
+        for(var i=0;i<_timeboxes.length;i++) {
             var iNext = i+1;
-            if(iNext < _timeboxes.length) {
-                for(var l=0;l<_timeboxes[iNext].substitutes.length;l++)
-                {
-                    if(place && place.player && _timeboxes[iNext].substitutes[l] && place.player.id == _timeboxes[iNext].substitutes[l].id) {
-                        place.nextSubstitute = true
+            _timeboxes[i].foreachPlacesDo(function(place) {
+                    if(iNext < _timeboxes.length) {
+                        for(var l=0;l<_timeboxes[iNext].playerSubstitutes.length;l++)
+                        {
+                            if(place && place.player && _timeboxes[iNext].playerSubstitutes[l] && place.player.id == _timeboxes[iNext].playerSubstitutes[l].id) {
+                                place.nextSubstitute = true
+                            }
+                        }
                     }
                 }
-            }
-        })
+            )
+        }
 	}
 
     return {
@@ -53,19 +42,17 @@ App.service('teamService', function (){
 		},
 		getPlayerDuration: function(p) {
 			p.duration = 0
-			_timeboxes.foreachPlaces(function(place, i, timebox) {
-                if(place && place.player && place.player.id == p.id) {
-                    p.duration += timebox.duration
-                }
-            })
+            for(var i=0;i<_timeboxes.length;i++) {
+                _timeboxes[i].foreachPlacesDo(function(place, timebox) {
+                    if(place && place.player && place.player.id == p.id) {
+                        p.duration += timebox.duration
+                    }
+                })
+            }
 		},
 		createTimebox: function(maxTime, _places) {
 			_maxtime = maxTime
-			_timeboxes.push({id:1,
-						duration: maxTime,						
-						substitutes: angular.copy(_players),
-						places: _places
-					})
+			_timeboxes.push(new timebox(1,maxTime,angular.copy(_players),_places))
 		},
 		getTimeboxes: function() {
 			return _timeboxes;
@@ -97,12 +84,9 @@ App.service('teamService', function (){
             if(_timeboxes.length == 0) return false
 
             var result = true
-            _timeboxes.foreachPlaces(function(place) {
-                if(!place.player || place.player == null) {
-                    result =  false
-                    return true
-                }
-            })
+            for(var i=0;i<_timeboxes.length;i++) {
+                result &= _timeboxes[i].isAllPlaygroundFieldFill()
+            }
 			return result;
 		},
         reinit: function() {

@@ -21,18 +21,10 @@
 			<span class="startTime">{{$index * timebox.duration}}</span> à			
 			<span class="endTime">{{($index+1) * timebox.duration}}</span> minutes
 		</div>
-		<div class="wrapper playground">
-			<div class="marquageSol">
-			<div class="row" ng-repeat="row in timebox.places track by $index">
-				<div class="fieldPlay player" ng-repeat="place in row track by $index" >
-					<span ng-class="{'nextSubstitute': place.nextSubstitute}">{{place.player.name}}</span>
-				</div>
-			</div>
-			</div>
-		</div>
+		<playground />
 		<div>
 			Remplaçant(s) : 
-			<span ng-repeat="subs in timebox.substitutes track by $index" ng-show="subs.name" >{{subs.name}}, </span>
+			<span ng-repeat="subs in timebox.playerSubstitutes track by $index" ng-show="subs.name" >{{subs.name}}, </span>
 		</div>
 	</div>
 	&nbsp;

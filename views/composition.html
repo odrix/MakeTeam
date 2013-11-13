@@ -1,8 +1,8 @@
 <div ng-controller="TeamCtrl" id="composer">
 	<div class="timeBox" ng-repeat="timebox in timeBoxes track by $index" animate="showDown">
-		<div class="teamList" ng-model='timebox.substitutes' data-drop="true" jqyoui-droppable="{onDrop:'updatePlayersDuration', multiple:true}" >
+		<div class="teamList" ng-model='timebox.playerSubstitutes' data-drop="true" jqyoui-droppable="{onDrop:'updatePlayersDuration', multiple:true}" >
 			<h3>Remplaçant(s)</h3>
-			<div class="present" ng-repeat="subs in timebox.substitutes track by $index" ng-model="timebox.substitutes" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}}}" >
+			<div class="present" ng-repeat="subs in timebox.playerSubstitutes track by $index" ng-model="timebox.playerSubstitutes" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}}}" >
 				<span class="nop" ng-show="subs">{{subs.name}}</span>
 			</div>
 		</div>
@@ -10,17 +10,7 @@
         <!--<terrain class="foot">-->
 
         <!--</terrain>-->
-		<div class="playground" class="wrapper" >
-			<div class="marquageSol">
-			<div class="row" ng-repeat="row in timebox.places track by $index">
-				<div class="fieldPlay player" ng-repeat="place in row track by $index" data-drop="true" jqyoui-droppable="{index:{{$index}}, onDrop:'updatePlayersDuration'}"
-											ng-model="place.player"	 data-drag="true" jqyoui-draggable data-jqyoui-options="{revert: 'invalid',opacity: 0.80,hoverClass: 'drop-hover'}" >
-					<span ng-show="place.player && place.player.name">{{place.player.name}}</span>
-					<span class="empty" ng-hide="place.player && place.player.name">{{place.no}}.</span>
-				</div>
-			</div>
-			</div>
-		</div>
+        <playground></playground>
 		
 		<div class="commande">
 			<div class="timeboxDuration">

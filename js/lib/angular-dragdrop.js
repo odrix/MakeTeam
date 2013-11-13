@@ -166,14 +166,14 @@ var jqyoui = angular.module('ngDragDrop', []).service('ngDragDropService', ['$ti
       var isEmpty = angular.equals(angular.copy(dropItem), {}),
         dragModelValue = scope.$eval(dragModel);
 
-      scope.__dropItem = dropItem;
+      scope.ppdropItem = dropItem;
 
       if (dragSettings && dragSettings.placeholder) {
         if (dragSettings.placeholder != 'keep'){
           if (angular.isArray(dragModelValue) && dragSettings.index !== undefined) {
             dragModelValue[dragSettings.index] = dropItem;
           } else {
-            $parse(dragModel + ' = __dropItem')(scope);
+            $parse(dragModel + ' = ppdropItem')(scope);
           }
         }
       } else {
@@ -188,9 +188,9 @@ var jqyoui = angular.module('ngDragDrop', []).service('ngDragDropService', ['$ti
         } else {
           // Fix: LIST(object) to LIST(array) - model does not get updated using just scope[dragModel] = {...}
           // P.S.: Could not figure out why it happened
-          $parse(dragModel + ' = __dropItem')(scope);
+          $parse(dragModel + ' = ppdropItem')(scope);
           if (scope.$parent) {
-            $parse(dragModel + ' = __dropItem')(scope.$parent);
+            $parse(dragModel + ' = ppdropItem')(scope.$parent);
           }
         }
       }

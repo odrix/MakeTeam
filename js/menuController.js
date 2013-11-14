@@ -13,8 +13,15 @@ App.controller('menuCtrl', function($scope, localStorageService, teamService, $l
         localStorageService.add('compo', teamService.getTimeboxes())
     }
 
-    $scope.isNotNew = function() {
-        return teamService.getTimeboxes().length > 0
+    $scope.getLast = function(){
+        teamService.setPlayers(localStorageService.get('players'))
+        teamService.setTimeboxes(localStorageService.get('compo'))
+        $location.path("/composer", false)
+    }
+
+
+    $scope.isNew = function() {
+        return teamService.getTimeboxes().length == 0
     }
 
     $scope.isAllPlaceOk = function() {

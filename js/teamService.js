@@ -35,6 +35,16 @@ App.service('teamService', function (){
         getTimeboxes: function() {
             return _timeboxes;
         },
+        setPlayers:function (players){
+            for(var i=0;i<players.length;i++) {
+                _players.push(players[i]);
+            }
+        },
+        setTimeboxes: function(timeboxes) {
+            for(var i=0;i<timeboxes.length;i++) {
+                _timeboxes.push(new timebox(timeboxes[i]));
+            }
+        },
 		getPlayerDuration: function(p) {
 			p.duration = 0
             for(var i=0;i<_timeboxes.length;i++) {
@@ -47,7 +57,7 @@ App.service('teamService', function (){
 		},
 		createTimebox: function(maxTime, _places) {
 			_maxtime = maxTime
-			_timeboxes.push(new timebox(1,maxTime,angular.copy(_players),_places))
+			_timeboxes.push(new timebox([1,maxTime,angular.copy(_players),_places]))
 		},
 		updateTimeBoxesDuration: function() {
 			for(var i=0;i<_timeboxes.length;i++) {

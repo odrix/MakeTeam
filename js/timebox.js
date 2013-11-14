@@ -1,8 +1,8 @@
-function timebox (id,duration,playerSubstitutes,playgroundField) {
-    this.id = id
-    this.duration = duration
-    this.playerSubstitutes = playerSubstitutes
-    this.playgroundField = playgroundField
+function timebox (t) { //id,duration,playerSubstitutes,playgroundField) {
+    this.id = t.id || t[0]
+    this.duration = t.duration || t[1]
+    this.playerSubstitutes = t.playerSubstitutes || t[2]
+    this.playgroundField = t.playgroundField || t[3]
 
     this.foreachPlacesDo = function(action) {
         if(this.playgroundField) {

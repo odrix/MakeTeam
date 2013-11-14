@@ -7,7 +7,6 @@ en premier
 * impression du resultat
 * un design plus sympa
  * des animation/transition sur les evennements
-* sauvegarder la composition (en local)
 
 peut être après
 ----------------

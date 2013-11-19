@@ -14,6 +14,7 @@
     <script src="js/lib/angular-animate.min.js"></script>
 	<script src="js/lib/angular-dragdrop.min.js"></script>
     <script src="js/lib/angular-local-storage.js"></script>
+    <script src="js/lib/angular-intro.js"></script>
 	
 	<script src="js/appInit.js"></script>
 	<script src="js/teamService.js"></script>
@@ -26,9 +27,7 @@
     <script src="js/playgroundDirective.js"></script>
 
     <script src="js/timebox.js"></script>
-    <script src="js/intro.js"></script>
-	
-	
+
 	<!-- <link media="all" rel="stylesheet" type="text/css" href="css/all.css" /> -->
     <link media="all" rel="stylesheet" type="text/css" href="css/lib/introjs.min.css" >
 	<link media="all" rel="stylesheet" type="text/css" href="css/lib/knacss.custom.css" >
@@ -39,13 +38,13 @@
     <link media="print" rel="stylesheet" type="text/css" href="css/print.css" />
 </head>
 <body>
-	<header id="header" role="banner" class="line ma0 headerline" ng-controller="menuCtrl">
+	<header id="header" role="banner" class="line ma0 headerline" ng-controller="menuCtrl" ng-intro-options="IntroOptions" ng-intro-method="CallMe">
 		<a href="#/home" ng-click="new()">#Team maker</a>
         <span ng-click="new()" ng-hide="isNew()">Nouveau</span>
         <span ng-click="share()" ng-show="isAllPlaceOk()">Partager</span>
         <span ng-click="save()" ng-hide="istNew()" title="Enregistrement uniquement en local">Enregistrer</span>
         <span ng-click="getLast()" ng-show="isNew()">Dernière composition</span>
-        <span id="btnDemo">demo</span>
+        <span id="btnDemo" ng-click="CallMe()">demo</span>
 	</header>
 	<div ng-view></div>
 	<footer id="footer" role="contentinfo" class="line pam txtcenter">

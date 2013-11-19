@@ -1,4 +1,4 @@
-var App = angular.module('mkTeamApp', ['ngRoute', 'ngAnimate', 'LocalStorageModule', 'ngDragDrop']);
+var App = angular.module('mkTeamApp', ['ngRoute', 'ngAnimate', 'LocalStorageModule', 'ngDragDrop', 'angular-intro']);
 
 App.config(['$routeProvider', function($rp) {
     $rp.

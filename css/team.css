@@ -1,14 +1,8 @@
 .headerline {background:black; color:#ececec; font-weight:bold;position:fixed;top:0;left:0;width:100%;z-index:10000;}
 .headerline a {color:inherit;text-decoration:none;}
-<<<<<<< HEAD
-body {margin: 52px 24px;background: #ececec;}
-
-header a{font-size: 140%;margin:0 26px 0 16px;padding:10px;display: inline-block;  }
-=======
 body {margin: 64px 24px;background: #ececec;}
-
 header a{font-size: 140%;margin:0 28px 0 18px;padding:10px;display: inline-block;  }
->>>>>>> origin/master
+
 header span {width: 90px; height:100%;display: inline-block;border-left: solid 1px lightgray; padding:16px 6px 8px 9px; font-size: 90%;position:relative;top:6px;cursor: pointer;}
 header span:hover{font-size: 100%;color: lightsalmon;}
 

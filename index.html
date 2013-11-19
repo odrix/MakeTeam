@@ -2,11 +2,26 @@
 <html ng-app="mkTeamApp">
 <head>
 	<meta name="fragment" content="!" />
+<<<<<<< HEAD
 	<script src="js/lib/jquery-1.10.2.min.js"></script>
 	<script src="js/lib/jquery-ui-1.10.3.custom.min.js"></script>
 
 	<script src="js/lib/angular.min.js"></script>
 	<script src="js/lib/angular-dragdrop.min.js"></script>
+=======
+
+
+    <script src="js/lib/intro.min.js"></script>
+	<script src="js/lib/jquery-1.10.2.min.js"></script>
+	<script src="js/lib/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/lib/jquery.ui.touch-punch.min.js"></script>
+
+	<script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/lib/angular-animate.min.js"></script>
+	<script src="js/lib/angular-dragdrop.min.js"></script>
+    <script src="js/lib/angular-local-storage.js"></script>
+>>>>>>> origin/master
 	
 	<script src="js/appInit.js"></script>
 	<script src="js/teamService.js"></script>
@@ -16,10 +31,16 @@
     <script src="js/menuController.js"></script>
 	
 	<script src="js/animateDirective.js"></script>
+    <script src="js/playgroundDirective.js"></script>
+
+    <script src="js/timebox.js"></script>
+    <script src="js/intro.js"></script>
 	
 	
 	<!-- <link media="all" rel="stylesheet" type="text/css" href="css/all.css" /> -->
-	<link media="all" rel="stylesheet" type="text/css" href="css/knacss.custom.css" >
+    <link media="all" rel="stylesheet" type="text/css" href="css/lib/introjs.min.css" >
+	<link media="all" rel="stylesheet" type="text/css" href="css/lib/knacss.custom.css" >
+    <link media="all" rel="stylesheet" type="text/css" href="css/lib/animations.css" >
 	<link media="all" rel="stylesheet" type="text/css" href="css/team.css" />
 	<link media="all" rel="stylesheet" type="text/css" href="css/team.anim.css" />
 
@@ -28,9 +49,17 @@
 <body>
 	<header id="header" role="banner" class="line ma0 headerline" ng-controller="menuCtrl">
 		<a href="#/home" ng-click="new()">#Team maker</a>
+<<<<<<< HEAD
         <span ng-click="new()" ng-show="isNotNew()">Nouveau</span>
         <span ng-click="share()" ng-show="isAllPlaceOk()">Partager</span>
         <span ng-click="save()" ng-show="false">Enregistrer</span>
+=======
+        <span ng-click="new()" ng-hide="isNew()">Nouveau</span>
+        <span ng-click="share()" ng-show="isAllPlaceOk()">Partager</span>
+        <span ng-click="save()" ng-hide="istNew()" title="Enregistrement uniquement en local">Enregistrer</span>
+        <span ng-click="getLast()" ng-show="isNew()">Dernière composition</span>
+        <span id="btnDemo">demo</span>
+>>>>>>> origin/master
 	</header>
 	<div ng-view></div>
 	<footer id="footer" role="contentinfo" class="line pam txtcenter">

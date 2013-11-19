@@ -4,14 +4,24 @@ App.service('teamService', function (){
     var _timeboxes = [];
 	var _maxtime = 0;
 	
-	_timeboxes.getIndexById = function(timebox){
-		for(var i=0;i<this.length;i++) {
-			if(this[i].id == timebox.id)
-				return i
-		}
-		return -1
+	_timeboxes.updateNextOut = function() {
+        for(var i=0;i<this.length;i++) {
+            var iNext = i+1;
+            this[i].foreachPlacesDo(function(place) {
+                    if(iNext < _timeboxes.length) {
+                        for(var l=0;l<this[iNext].playerSubstitutes.length;l++)
+                        {
+                            if(place && place.player && this[iNext].playerSubstitutes[l] && place.player.id == this[iNext].playerSubstitutes[l].id) {
+                                place.nextSubstitute = true
+                            }
+                        }
+                    }
+                }
+            )
+        }
 	}
 
+<<<<<<< HEAD
     _timeboxes.foreachPlaces = function(action) {
         for(var i=0;i<_timeboxes.length;i++) {
             if(_timeboxes[i].places) {
@@ -40,6 +50,8 @@ App.service('teamService', function (){
         })
 	}
 
+=======
+>>>>>>> origin/master
     return {
 		addPlayer:function (name){
 			if(name && name != '')
@@ -51,31 +63,48 @@ App.service('teamService', function (){
 		getPlayers:function (){
 		  return _players;
 		},
+        getTimeboxes: function() {
+            return _timeboxes;
+        },
+        setPlayers:function (players){
+            for(var i=0;i<players.length;i++) {
+                _players.push(players[i]);
+            }
+        },
+        setTimeboxes: function(timeboxes) {
+            for(var i=0;i<timeboxes.length;i++) {
+                _timeboxes.push(new timebox(timeboxes[i]));
+            }
+        },
 		getPlayerDuration: function(p) {
 			p.duration = 0
+<<<<<<< HEAD
 			_timeboxes.foreachPlaces(function(place, i, timebox) {
                 if(place && place.player && place.player.id == p.id) {
                     p.duration += timebox.duration
                     return false
                 }
             })
+=======
+            for(var i=0;i<_timeboxes.length;i++) {
+                _timeboxes[i].foreachPlacesDo(function(place, timebox) {
+                    if(place && place.player && place.player.id == p.id) {
+                        p.duration += timebox.duration
+                    }
+                })
+            }
+>>>>>>> origin/master
 		},
 		createTimebox: function(maxTime, _places) {
 			_maxtime = maxTime
-			_timeboxes.push({id:1,
-						duration: maxTime,						
-						substitutes: angular.copy(_players),
-						places: _places
-					})
-		},
-		getTimeboxes: function() {
-			return _timeboxes;
+			_timeboxes.push(new timebox([1,maxTime,angular.copy(_players),_places]))
 		},
 		updateTimeBoxesDuration: function() {
 			for(var i=0;i<_timeboxes.length;i++) {
 				_timeboxes[i].duration = _maxtime / _timeboxes.length
 			}
 		},
+<<<<<<< HEAD
 		duplicTimebox: function(newTimebox) {
 			var indexItem = _timeboxes.getIndexById(newTimebox)
 			newTimebox.id = _timeboxes.length + 1
@@ -83,27 +112,39 @@ App.service('teamService', function (){
 				_timeboxes.push(newTimebox)
 			else
 				_timeboxes.splice(indexItem, 0, newTimebox)
+=======
+        updatePlayersDuration: function() {
+            for(var i=0;i<_players.length;i++) {
+                this.getPlayerDuration(_players[i])
+            }
+        },
+		duplicTimeboxAndUpdate: function(newTimebox) {
+			_timeboxes.duplicate(newTimebox)
+>>>>>>> origin/master
 			this.updateTimeBoxesDuration()
+            this.updatePlayersDuration()
 		},
-		removeTimebox: function(timebox) {
-			var indexTimebox = _timeboxes.getIndexById(timebox)
-			if(indexTimebox>-1) {
-				_timeboxes.splice(indexTimebox, 1)
-				this.updateTimeBoxesDuration()
-				return true
-			}
-			return false
+		removeTimeboxAndUpdate: function(timebox) {
+			_timeboxes.remove(timebox)
+			this.updateTimeBoxesDuration()
+            this.updatePlayersDuration()
 		},
 		isAllPlaceOk: function() {
             if(_timeboxes.length == 0) return false
 
             var result = true
+<<<<<<< HEAD
             _timeboxes.foreachPlaces(function(place) {
                 if(!place.player || place.player == null) {
                     result =  false
                     return true
                 }
             })
+=======
+            for(var i=0;i<_timeboxes.length;i++) {
+                result &= _timeboxes[i].isAllPlaygroundFieldFill()
+            }
+>>>>>>> origin/master
 			return result;
 		},
         reinit: function() {

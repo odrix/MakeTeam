@@ -4,18 +4,14 @@ App.controller('TeamCtrl', function($scope, teamService, $timeout) {
 	$scope.players = teamService.getPlayers()
 
 	$scope.newTimeBox = function (timebox){
-		teamService.duplicTimebox(angular.copy(timebox))
-		$scope.updatePlayersDuration()
+		teamService.duplicTimeboxAndUpdate(angular.copy(timebox))
 	}
 	
 	$scope.deleteTimeBox = function(timebox) {
-		if(teamService.removeTimebox(timebox))
-			$scope.updatePlayersDuration()
+		teamService.removeTimeboxAndUpdate(timebox)
 	}
 	
 	$scope.updatePlayersDuration = function(event, ui) {
-		for(var i=0;i<$scope.players.length;i++) {
-			teamService.getPlayerDuration($scope.players[i])
-		}	
+		teamService.updatePlayersDuration()
 	}
 });

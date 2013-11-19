@@ -1,4 +1,4 @@
-var App = angular.module('mkTeamApp', ['ngDragDrop']);
+var App = angular.module('mkTeamApp', ['ngRoute', 'ngAnimate', 'LocalStorageModule', 'ngDragDrop']);
 
 App.config(['$routeProvider', function($rp) {
     $rp.
@@ -19,9 +19,6 @@ App.config(['$routeProvider', function($rp) {
       });
 }]);
 
-App.config( ['$compileProvider',function( $compileProvider ) {   
-	$compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|chrome-extension):/);
-}]);
 
 
 

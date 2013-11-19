@@ -1,0 +1,9 @@
+<div class="marquageSol">
+    <div class="row" ng-repeat="row in timebox.playgroundField track by $index">
+        <div class="fieldPlay player" ng-repeat="place in row track by $index" data-drop="true" jqyoui-droppable="{index:{{$index}}, onDrop:'updatePlayersDuration'}"
+             ng-model="place.player"	 data-drag="true" jqyoui-draggable data-jqyoui-options="{revert: 'invalid',opacity: 0.80,hoverClass: 'drop-hover'}" >
+            <span ng-show="place.player && place.player.name">{{place.player.name}}</span>
+            <span class="empty" ng-hide="place.player && place.player.name">{{place.no}}.</span>
+        </div>
+    </div>
+</div>

@@ -1,12 +1,17 @@
 <div ng-controller="TeamCtrl" id="composer">
-	<div class="timeBox" ng-repeat="timebox in timeBoxes" animate="showDown">
-		<div class="teamList" ng-model='timebox.substitutes' data-drop="true" jqyoui-droppable="{onDrop:'updatePlayersDuration', multiple:true}" >
+	<div class="timeBox" ng-repeat="timebox in timeBoxes track by $index" animate="showDown">
+		<div class="teamList" ng-model='timebox.playerSubstitutes' data-drop="true" jqyoui-droppable="{onDrop:'updatePlayersDuration', multiple:true}" >
 			<h3>Remplaçant(s)</h3>
+<<<<<<< HEAD
 			<div class="present" ng-repeat="subs in timebox.substitutes" ng-model="timebox.substitutes" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}}}" >
+=======
+			<div class="present" ng-repeat="subs in timebox.playerSubstitutes track by $index" ng-model="timebox.playerSubstitutes" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}}}" >
+>>>>>>> origin/master
 				<span class="nop" ng-show="subs">{{subs.name}}</span>
 			</div>
 		</div>
 
+<<<<<<< HEAD
 		<div class="playground" class="wrapper" >
 			<div class="marquageSol">
 			<div class="row" ng-repeat="r in timebox.places">
@@ -18,6 +23,12 @@
 			</div>
 			</div>
 		</div>
+=======
+        <!--<terrain class="foot">-->
+
+        <!--</terrain>-->
+        <playground></playground>
+>>>>>>> origin/master
 		
 		<div class="commande">
 			<div class="timeboxDuration">
@@ -35,7 +46,7 @@
 	
 	<div id="timeResume">
 		<h3>Temps de jeu</h3>
-		<div class="player" ng-repeat="player in players | orderBy:'duration':true" >
+		<div class="player" ng-repeat="player in players | orderBy:'duration':true track by $index" >
 			{{player.name}} - {{player.duration}}
 		</div>
 	</div>

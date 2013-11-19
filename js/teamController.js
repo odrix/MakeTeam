@@ -14,4 +14,13 @@ App.controller('TeamCtrl', function($scope, teamService, $timeout) {
 	$scope.updatePlayersDuration = function(event, ui) {
 		teamService.updatePlayersDuration()
 	}
+
+    $scope.checkAndAddDragClass = function(event, ui) {
+        if(ui.helper.find('.playerName.ng-hide').length == 0)
+            ui.helper.addClass("dragging")
+    }
+
+    $scope.removeDragClass = function(event, ui) {
+        ui.helper.removeClass("dragging")
+    }
 });

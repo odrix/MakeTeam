@@ -1,6 +1,6 @@
 <div ng-controller="TeamCtrl" id="composer">
 	<div class="timeBox" ng-repeat="timebox in timeBoxes track by $index" animate="showDown">
-		<div class="teamList" ng-model='timebox.playerSubstitutes' data-drop="true" jqyoui-droppable="{onDrop:'updatePlayersDuration', multiple:true}" >
+		<div class="teamList" ng-model='timebox.playerSubstitutes' data-drop="true" jqyoui-droppable="{onDrop:'updatePlayersDuration', multiple:true, hoverClass: 'drop-hover'}" >
 			<h3>Remplaçant(s)</h3>
 			<div class="present" ng-repeat="subs in timebox.playerSubstitutes track by $index" ng-model="timebox.playerSubstitutes" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}}}" >
 				<span class="nop" ng-show="subs">{{subs.name}}</span>

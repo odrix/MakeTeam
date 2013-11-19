@@ -25,19 +25,20 @@ header span:hover{font-size: 100%;color: lightsalmon;}
 }
 
 .teamList {float: left;width: 160px;}
-playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4px;background: #9ab26b;position: relative;overflow: hidden;}
+playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4px;background: #9ab26b;position: relative;}
 #composer playground {float: left;margin:36px 24px 9px;}
 .commande {float: left;width: 160px;}
 
-.marquageSol{margin:4px;border:solid 1px white;overflow:hidden;height:302px;}
+.marquageSol{margin:4px;border:solid 1px white;height:302px;}
 #composer .marquageSol:before{position: relative;top: 57px;left: 0;padding: 10px 18px;border: inherit;content: '';border-radius: 50%;} /* rond du gardien */
 #composer .marquageSol:after {content: '';border-radius: 50%;position: relative;top: 42px;left: 0;padding: 100px;border: inherit;z-index: 0;} /* rond central */
 .fieldPlay {display: inline-block;width: 136px;padding: 4px;font-size: 20px;z-index: 99;margin: 3px 3px;height:50px;}
 .fieldPlay .empty {padding: 12px 26px 0 26px;color:#ececec;}
-.row:first-child .fieldPlay:first-child  {border: solid 1px white;width:160px;height:72px;margin:-26px 0 6px 0;background: #9ab26b;padding:0;}
-#composer .row:first-child .fieldPlay:first-child:before {position: relative;top: 0;left: 0;padding: 6px 45px;border: inherit;z-index: 0;content: '';} /* petit zone du gardien */
+.row:first-child .fieldPlay:first-child  {border: solid 1px white;width:160px;height:72px;margin:-22px 0 6px 0;background: #9ab26b;padding:8px 0;}
+#composer .row:first-child .fieldPlay:first-child:before {position: relative;top: -4px;left: 0;padding: 7px 45px;border: inherit;z-index: 0;content: '';} /* petit zone du gardien */
 
 .drop-hover{background: #9ac26b;border-radius:25%;}
+.teamList .drop-hover {border: solid 2px orange;}
 
 .present{margin: 4px;}
 .present span{
@@ -61,7 +62,7 @@ playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4
    display: inline-block;
    position: relative;
    height: 40px;
-   line-height: 40px;
+   line-height: 14px;
    /* padding: 0 112px 0 12px; */
    width: 128px;
    text-align: center;
@@ -69,6 +70,7 @@ playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4
    text-decoration: none;
    white-space: nowrap;
 }
+.dragging, .dragging:first-child{color: white;background: #9ac26b;border-radius:15px;height: 30px;line-height: 30px; border:none;width:128px;}
 
 .timeboxDuration {padding:4px;}
 .timeboxDuration  span{font-weight:bold;}

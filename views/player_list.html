@@ -1,6 +1,12 @@
 <div ng-controller="StartCtrl" >
 	<h1>Bonjour, et Bienvenue !!</h1>
-	
+
+    <div class="line">
+        <label for="ddlTactique">Choix d'un type de composition</label>
+        <select name="ddlTactique" ng-model="places" ng-options="p.nom for p in placesPossible">
+        </select>
+    </div>
+
 	<div class="line players">
 		<label for="txtplayers">Liste des joueurs (participant au match)</label>
 		<div class="help">liste de nom séparés par une virgule, point-virgule, espace ou même entrée (retour à la ligne)</div>

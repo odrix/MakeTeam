@@ -1,17 +1,17 @@
 <div ng-controller="TeamCtrl" id="composer">
-	<div class="timeBox" ng-repeat="timebox in timeBoxes track by $index" animate="showDown" ng-switch="collapse">
+    <div class="timeBox" ng-repeat="timebox in timeBoxes track by $index" animate="showDown" ng-switch="timebox.collapse">
         <div ng-switch-when="true">
             <div class="timeboxDuration">
-                Temps :
-                <span class="startTime">{{$index * timebox.duration}}</span> -
-                <span class="endTime">{{($index+1) * timebox.duration}}</span>
-                <button ng-click="collapse='false'">Uncollapse</button>
+                <img src="images/time.png" class="chrono" />
+                <span class="periode"> Periode de {{$index * timebox.duration}} à {{($index+1) * timebox.duration}} minutes</span>
+                <span class="summaryPlayer">{{timebox.getNbPlacedPlayers()}} placés sur {{players.length}}</span>
+                <button ng-click="timebox.collapse='false'" class="button btn-down" title="Expand"></button>
             </div>
         </div>
         <div ng-switch-default>
-            <div class="teamList" ng-model='timebox.playerSubstitutes' data-drop="true" jqyoui-droppable="{onDrop:'updatePlayersDuration', multiple:true, hoverClass: 'drop-hover'}" >
+            <div class="teamList" ng-model='timebox.playerSubstitutes' data-drop="true" jqyoui-droppable="{onDrop:'updatePlayersDuration', multiple:true, hoverClass: 'drop-hover'}">
                 <h3>Remplaçant(s)</h3>
-                <div class="present" ng-repeat="subs in timebox.playerSubstitutes track by $index" ng-model="timebox.playerSubstitutes" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}}}" >
+                <div class="present" ng-repeat="subs in timebox.playerSubstitutes track by $index" ng-model="timebox.playerSubstitutes" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}}}">
                     <span class="nop" ng-show="subs">{{subs.name}}</span>
                 </div>
             </div>
@@ -21,14 +21,14 @@
                     Temps :
                     <span class="startTime">{{$index * timebox.duration}}</span> -
                     <span class="endTime">{{($index+1) * timebox.duration}}</span>
-                    <button ng-click="collapse='true'">collapse</button>
+                    <button ng-click="timebox.collapse='true'" class="button btn-up" title="Collapse"></button>
                 </div>
                 <button ng-click="newTimeBox(timebox)" class="button btn-new" title="Dupliquer période"></button>
                 <button ng-click="deleteTimeBox(timebox)" class="button btn-cancel" title="Supprimer la période" ng-hide="$index == 0"></button>
             </div>
             <div class="clear"></div>
         </div>
-	</div>
+    </div>
 	
 	
 	

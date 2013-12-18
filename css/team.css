@@ -75,6 +75,10 @@ playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4
 .timeboxDuration {padding:4px;}
 .timeboxDuration  span{font-weight:bold;}
 
+
+.summaryPlayer {display:inline-block;width:260px;}
+.periode {display:inline-block;width:220px;}
+
 #timeResume {
 	width: 220px;
 	position: fixed;
@@ -113,7 +117,15 @@ playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4
 }
 .button:hover{background: #00a7f5;}
 
+.btn-up:before {background: url(../images/arrow-up.png) no-repeat;}
+.btn-down:before {background: url(../images/arrow-down.png) no-repeat;}
+.btn-up:before, .btn-down:before {content: '';position: absolute;width: 16px;height: 16px;margin-top: -8px;margin-left: -8px;}
 
+.btn-up, .btn-down {width: 25px;padding: 0;height: 26px;display: inline-block;position: absolute;right: 300px;border:none;background: white;}
+.btn-up:hover, .btn-down:hover {background: white;}
+
+.btn-up,
+.btn-down,
 .btn-confirm,
 .btn-cancel,
 .btn-block,
@@ -171,3 +183,4 @@ playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4
    height: 30px;
 }
 
+.chrono {margin-left:-8px;margin-right:12px;}

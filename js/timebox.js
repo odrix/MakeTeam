@@ -3,6 +3,7 @@ function timebox (t) { //id,duration,playerSubstitutes,playgroundField) {
     this.duration = t.duration || t[1]
     this.playerSubstitutes = t.playerSubstitutes || t[2]
     this.playgroundField = t.playgroundField || t[3]
+    this.collapse = false;
 
     this.foreachPlacesDo = function(action) {
         if(this.playgroundField) {
@@ -26,6 +27,17 @@ function timebox (t) { //id,duration,playerSubstitutes,playgroundField) {
         })
         return result
     }
+
+    this.getNbPlacedPlayers = function () {
+        var nbPlaced = 0;
+        this.foreachPlacesDo(function (place) {
+            if (place.player) {
+                nbPlaced++;
+            }
+        })
+        return nbPlaced;
+    }
+     
 }
 
 

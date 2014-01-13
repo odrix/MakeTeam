@@ -8,16 +8,31 @@ App.service('teamService', function (){
         for(var i=0;i<this.length;i++) {
             var iNext = i+1;
             this[i].foreachPlacesDo(function(place) {
-                    if(iNext < _timeboxes.length) {
-                        for(var l=0;l<this[iNext].playerSubstitutes.length;l++)
-                        {
-                            if(place && place.player && this[iNext].playerSubstitutes[l] && place.player.id == this[iNext].playerSubstitutes[l].id) {
-                                place.nextSubstitute = true
-                            }
-                        }
-                    }
-                }
-            )
+				if (place) {
+					place.nextSubstitute = false;
+					if(iNext < _timeboxes.length) {
+						for(var l=0;l<_timeboxes[iNext].playerSubstitutes.length;l++)
+						{
+							if(place.player && _timeboxes[iNext].playerSubstitutes[l] && place.player.id == _timeboxes[iNext].playerSubstitutes[l].id) {
+								place.nextSubstitute = true
+							}
+						}
+					}
+				}
+			})
+			this[i].foreachSubstitutesDo(function(sub) {
+				if(iNext < _timeboxes.length) {
+					if (sub) {
+						sub.nextStaySubstituted = false
+						for(var l=0;l<_timeboxes[iNext].playerSubstitutes.length;l++)
+						{
+							if(_timeboxes[iNext].playerSubstitutes[l] && sub.id == _timeboxes[iNext].playerSubstitutes[l].id) {
+								sub.nextStaySubstituted = true
+							}
+						}
+					}
+				}
+			})
         }
 	}
 
@@ -58,6 +73,7 @@ App.service('teamService', function (){
 		createTimebox: function(maxTime, _places) {
 			_maxtime = maxTime
 			_timeboxes.push(new timebox([1,maxTime,angular.copy(_players),_places]))
+			_timeboxes.updateNextOut()
 		},
 		updateTimeBoxesDuration: function() {
 			for(var i=0;i<_timeboxes.length;i++) {
@@ -73,11 +89,13 @@ App.service('teamService', function (){
 			_timeboxes.duplicate(newTimebox)
 			this.updateTimeBoxesDuration()
             this.updatePlayersDuration()
+			_timeboxes.updateNextOut()
 		},
 		removeTimeboxAndUpdate: function(timebox) {
 			_timeboxes.remove(timebox)
 			this.updateTimeBoxesDuration()
             this.updatePlayersDuration()
+			_timeboxes.updateNextOut()
 		},
 		isAllPlaceOk: function() {
             if(_timeboxes.length == 0) return false

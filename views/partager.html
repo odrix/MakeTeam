@@ -13,22 +13,26 @@
 	<div class="notInPrint">Vous pouvez copier/coller le resultat ci-dessous dans un mail et le partager avec votre équipe !</div>
 	<div id="partage">
         <div>
-            <span class="nextSubstitute">En surligné</span> les joueurs qui vont sortir au prochain changement.
+            <!--<span class="playerSubstitutedExplanation">En entouré</span> les joueurs qui vont sortir au prochain changement.-->
+			<img src="images/sub_off.png" title="Sort" /> Les joueurs qui vont sortir au prochain changement.<br />
+			<img src="images/sub_on.png" title="Entre" /> Les joueurs qui vont entrer au prochain changement.
         </div>
-	<div class="timeBox" ng-repeat="timebox in timeBoxes track by $index">
+		<div class="timeBox" ng-repeat="timebox in timeBoxes track by $index">
 
-		<div class="timeboxDuration">
-			de 
-			<span class="startTime">{{$index * timebox.duration}}</span> à			
-			<span class="endTime">{{($index+1) * timebox.duration}}</span> minutes
+			<div class="timeboxDuration">
+				de 
+				<span class="startTime">{{$index * timebox.duration}}</span> à			
+				<span class="endTime">{{($index+1) * timebox.duration}}</span> minutes
+			</div>
+			<playground />
+			<div>
+				Remplaçant(s) : 
+				<span ng-repeat="subs in timebox.playerSubstitutes | orderBy:'nextStaySubstituted' track by $index" ng-show="subs.name" ng-model="subs" >
+					{{subs.name}} <img ng-if="subs.nextStaySubstituted == false" src="images/sub_on.png" title="Entre" />, 
+				</span>
+			</div>
 		</div>
-		<playground />
-		<div>
-			Remplaçant(s) : 
-			<span ng-repeat="subs in timebox.playerSubstitutes track by $index" ng-show="subs.name" >{{subs.name}}, </span>
-		</div>
-	</div>
-	&nbsp;
-	-- copier jusqu'a la fin !
+		&nbsp;
+		-- copier jusqu'a la fin !
 	</div>
 </div>

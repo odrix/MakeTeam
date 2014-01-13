@@ -56,6 +56,7 @@ playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4
    -moz-border-radius: 15px;
    border-radius: 15px;
    white-space: nowrap;
+   cursor: pointer;
 }
 
 .player span{
@@ -70,6 +71,21 @@ playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4
    text-decoration: none;
    white-space: nowrap;
 }
+/*.playerSubstituted {
+   border: 3px solid yellow;
+   padding: 10px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
+}
+.playerSubstitutedExplanation {
+   border: 3px solid yellow;
+   padding: 2px 6px;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius: 15px;
+}*/
+
 .dragging, .dragging:first-child{color: white;background: #9ac26b;border-radius:15px;height: 30px;line-height: 30px; border:none;width:128px;}
 
 .timeboxDuration {padding:4px;}
@@ -93,9 +109,11 @@ playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4
 	-webkit-margin-before: 0em;
 }
 
-#partage .row:first-child .fieldPlay:first-child {margin: 0;}
 #partage {padding:6px;} 
-#partage .row {width:600px;}
+#partage .marquageSol:before{position: relative;top: 57px;left: 0;padding: 10px 18px;border: inherit;content: '';border-radius: 50%;} /* rond du gardien */
+#partage .marquageSol:after {content: '';border-radius: 50%;position: relative;top: 42px;left: 0;padding: 100px;border: inherit;z-index: 0;} /* rond central */
+#partage.row:first-child .fieldPlay:first-child  {border: solid 1px white;width:160px;height:72px;margin:-22px 0 6px 0;background: #9ab26b;padding:8px 0;}
+#partage .row:first-child .fieldPlay:first-child:before {position: relative;top: -4px;left: 0;padding: 7px 45px;border: inherit;z-index: 0;content: '';} /* petit zone du gardien */
 
 .nextSubstitute, span.nextSubstitute {background: #f1ef4c;color: #000000;}
 

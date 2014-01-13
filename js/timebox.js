@@ -16,6 +16,16 @@ function timebox (t) { //id,duration,playerSubstitutes,playgroundField) {
             }
         }
     }
+	
+	this.foreachSubstitutesDo = function(action) {
+        if(this.playerSubstitutes) {
+            for(var i=0;i<this.playerSubstitutes.length;i++) {
+				var currentSubstitute = this.playerSubstitutes[i]
+				var result = action(currentSubstitute, this)
+				if(result != undefined) return result
+            }
+        }
+    }
 
     this.isAllPlaygroundFieldFill = function() {
         var result = true

@@ -17,19 +17,27 @@ App.controller('menuCtrl', function($scope, localStorageService, teamService, $l
         teamService.reinit()
         $location.path("/debut", false)
     }
+	
+	$scope.edit = function() {
+		teamService.reinit()
+		this.getLast()
+	}	
 
     $scope.share = function() {
-        $location.path("/partager", false)
+		this.save()
+		$location.path("/partager", false)
     }
 
     $scope.save = function(){
-        localStorageService.add('players', teamService.getPlayers())
-        localStorageService.add('compo', teamService.getTimeboxes())
+		localStorageService.set('players', teamService.getPlayers())
+		localStorageService.set('compo', teamService.getTimeboxes())
+		teamService.getTimeboxes().updateNextOut()
     }
 
     $scope.getLast = function(){
         teamService.setPlayers(localStorageService.get('players'))
         teamService.setTimeboxes(localStorageService.get('compo'))
+		teamService.getTimeboxes().updateNextOut()
         $location.path("/composer", false)
     }
 

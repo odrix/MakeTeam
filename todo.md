@@ -6,8 +6,7 @@ en premier
 * partager les resultats par email (contenu dans l'email)
 * impression du resultat
 * un design plus sympa
- * des animation/transition sur les evennements
-* sauvegarder la composition (en local)
+ * des animation/transition sur les evenements
 
 peut être après
 ----------------

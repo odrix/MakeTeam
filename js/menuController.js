@@ -49,6 +49,13 @@ App.controller('menuCtrl', function($scope, localStorageService, teamService, $l
     $scope.isAllPlaceOk = function() {
         return teamService.isAllPlaceOk()
     }
+	
+	$scope.canBeEdited = function() {
+		if (this.isAllPlaceOk() && !this.isNew())
+			return true;
+		else
+			return false;
+	}
 
     $scope.$on('$viewContentLoaded', function() {
         $scope.IntroOptions = {

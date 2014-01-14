@@ -30,9 +30,8 @@ function timebox (t) { //id,duration,playerSubstitutes,playgroundField) {
     this.isAllPlaygroundFieldFill = function() {
         var result = true
         this.foreachPlacesDo(function(place) {
-            if(!place.player || place.player == null) {
+            if(!place.player || place.player == null || !place.player.id) {
                 result =  false
-                return true
             }
         })
         return result

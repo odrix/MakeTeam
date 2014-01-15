@@ -18,10 +18,3 @@ App.config(['$routeProvider', function($rp) {
         redirectTo: '/debut'
       });
 }]);
-
-
-
-
-
-
-

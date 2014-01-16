@@ -19,7 +19,7 @@ App.controller('TeamCtrl', function($scope, teamService, $timeout) {
 	}
 
     $scope.checkAndAddDragClass = function(event, ui) {
-        if(ui.helper.find('.playerName.ng-hide').length == 0)
+        if(ui.helper.find('.playerComponent.ng-show').length == 0)
             ui.helper.addClass("dragging")
 		$scope.timeBoxes.updateNextOut()
     }

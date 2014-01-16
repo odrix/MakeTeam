@@ -4,7 +4,7 @@
              data-drop="true" data-drag="true"
              jqyoui-droppable="{index:{{$index}}, onDrop:'updatePlayersDuration'}"
              jqyoui-draggable="{onStart:'checkAndAddDragClass', onStop:'removeDragClass'}"
-             data-jqyoui-options="{revert: 'invalid',opacity: 0.80,hoverClass: 'drop-hover',handle:'div.playerName'}" >
+             data-jqyoui-options="{revert: 'invalid',opacity: 0.80,hoverClass: 'drop-hover',handle:'div.playerComponent'}" >
 			<div class="playerComponent">
 				<div class="empty" ng-show="place.player && place.player.name">{{place.no}}</div>
 				<div class="playerName" ng-show="place.player && place.player.name">

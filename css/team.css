@@ -38,26 +38,36 @@ playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4
 .row:first-child .fieldPlay:first-child  {border: solid 1px white;width:160px;height:72px;margin:-22px 0 6px 0;background: #9ab26b;padding:8px 0;}
 #composer .row:first-child .fieldPlay:first-child:before {position: relative;top: -4px;left: 0;padding: 7px 45px;border: inherit;z-index: 0;content: '';} /* petit zone du gardien */
 
-.drop-hover{background: #9ac26b;border-radius:25%;}
+.drop-hover{background: #9ac26b;border-radius:50%;}
 .teamList .drop-hover {border: solid 2px orange;}
 
-.present{margin: 4px;}
-.present span{
-   display: inline-block;
-   background: #DA7416;
+.presentComponent{
+   display: block;
    position: relative;
-   height: 30px;line-height: 30px;
-   width: 41px;
-   padding: 0 112px 0 16px;
-   margin-right: 19px;
-   font-size: 20px;
-   color: #fff;
-   text-decoration: none;
-   -webkit-border-radius: 15px;
-   -moz-border-radius: 15px;
-   border-radius: 15px;
-   white-space: nowrap;
+   height: 40px;
+   width: 128px;
    cursor: pointer;
+}
+.presentJersey{
+   display: block;
+   float: left;
+   position: relative;
+   height: 40px;
+   background-image: url(../images/jersey_sub_white.png);
+   background-repeat:no-repeat;
+   width: 60px;
+}
+ .nop{
+   display: block;
+   float: left;
+   position: relative;
+   line-height: 40px;
+   height: 40px;
+   width: 60px;
+   text-align: left;
+   color: #504F4F;
+   text-decoration: none;
+   white-space: nowrap;
 }
 
 .row:first-child .fieldPlay:first-child  .playerComponent {
@@ -75,6 +85,7 @@ playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4
    white-space: nowrap;
    background-image: url(../images/jersey_white.png);
    background-repeat:no-repeat;
+   cursor: pointer;
 }
 .player .playerName {
    display: block;

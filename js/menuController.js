@@ -1,4 +1,4 @@
-App.controller('menuCtrl', function($scope, localStorageService, teamService, $location, $timeout) {
+﻿App.controller('menuCtrl', function($scope, localStorageService, teamService, $location, $timeout) {
 
     $scope.IntroOptions = {
         steps : [{
@@ -32,6 +32,10 @@ App.controller('menuCtrl', function($scope, localStorageService, teamService, $l
 		localStorageService.set('players', teamService.getPlayers())
 		localStorageService.set('compo', teamService.getTimeboxes())
 		teamService.getTimeboxes().updateNextOut()
+
+		var client = new WindowsAzure.MobileServiceClient( "https://maketeam.azure-mobile.net/", "IrDVghdkCYNHXpCbkwuuTXPsXVfcbf94" )
+		var item = { text: "Élément exceptionnel" }
+		client.getTable("Item").insert(item)
     }
 
     $scope.getLast = function(){

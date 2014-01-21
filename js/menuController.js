@@ -33,9 +33,9 @@
 		localStorageService.set('compo', teamService.getTimeboxes())
 		teamService.getTimeboxes().updateNextOut()
 
-		var client = new WindowsAzure.MobileServiceClient( "https://maketeam.azure-mobile.net/", "IrDVghdkCYNHXpCbkwuuTXPsXVfcbf94" )
-		var item = { text: "Élément exceptionnel" }
-		client.getTable("Item").insert(item)
+		//var client = new WindowsAzure.MobileServiceClient( "https://maketeam.azure-mobile.net/", "IrDVghdkCYNHXpCbkwuuTXPsXVfcbf94" )
+		//var item = { text: "Élément exceptionnel" }
+		//client.getTable("Item").insert(item)
     }
 
     $scope.getLast = function(){

@@ -1,26 +1,6 @@
 App.service('teamService', function (){
 	
-    var _team = {
-        players:[],
-        timeboxes:[],
-        maxtime:0,
-        addPlayer: function (name) {
-            if (name && name != '') {
-                var p = { id: this.players.length + 1, name: name }
-                this.players.push(p)
-            }
-        },
-        createTimebox: function (maxTime, fields) {
-            this.maxtime = maxTime
-            this.timeboxes.push(new timebox([1, maxTime, angular.copy(this.players), fields]))
-        },
-        init: function(players, fields) {
-            for (var i = 0; i < players.length; i++) {
-                this.addPlayer(players[i].trim())
-            }
-            this.createTimebox(90, fields)
-        }
-    }
+    var _team = new team();
 	
 	_team.timeboxes.updateNextOut = function() {
         for(var i=0;i<this.length;i++) {
@@ -78,16 +58,6 @@ App.service('teamService', function (){
                 })
             }
 		},
-		updateTimeBoxesDuration: function() {
-		    for (var i = 0; i < _team.timeboxes.length; i++) {
-		        _team.timeboxes[i].duration = _team.maxtime / _team.timeboxes.length
-			}
-		},
-        updatePlayersDuration: function() {
-            for (var i = 0; i < _team.players.length; i++) {
-                this.getPlayerDuration(_team.players[i])
-            }
-        },
 		duplicTimeboxAndUpdate: function(newTimebox) {
 		    _team.timeboxes.duplicate(newTimebox)
 			this.updateTimeBoxesDuration()
@@ -99,15 +69,6 @@ App.service('teamService', function (){
 			this.updateTimeBoxesDuration()
             this.updatePlayersDuration()
             _team.timeboxes.updateNextOut()
-		},
-		isAllPlaceOk: function() {
-		    if (_team.timeboxes.length == 0) return false
-
-            var result = true
-            for (var i = 0; i < _team.timeboxes.length; i++) {
-                result &= _team.timeboxes[i].isAllPlaygroundFieldFill()
-            }
-			return result;
 		},
         reinit: function() {
             _team.timeboxes.length = 0

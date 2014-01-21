@@ -1,7 +1,7 @@
 App.controller('TeamCtrl', function($scope, teamService, $timeout) {
 		
-	$scope.timeBoxes = teamService.getTimeboxes()
-	$scope.players = teamService.getPlayers()
+	$scope.timeBoxes = teamService.getTeam().timeboxes
+	$scope.players = teamService.getTeam.players
 
 	$scope.newTimeBox = function (timebox){
 		teamService.duplicTimeboxAndUpdate(angular.copy(timebox))

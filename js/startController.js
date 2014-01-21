@@ -16,8 +16,8 @@ App.controller('StartCtrl', function($scope, teamService, $location,$timeout) {
 		var players = $scope.playerList.split(reg)
         //var _places = [[{no:1}], [{no:2},{no:4},{no:5},{no:3}], [{no:6},{no:7}], [{no:8},{no:10},{no:11}], [{no:9}]] // 4-2-3-1
 
-        if(teamService.getTimeboxes.length == 0)
-            initComposition(players, $scope.places.compo)
+		if (teamService.getTeam().timeboxes.length == 0)
+		    teamService.getTeam().init(players, $scope.places.compo)
         else
             completePlayersList(players)
         $location.path("/composer", false)
@@ -25,13 +25,6 @@ App.controller('StartCtrl', function($scope, teamService, $location,$timeout) {
 
     function completePlayersList(players) {
 
-    }
-
-    function initComposition(players, _places) {
-        for (var i = 0; i < players.length; i++) {
-            teamService.addPlayer(players[i].trim())
-        }
-        teamService.createTimebox(90, _places)
     }
 
 });

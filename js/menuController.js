@@ -29,25 +29,20 @@
     }
 
     $scope.save = function(){
-		localStorageService.set('players', teamService.getPlayers())
-		localStorageService.set('compo', teamService.getTimeboxes())
-		teamService.getTimeboxes().updateNextOut()
-
-		//var client = new WindowsAzure.MobileServiceClient( "https://maketeam.azure-mobile.net/", "IrDVghdkCYNHXpCbkwuuTXPsXVfcbf94" )
-		//var item = { text: "Élément exceptionnel" }
-		//client.getTable("Item").insert(item)
+		localStorageService.set('players', teamService.getTeam().players)
+		localStorageService.set('compo', teamService.getTeam().timeboxes)
     }
 
     $scope.getLast = function(){
         teamService.setPlayers(localStorageService.get('players'))
         teamService.setTimeboxes(localStorageService.get('compo'))
-		teamService.getTimeboxes().updateNextOut()
+		teamService.getTeam().timeboxes.updateNextOut()
         $location.path("/composer", false)
     }
 
 
     $scope.isNew = function() {
-        return teamService.getTimeboxes().length == 0
+        return teamService.getTeam().timeboxes.length == 0
     }
 
     $scope.isAllPlaceOk = function() {
@@ -60,6 +55,18 @@
 		else
 			return false;
 	}
+
+	//$scope.login = function () {
+	    
+	//}
+
+	//$scope.logout = function () {
+	   
+	//}
+
+	//$scope.isConnected = function () {
+	//    return false;
+	//}
 
     $scope.$on('$viewContentLoaded', function() {
         $scope.IntroOptions = {

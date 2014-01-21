@@ -1,19 +1,37 @@
 App.service('teamService', function (){
-    
-	var _players = [];
-    var _timeboxes = [];
-	var _maxtime = 0;
 	
-	_timeboxes.updateNextOut = function() {
+    var _team = {
+        players:[],
+        timeboxes:[],
+        maxtime:0,
+        addPlayer: function (name) {
+            if (name && name != '') {
+                var p = { id: this.players.length + 1, name: name }
+                this.players.push(p)
+            }
+        },
+        createTimebox: function (maxTime, fields) {
+            this.maxtime = maxTime
+            this.timeboxes.push(new timebox([1, maxTime, angular.copy(this.players), fields]))
+        },
+        init: function(players, fields) {
+            for (var i = 0; i < players.length; i++) {
+                this.addPlayer(players[i].trim())
+            }
+            this.createTimebox(90, fields)
+        }
+    }
+	
+	_team.timeboxes.updateNextOut = function() {
         for(var i=0;i<this.length;i++) {
             var iNext = i+1;
             this[i].foreachPlacesDo(function(place) {
 				if (place) {
 					place.nextSubstitute = false;
-					if(iNext < _timeboxes.length) {
-						for(var l=0;l<_timeboxes[iNext].playerSubstitutes.length;l++)
+					if(iNext < _team.timeboxes.length) {
+					    for(var l=0;l<_team.timeboxes[iNext].playerSubstitutes.length;l++)
 						{
-							if(place.player && _timeboxes[iNext].playerSubstitutes[l] && place.player.id == _timeboxes[iNext].playerSubstitutes[l].id) {
+							if(place.player && _team.timeboxes[iNext].playerSubstitutes[l] && place.player.id == _team.timeboxes[iNext].playerSubstitutes[l].id) {
 								place.nextSubstitute = true
 							}
 						}
@@ -21,12 +39,12 @@ App.service('teamService', function (){
 				}
 			})
 			this[i].foreachSubstitutesDo(function(sub) {
-				if(iNext < _timeboxes.length) {
+				if(iNext < _team.timeboxes.length) {
 					if (sub) {
 						sub.nextStaySubstituted = false
-						for(var l=0;l<_timeboxes[iNext].playerSubstitutes.length;l++)
+						for(var l=0;l<_team.timeboxes[iNext].playerSubstitutes.length;l++)
 						{
-							if(_timeboxes[iNext].playerSubstitutes[l] && sub.id == _timeboxes[iNext].playerSubstitutes[l].id) {
+							if(_team.timeboxes[iNext].playerSubstitutes[l] && sub.id == _team.timeboxes[iNext].playerSubstitutes[l].id) {
 								sub.nextStaySubstituted = true
 							}
 						}
@@ -37,78 +55,63 @@ App.service('teamService', function (){
 	}
 
     return {
-		addPlayer:function (name){
-			if(name && name != '')
-			{
-				var p = { id: _players.length + 1, name: name}
-				_players.push(p)
-			}
-		},
-		getPlayers:function (){
-		  return _players;
-		},
-        getTimeboxes: function() {
-            return _timeboxes;
+        getTeam: function () {
+            return _team
         },
         setPlayers:function (players){
             for(var i=0;i<players.length;i++) {
-                _players.push(players[i]);
+                _team.players.push(players[i]);
             }
         },
         setTimeboxes: function(timeboxes) {
             for(var i=0;i<timeboxes.length;i++) {
-                _timeboxes.push(new timebox(timeboxes[i]));
+                _team.timeboxes.push(new timebox(timeboxes[i]));
             }
         },
 		getPlayerDuration: function(p) {
 			p.duration = 0
-            for(var i=0;i<_timeboxes.length;i++) {
-                _timeboxes[i].foreachPlacesDo(function(place, timebox) {
+            for(var i=0;i<_team.timeboxes.length;i++) {
+                _team.timeboxes[i].foreachPlacesDo(function (place, timebox) {
                     if(place && place.player && place.player.id == p.id) {
                         p.duration += timebox.duration
                     }
                 })
             }
 		},
-		createTimebox: function(maxTime, _places) {
-			_maxtime = maxTime
-			_timeboxes.push(new timebox([1,maxTime,angular.copy(_players),_places]))
-			_timeboxes.updateNextOut()
-		},
 		updateTimeBoxesDuration: function() {
-			for(var i=0;i<_timeboxes.length;i++) {
-				_timeboxes[i].duration = _maxtime / _timeboxes.length
+		    for (var i = 0; i < _team.timeboxes.length; i++) {
+		        _team.timeboxes[i].duration = _team.maxtime / _team.timeboxes.length
 			}
 		},
         updatePlayersDuration: function() {
-            for(var i=0;i<_players.length;i++) {
-                this.getPlayerDuration(_players[i])
+            for (var i = 0; i < _team.players.length; i++) {
+                this.getPlayerDuration(_team.players[i])
             }
         },
 		duplicTimeboxAndUpdate: function(newTimebox) {
-			_timeboxes.duplicate(newTimebox)
+		    _team.timeboxes.duplicate(newTimebox)
 			this.updateTimeBoxesDuration()
             this.updatePlayersDuration()
-			_timeboxes.updateNextOut()
+            _team.timeboxes.updateNextOut()
 		},
 		removeTimeboxAndUpdate: function(timebox) {
-			_timeboxes.remove(timebox)
+		    _team.timeboxes.remove(timebox)
 			this.updateTimeBoxesDuration()
             this.updatePlayersDuration()
-			_timeboxes.updateNextOut()
+            _team.timeboxes.updateNextOut()
 		},
 		isAllPlaceOk: function() {
-            if(_timeboxes.length == 0) return false
+		    if (_team.timeboxes.length == 0) return false
 
             var result = true
-            for(var i=0;i<_timeboxes.length;i++) {
-                result &= _timeboxes[i].isAllPlaygroundFieldFill()
+            for (var i = 0; i < _team.timeboxes.length; i++) {
+                result &= _team.timeboxes[i].isAllPlaygroundFieldFill()
             }
 			return result;
 		},
         reinit: function() {
-            _timeboxes.length = 0
-            _players.length = 0
+            _team.timeboxes.length = 0
+            _team.players.length = 0
         }
 	};
 });

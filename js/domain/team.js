@@ -2,9 +2,10 @@
     this.players = []
     this.timeboxes = []
     this.maxtime = 0
+	
     this.addPlayer = function (name) {
         if (name && name != '') {
-            var p = { id: this.players.length + 1, name: name }
+            var p = new player(this.players.length + 1, name)
             this.players.push(p)
         }
     }
@@ -20,6 +21,11 @@
         }
         this.createTimebox(90, fields)
     }
+	
+	this.reinit = function() {
+            this.timeboxes.length = 0
+            this.players.length = 0
+    }
 
     this.isAllPlaceOk = function () {
         if (this.timeboxes.length == 0) return false
@@ -31,6 +37,17 @@
 
         return result;
     }
+	
+	this.getPlayerDuration = function(p) {
+			p.duration = 0
+            for(var i=0;i<this.timeboxes.length;i++) {
+                this.timeboxes[i].foreachPlacesDo(function (place, timebox) {
+                    if(place && place.player && place.player.id == p.id) {
+                        p.duration += timebox.duration
+                    }
+                })
+            }
+		}
 
     this.updateTimeBoxesDuration = function () {
         for (var i = 0; i < this.timeboxes.length; i++) {
@@ -43,4 +60,18 @@
             this.getPlayerDuration(this.players[i])
         }
     }
+	
+	this.duplicTimeboxAndUpdate = function(newTimebox) {
+		this.timeboxes.duplicate(newTimebox)
+		this.updateTimeBoxesDuration()
+		this.updatePlayersDuration()
+		this.timeboxes.updateNextOut()
+	}
+	
+	this.removeTimeboxAndUpdate = function(timebox) {
+		this.timeboxes.remove(timebox)
+		this.updateTimeBoxesDuration()
+		this.updatePlayersDuration()
+		this.timeboxes.updateNextOut()
+	}
 }

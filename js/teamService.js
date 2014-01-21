@@ -40,39 +40,16 @@ App.service('teamService', function (){
         },
         setPlayers:function (players){
             for(var i=0;i<players.length;i++) {
-                _team.players.push(players[i]);
+                _team.players.push(players[i])
             }
         },
         setTimeboxes: function(timeboxes) {
             for(var i=0;i<timeboxes.length;i++) {
-                _team.timeboxes.push(new timebox(timeboxes[i]));
+                _team.timeboxes.push(new timebox(timeboxes[i]))
             }
         },
-		getPlayerDuration: function(p) {
-			p.duration = 0
-            for(var i=0;i<_team.timeboxes.length;i++) {
-                _team.timeboxes[i].foreachPlacesDo(function (place, timebox) {
-                    if(place && place.player && place.player.id == p.id) {
-                        p.duration += timebox.duration
-                    }
-                })
-            }
-		},
-		duplicTimeboxAndUpdate: function(newTimebox) {
-		    _team.timeboxes.duplicate(newTimebox)
-			this.updateTimeBoxesDuration()
-            this.updatePlayersDuration()
-            _team.timeboxes.updateNextOut()
-		},
-		removeTimeboxAndUpdate: function(timebox) {
-		    _team.timeboxes.remove(timebox)
-			this.updateTimeBoxesDuration()
-            this.updatePlayersDuration()
-            _team.timeboxes.updateNextOut()
-		},
-        reinit: function() {
-            _team.timeboxes.length = 0
-            _team.players.length = 0
-        }
+		reinti: function() {
+			_team.reinit()
+		}
 	};
 });

@@ -46,7 +46,7 @@
     }
 
     $scope.isAllPlaceOk = function() {
-        return teamService.isAllPlaceOk()
+        return teamService.getTeam().isAllPlaceOk()
     }
 	
 	$scope.canBeEdited = function() {

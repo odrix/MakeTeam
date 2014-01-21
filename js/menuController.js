@@ -1,17 +1,4 @@
-﻿App.controller('menuCtrl', function($scope, localStorageService, teamService, $location, $timeout) {
-
-    $scope.IntroOptions = {
-        steps : [{
-            element: document.querySelector('#txtplayers'),
-            intro: "Tapez les nom des joueurs de votre équipe participant au macth<br/>séparé par des virgule(,), point-virgule(;), espace( ) ou retour à la ligne. ",
-            position: 'right'
-        },
-            {
-                element: document.querySelector('.btnValidationJoueurs'),
-                intro: "Valider",
-                position: 'right'
-            }]
-    }
+﻿App.controller('menuCtrl', function($scope, localStorageService, teamService, AzureMobileClient, $location, $timeout) {
 
     $scope.new = function() {
         teamService.reinit()
@@ -29,57 +16,42 @@
     }
 
     $scope.save = function(){
-		localStorageService.set('players', teamService.getTeam().players)
-		localStorageService.set('compo', teamService.getTeam().timeboxes)
+		// localStorageService.set('players', teamService.players)
+		// localStorageService.set('compo', teamService.timeboxes)
+		AzureMobileClient.addTeam(teamService)
     }
 
     $scope.getLast = function(){
         teamService.setPlayers(localStorageService.get('players'))
         teamService.setTimeboxes(localStorageService.get('compo'))
-		teamService.getTeam().timeboxes.updateNextOut()
+		teamService.timeboxes.updateNextOut()
         $location.path("/composer", false)
     }
 
-
-    $scope.isNew = function() {
-        return teamService.getTeam().timeboxes.length == 0
-    }
-
-    $scope.isAllPlaceOk = function() {
-        return teamService.getTeam().isAllPlaceOk()
-    }
-	
+    $scope.isNew = teamService.isNew
+    $scope.isAllPlaceOk = teamService.isAllPlaceOk
+        
 	$scope.canBeEdited = function() {
-		if (this.isAllPlaceOk() && !this.isNew())
+		if (teamService.isAllPlaceOk() && !teamService.isNew())
 			return true;
 		else
 			return false;
 	}
 
-	//$scope.login = function () {
-	    
-	//}
+	$scope.isConnected = function () {
+	    return AzureMobileClient.isLoggedIn
+	}
+	
+	$scope.login = function (socialService) {
+        AzureMobileClient.login(function(isLoggedIn) {
+            if (isLoggedIn) {
+                $window.location.href = "/#/debut"
+            }
+        }, "facebook")
+    };
 
-	//$scope.logout = function () {
-	   
-	//}
+    $scope.logout = function() {       
+        AzureMobileClient.logout()
+    }
 
-	//$scope.isConnected = function () {
-	//    return false;
-	//}
-
-    $scope.$on('$viewContentLoaded', function() {
-        $scope.IntroOptions = {
-            steps : [{
-                element: document.querySelector('#txtplayers'),
-                intro: "Tapez les nom des joueurs de votre équipe participant au macth<br/>séparé par des virgule(,), point-virgule(;), espace( ) ou retour à la ligne. ",
-                position: 'right'
-            },
-                {
-                    element: document.querySelector('.btnValidationJoueurs'),
-                    intro: "Valider",
-                    position: 'right'
-                }]
-        }
-    })
 });

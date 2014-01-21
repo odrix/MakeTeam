@@ -14,10 +14,9 @@ App.controller('StartCtrl', function($scope, teamService, $location,$timeout) {
     $scope.validationPlayers = function() {
 		var reg=new RegExp("[ ,;\n]+", "g");
 		var players = $scope.playerList.split(reg)
-        //var _places = [[{no:1}], [{no:2},{no:4},{no:5},{no:3}], [{no:6},{no:7}], [{no:8},{no:10},{no:11}], [{no:9}]] // 4-2-3-1
-
-		if (teamService.getTeam().timeboxes.length == 0)
-		    teamService.getTeam().init(players, $scope.places.compo)
+        
+		if (teamService.timeboxes.length == 0)
+		    teamService.init(players, $scope.places.compo)
         else
             completePlayersList(players)
         $location.path("/composer", false)

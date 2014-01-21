@@ -1,6 +1,6 @@
 App.service('teamService', function (){
 	
-    var _team = new team();
+    var _team = new team()
 	
 	_team.timeboxes.updateNextOut = function() {
         for(var i=0;i<this.length;i++) {
@@ -34,22 +34,5 @@ App.service('teamService', function (){
         }
 	}
 
-    return {
-        getTeam: function () {
-            return _team
-        },
-        setPlayers:function (players){
-            for(var i=0;i<players.length;i++) {
-                _team.players.push(players[i])
-            }
-        },
-        setTimeboxes: function(timeboxes) {
-            for(var i=0;i<timeboxes.length;i++) {
-                _team.timeboxes.push(new timebox(timeboxes[i]))
-            }
-        },
-		reinti: function() {
-			_team.reinit()
-		}
-	};
-});
+    return  _team
+})

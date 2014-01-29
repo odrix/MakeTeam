@@ -36,13 +36,21 @@
 		client.getUser()
 		
 		var teamTable = client.azureMSC.getTable("TeamMatch")
-        var playerTable = client.azureMSC.getTable("Player")
-        var timeboxTable = client.azureMSC.getTable("Timebox")
-        var timeboxPlayerTable = client.azureMSC.getTable("TimeboxPlayer")
-		
-		for(var i=0;i<scope.timeboxes.length;i++) {
-			timeboxTable.insert({duration:scope.timeboxes[i].duration,teammatchid:scope.id})
-		}
+		scope.userId = client.azureMSC.currentUser.userId
+
+		teamTable.insert(scope.serialize()).done(function (result) {
+            scope.id = result.id
+		}, function (err) {
+		    console.log("ERROR: " + err)
+		    alert("une erreur est survenue durant l'enregistrement")
+		})
+	}
+
+	client.updateTeam = function (scope) {
+	    client.getUser()
+
+	    var teamTable = client.azureMSC.getTable("TeamMatch")
+	    teamTable.update(scope.serialize())
 	}
 
 	client.getUser = function() {

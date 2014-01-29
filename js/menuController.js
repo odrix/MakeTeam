@@ -16,9 +16,10 @@
     }
 
     $scope.save = function(){
-		// localStorageService.set('players', teamService.players)
-		// localStorageService.set('compo', teamService.timeboxes)
-		AzureMobileClient.addTeam(teamService)
+        if(teamService.id == '')
+            AzureMobileClient.addTeam(teamService)
+        else
+            AzureMobileClient.updateTeam(teamService)
     }
 
     $scope.getLast = function(){

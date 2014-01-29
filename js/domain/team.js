@@ -1,5 +1,5 @@
 ﻿team = function () {
-	this.id=485
+	this.id=""
     this.players = []
     this.timeboxes = []
     this.maxtime = 0
@@ -94,5 +94,23 @@
 		this.updateTimeBoxesDuration()
 		this.updatePlayersDuration()
 		this.timeboxes.updateNextOut()
+	}
+
+	this.serialize = function () {
+	    return {
+            id: this.id,
+	        userId: this.userId,
+	        duartion: this.maxtime,
+	        players: JSON.stringify(this.players),
+	        timeboxes: JSON.stringify(this.timeboxes)
+	    }
+	}
+
+	this.deserialize = function (obj) {
+	    this.id = obj.id
+	    this.userId = obj.userId
+	    this.maxtime = obj.duartion
+	    this.players = JSON.parse(obj.players)
+	    this.timeboxes = JSON.parse(obj.timeboxes)
 	}
 }

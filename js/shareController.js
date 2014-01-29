@@ -1,7 +1,6 @@
 App.controller('ShareCtrl', function($scope, teamService, $timeout) {
-
-    var compo = teamService.timeboxes
-    compo.updateNextOut()
-	$scope.timeBoxes = compo
+ 
+    teamService.updateNextOut()
+    $scope.timeBoxes = teamService.timeboxes
     
 });

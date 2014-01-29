@@ -24,8 +24,8 @@
     }
 	
 	this.reinit = function() {
-            this.timeboxes.length = 0
-            this.players.length = 0
+        this.timeboxes.length = 0
+        this.players.length = 0
     }
 	
 	this.setPlayers = function (players){
@@ -86,14 +86,14 @@
 		this.timeboxes.duplicate(newTimebox)
 		this.updateTimeBoxesDuration()
 		this.updatePlayersDuration()
-		this.timeboxes.updateNextOut()
+		this.updateNextOut()
 	}
 	
 	this.removeTimeboxAndUpdate = function(timebox) {
 		this.timeboxes.remove(timebox)
 		this.updateTimeBoxesDuration()
 		this.updatePlayersDuration()
-		this.timeboxes.updateNextOut()
+		this.updateNextOut()
 	}
 
 	this.serialize = function () {
@@ -110,7 +110,7 @@
 	    this.id = obj.id
 	    this.userId = obj.userId
 	    this.maxtime = obj.duartion
-	    this.players = JSON.parse(obj.players)
-	    this.timeboxes = JSON.parse(obj.timeboxes)
+	    this.players = this.setPlayers(JSON.parse(obj.players))
+	    this.timeboxes = this.setTimeboxes(JSON.parse(obj.timeboxes))
 	}
 }

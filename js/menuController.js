@@ -27,11 +27,20 @@
         }
     }
 
-    $scope.getLast = function(){
-        teamService.setPlayers(localStorageService.get('players'))
-        teamService.setTimeboxes(localStorageService.get('compo'))
-		teamService.timeboxes.updateNextOut()
-        $location.path("/composer", false)
+    $scope.getLast = function () {
+        if (AzureMobileClient.isLoggedIn()) {
+            AzureMobileClient.getLastTeam(function (team) {
+                teamService.deserialize(team);
+                //teamService.updateNextOut()
+                $location.path("/composer", false)
+                $scope.$apply()
+            })
+        } else {
+            teamService.setPlayers(localStorageService.get('players'))
+            teamService.setTimeboxes(localStorageService.get('compo'))
+            teamService.updateNextOut()
+            $location.path("/composer", false)
+        }
     }
 
     $scope.isNew = function () { return teamService.isNew() }

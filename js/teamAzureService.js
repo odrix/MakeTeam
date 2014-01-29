@@ -1,4 +1,5 @@
-﻿angular.module('mkTeamApp').factory('AzureMobileClient',  function () {
+﻿App.factory('AzureMobileClient', function () {
+//angular.module('mkTeamApp').factory('AzureMobileClient', function () {
 	//['$cookieStore', function ($cookieStore) {
 
 	var client = {}
@@ -26,12 +27,29 @@
 		//$cookieStore.remove("azureUser")
 	}
 
-	client.getTeam = function(callback) {
-			client.getUser()
-			var stuffTable = client.azureMSC.getTable("TeamMatch");
-			stuffTable.read().then(function(items) {
-				callback(items);
-			})
+	client.getTeams = function (callback) {
+	    client.getUser()
+	    var teamTable = client.azureMSC.getTable("TeamMatch");
+	    teamTable.where({
+	        userId: client.azureMSC.currentUser.userId
+	    }).orderByDescending('__updatedAt').read().done(function (items) {
+	        callback(items);
+	    })
+	}
+
+	client.getLastTeam = function (callback) {
+	    client.getUser()
+	    var teamTable = client.azureMSC.getTable("TeamMatch");
+	    teamTable.where({
+	        userId: client.azureMSC.currentUser.userId
+	    }).orderByDescending('__updatedAt').take(1).read().done(function (items) {
+            if(items.length == 1)
+                callback(items[0])
+            else
+                callback(null)
+	    }, function (err) {
+	        console.log("get last: " + err)
+	    })
 	}
 
 	client.addTeam = function(scope) {
@@ -43,7 +61,7 @@
 		teamTable.insert(scope.serialize()).done(function (result) {
             scope.id = result.id
 		}, function (err) {
-		    console.log("ERROR: " + err)
+		    console.log("add team: " + err)
 		    alert("une erreur est survenue durant l'enregistrement")
 		})
 	}

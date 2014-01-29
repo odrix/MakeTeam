@@ -2,10 +2,10 @@ App.service('teamService', function (){
 	
     var _team = new team()
 	
-	_team.timeboxes.updateNextOut = function() {
-        for(var i=0;i<this.length;i++) {
+	_team.updateNextOut = function() {
+	    for (var i = 0; i < this.timeboxes.length; i++) {
             var iNext = i+1;
-            this[i].foreachPlacesDo(function(place) {
+            this.timeboxes[i].foreachPlacesDo(function (place) {
 				if (place) {
 					place.nextSubstitute = false;
 					if(iNext < _team.timeboxes.length) {
@@ -18,7 +18,7 @@ App.service('teamService', function (){
 					}
 				}
 			})
-			this[i].foreachSubstitutesDo(function(sub) {
+            this.timeboxes[i].foreachSubstitutesDo(function (sub) {
 				if(iNext < _team.timeboxes.length) {
 					if (sub) {
 						sub.nextStaySubstituted = false

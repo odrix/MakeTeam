@@ -110,7 +110,7 @@
 	    this.id = obj.id
 	    this.userId = obj.userId
 	    this.maxtime = obj.duartion
-	    this.players = this.setPlayers(JSON.parse(obj.players))
-	    this.timeboxes = this.setTimeboxes(JSON.parse(obj.timeboxes))
+	    this.setPlayers(JSON.parse(obj.players))
+	    this.setTimeboxes(JSON.parse(obj.timeboxes))
 	}
 }

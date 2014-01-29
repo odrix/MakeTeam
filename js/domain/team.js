@@ -45,7 +45,7 @@
     }
 	
     this.isAllPlaceOk = function () {
-        var result = true
+        var result = false
 		if (!this.isNew())
 		{
 			result = true

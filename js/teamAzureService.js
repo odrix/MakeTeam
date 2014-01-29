@@ -2,15 +2,17 @@
 	//['$cookieStore', function ($cookieStore) {
 
 	var client = {}
-	client.isLoggedIn = false
+	
+	client.azureMSC = new WindowsAzure.MobileServiceClient("https://maketeam.azure-mobile.net/", "IrDVghdkCYNHXpCbkwuuTXPsXVfcbf94")
 	client.azureError = ""
-	client.azureMSC = new WindowsAzure.MobileServiceClient( "https://maketeam.azure-mobile.net/", "IrDVghdkCYNHXpCbkwuuTXPsXVfcbf94" )
+	client.isLoggedIn = function () {
+	    return client.azureMSC.currentUser != null
+	}
         
-	client.login = function(callback, socialMediaService) {
+	client.login = function(socialMediaService, callback) {
 		client.azureMSC.login(socialMediaService).then(function(user) {
-			client.isLoggedIn = user != null
-			//$cookieStore.put("azureUser", user)
-			callback(client.isLoggedIn)
+		    //$cookieStore.put("azureUser", user)
+		    callback(user);
 		}, 
 		function(error){
 			alert(error)

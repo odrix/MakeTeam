@@ -16,10 +16,15 @@
     }
 
     $scope.save = function(){
-        if(teamService.id == '')
-            AzureMobileClient.addTeam(teamService)
-        else
-            AzureMobileClient.updateTeam(teamService)
+        if (AzureMobileClient.isLoggedIn()) {
+            if (teamService.id == '')
+                AzureMobileClient.addTeam(teamService)
+            else
+                AzureMobileClient.updateTeam(teamService)
+        } else {
+            localStorageService.set('players', teamService.getTeam().players)
+            localStorageService.set('compo', teamService.getTeam().timeboxes)
+        }
     }
 
     $scope.getLast = function(){
@@ -29,26 +34,16 @@
         $location.path("/composer", false)
     }
 
-    $scope.isNew = teamService.isNew
-    $scope.isAllPlaceOk = teamService.isAllPlaceOk
-        
-	$scope.canBeEdited = function() {
-		if (teamService.isAllPlaceOk() && !teamService.isNew())
-			return true;
-		else
-			return false;
-	}
+    $scope.isNew = function () { return teamService.isNew() }
+    $scope.isAllPlaceOk = function () { return teamService.isAllPlaceOk() }
+    $scope.isConnected = function () { return AzureMobileClient.isLoggedIn() }
+	$scope.canBeEdited = function() { return (teamService.isAllPlaceOk() && !teamService.isNew())}
 
-	$scope.isConnected = function () {
-	    return AzureMobileClient.isLoggedIn
-	}
 	
 	$scope.login = function (socialService) {
-        AzureMobileClient.login(function(isLoggedIn) {
-            if (isLoggedIn) {
-                $window.location.href = "/#/debut"
-            }
-        }, "facebook")
+	    AzureMobileClient.login("facebook", function() {
+	        $scope.$apply() // pour mettre a jour le boutton connecter/deconnecter
+	    })
     };
 
     $scope.logout = function() {       

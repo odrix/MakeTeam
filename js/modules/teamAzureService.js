@@ -1,4 +1,4 @@
-﻿App.factory('AzureMobileClient', function () {
+﻿App.factory('azureMobileClient', function () {
 //angular.module('mkTeamApp').factory('AzureMobileClient', function () {
 	//['$cookieStore', function ($cookieStore) {
 
@@ -40,9 +40,7 @@
 	client.getLastTeam = function (callback) {
 	    client.getUser()
 	    var teamTable = client.azureMSC.getTable("TeamMatch");
-	    teamTable.where({
-	        userId: client.azureMSC.currentUser.userId
-	    }).orderByDescending('__updatedAt').take(1).read().done(function (items) {
+	    teamTable.orderByDescending('__updatedAt').take(1).read().done(function (items) {
             if(items.length == 1)
                 callback(items[0])
             else
@@ -54,21 +52,16 @@
 
 	client.addTeam = function(scope) {
 		client.getUser()
-		
 		var teamTable = client.azureMSC.getTable("TeamMatch")
-		scope.userId = client.azureMSC.currentUser.userId
-
 		teamTable.insert(scope.serialize()).done(function (result) {
             scope.id = result.id
 		}, function (err) {
 		    console.log("add team: " + err)
-		    alert("une erreur est survenue durant l'enregistrement")
 		})
 	}
 
 	client.updateTeam = function (scope) {
 	    client.getUser()
-
 	    var teamTable = client.azureMSC.getTable("TeamMatch")
 	    teamTable.update(scope.serialize())
 	}

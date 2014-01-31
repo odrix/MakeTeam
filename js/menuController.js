@@ -1,4 +1,4 @@
-﻿App.controller('menuCtrl', function($scope, localStorageService, teamService, AzureMobileClient, $location, $timeout) {
+﻿App.controller('menuCtrl', function($scope, storageService, teamService, azureMobileClient, $location, $timeout) {
 
     $scope.new = function() {
         teamService.reinit()
@@ -16,47 +16,33 @@
     }
 
     $scope.save = function(){
-        if (AzureMobileClient.isLoggedIn()) {
-            if (teamService.id == '')
-                AzureMobileClient.addTeam(teamService)
-            else
-                AzureMobileClient.updateTeam(teamService)
-        } else {
-            localStorageService.set('players', teamService.getTeam().players)
-            localStorageService.set('compo', teamService.getTeam().timeboxes)
-        }
+		storageService.o.save(teamService)
     }
 
     $scope.getLast = function () {
-        if (AzureMobileClient.isLoggedIn()) {
-            AzureMobileClient.getLastTeam(function (team) {
-                teamService.deserialize(team);
-                //teamService.updateNextOut()
-                $location.path("/composer", false)
-                $scope.$apply()
-            })
-        } else {
-            teamService.setPlayers(localStorageService.get('players'))
-            teamService.setTimeboxes(localStorageService.get('compo'))
-            teamService.updateNextOut()
+		storageService.o.getLast(teamService, function(team) {
+            team.updateNextOut()
             $location.path("/composer", false)
-        }
+			$scope.$apply()
+        })
     }
 
     $scope.isNew = function () { return teamService.isNew() }
     $scope.isAllPlaceOk = function () { return teamService.isAllPlaceOk() }
-    $scope.isConnected = function () { return AzureMobileClient.isLoggedIn() }
+    $scope.isConnected = function () { return azureMobileClient.isLoggedIn() }
 	$scope.canBeEdited = function() { return (teamService.isAllPlaceOk() && !teamService.isNew())}
 
 	
 	$scope.login = function (socialService) {
-	    AzureMobileClient.login("facebook", function() {
+	    azureMobileClient.login("facebook", function() {
+			storageService.useAzure()
 	        $scope.$apply() // pour mettre a jour le boutton connecter/deconnecter
 	    })
     };
 
     $scope.logout = function() {       
-        AzureMobileClient.logout()
+        azureMobileClient.logout()
+		storageService.useLocal()
     }
 
 });

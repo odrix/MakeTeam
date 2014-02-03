@@ -34,7 +34,7 @@
 
 	
 	$scope.login = function (socialService) {
-	    azureMobileClient.login("facebook", function() {
+	    azureMobileClient.login(socialService, function () {
 			storageService.useAzure()
 	        $scope.$apply() // pour mettre a jour le boutton connecter/deconnecter
 	    })

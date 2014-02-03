@@ -6,6 +6,19 @@ header a{font-size: 140%;margin:0 28px 0 18px;padding:10px;display: inline-block
 header span {width: 90px; height:100%;display: inline-block;border-left: solid 1px lightgray; padding:16px 6px 8px 9px; font-size: 90%;position:relative;top:6px;cursor: pointer;}
 header span:hover{font-size: 100%;color: lightsalmon;}
 
+.buttonSocial {width:36px;height:36px;margin:2px;display:inline-block;border:none;padding:0;}
+#connectFacebook {background:url("../images/social/facebook_off.png") no-repeat;}
+#connectTwitter {background:url("../images/social/twitter_off.png") no-repeat;}
+#connectGooglePlus {background:url("../images/social/google_plus_off.png") no-repeat;}
+#connectMicrosoft {background:url("../images/social/windows_off.png") no-repeat;}
+
+#connectFacebook:hover {background-image:url("../images/social/facebook.png");}
+#connectTwitter:hover {background-image:url("../images/social/twitter.png");}
+#connectGooglePlus:hover {background-image:url("../images/social/google_plus.png");}
+#connectMicrosoft:hover {background-image:url("../images/social/windows.png");}
+
+#connector {margin-left:26px;display:inline-block;}
+
 .double {width:240px;}
 .clear {clear:both;}
 .help {color:#a2a2a2; font-size:70%;line-height:70%;}

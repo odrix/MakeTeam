@@ -70,12 +70,29 @@
         <span ng-click="save()" ng-hide="isNew()" title="Enregistrement uniquement en local">Enregistrer</span>
         <span ng-click="getLast()" ng-show="isNew()">Derni&egravere composition</span>
         <span ng-click="share()" ng-show="isAllPlaceOk()">Partager</span>
-        <span ng-click="login()" ng-hide="isConnected()">se connecter</span>
-        <span ng-click="logout()" ng-show="isConnected()">deconnecter</span>
+        <span ng-hide="isConnected()" class="buttonConnect">se connecter</span>
+        <span ng-click="logout()" class="buttonConnect" ng-show="isConnected()">deconnecter</span>
         <!--<span id="btnDemo" ng-click="CallMe()">demo</span>-->
+        <div id="connector">
+            <span id="connectFacebook" class="buttonSocial" ng-click="login('facebook')"></span>
+            <span id="connectTwitter" class="buttonSocial" ng-click="login('twitter')"></span>
+            <span id="connectGooglePlus" class="buttonSocial" ng-click="login('googleplus')"></span>
+            <span id="connectMicrosoft" class="buttonSocial" ng-click="login('microsoft')"></span>
+        </div>
 	</header>
 	<div ng-view></div>
 	<footer id="footer" role="contentinfo" class="line pam txtcenter">
 	</footer>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery("#connector").hide();
+            jQuery(".buttonConnect:first").mouseenter(function () {
+                jQuery("#connector").show('slow')
+            })
+            jQuery("#connector").mouseleave(function () {
+                jQuery("#connector").hide()
+            })
+        })
+    </script>
 </body>
 </html>

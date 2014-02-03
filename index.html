@@ -74,10 +74,10 @@
         <span ng-click="logout()" class="buttonConnect" ng-show="isConnected()">deconnecter</span>
         <!--<span id="btnDemo" ng-click="CallMe()">demo</span>-->
         <div id="connector">
-            <span id="connectFacebook" class="buttonSocial" ng-click="login('facebook')"></span>
-            <span id="connectTwitter" class="buttonSocial" ng-click="login('twitter')"></span>
-            <span id="connectGooglePlus" class="buttonSocial" ng-click="login('googleplus')"></span>
-            <span id="connectMicrosoft" class="buttonSocial" ng-click="login('microsoft')"></span>
+            <span id="connectFacebook" class="buttonSocial" title="se connecter par Facebook" ng-click="login('facebook')"></span>
+            <span id="connectTwitter" class="buttonSocial" title="se connecter par Twitter" ng-click="login('twitter')"></span>
+            <span id="connectGooglePlus" class="buttonSocial" title="se connecter par Google" ng-click="login('google')"></span>
+            <span id="connectMicrosoft" class="buttonSocial" title="ne fonctionne pas" ng-click="login('microsoftaccount')"></span>
         </div>
 	</header>
 	<div ng-view></div>

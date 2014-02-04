@@ -1,9 +1,9 @@
 function timebox (t) { //id,duration,playerSubstitutes,playgroundField) {
 
-    this.id = t.id || t[0]
-    this.duration = t.duration || t[1]
-    this.playerSubstitutes = t.playerSubstitutes || t[2]
-    this.playgroundField = t.playgroundField || t[3]
+    this.id = t.id || t[0] || arguments[0]
+    this.duration = t.duration || t[1] || arguments[1]
+    this.playerSubstitutes = t.playerSubstitutes || t[2] || arguments[2]
+    this.playgroundField = t.playgroundField || t[3] || arguments[3]
     this.collapse = false;
 
     this.foreachPlacesDo = function(action) {
@@ -50,7 +50,7 @@ function timebox (t) { //id,duration,playerSubstitutes,playgroundField) {
      
 }
 
-
+// duplicate a timebox in an array of timeboxes
 Array.prototype.duplicate = function(item) {
     var indexItem = this.getIndexById(item)
     item.id = this.length + 1
@@ -60,6 +60,7 @@ Array.prototype.duplicate = function(item) {
         this.splice(indexItem, 0, item)
 }
 
+// remove a timebox in an array of timeboxes
 Array.prototype.remove = function(item) {
     var indexItem = this.getIndexById(item)
     if(indexItem>-1) {
@@ -68,6 +69,7 @@ Array.prototype.remove = function(item) {
     }
 }
 
+// get the index of a timebox in an array of timeboxes
 Array.prototype.getIndexById = function(item){
     for(var i=0;i<this.length;i++) {
         if(this[i].id == item.id)

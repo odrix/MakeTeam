@@ -2,16 +2,17 @@
     var team
     var compo = [[{ no: 1 }], [{ no: 2 }, { no: 4 }, { no: 5 }, { no: 3 }], [{ no: 6 }, { no: 7 }], [{ no: 8 }, { no: 10 }, { no: 11 }], [{ no: 9 }]]
     var players = ['pierre', 'paul', 'jack']
+    var maxtime = 90 
 
     beforeEach(function () {
         team = new Team()
-        team.init(players, compo, 90);
+        team.init(players, compo, maxtime);
     });
 
     it("init ok", function () {
-        expect(team.players.length).toEqual(3);
+        expect(team.players.length).toEqual(players.length);
         expect(team.timeboxes.length).toEqual(1);
-        expect(team.maxtime, 90);
+        expect(team.maxtime).toEqual(maxtime);
     });
 
     it("after init is NOT new", function () {

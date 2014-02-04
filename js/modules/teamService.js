@@ -1,6 +1,6 @@
 App.service('teamService', function (){
 	
-    var _team = new team()
+    var _team = new Team()
 	
 	_team.updateNextOut = function() {
 	    for (var i = 0; i < this.timeboxes.length; i++) {

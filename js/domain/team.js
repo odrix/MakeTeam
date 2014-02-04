@@ -1,26 +1,30 @@
-﻿team = function () {
+﻿Team = function () {
+    var _players = []
+    var _timeboxes = []
+    var _maxtime = 0
+
 	this.id=""
-    this.players = []
-    this.timeboxes = []
-    this.maxtime = 0
+    this.players = _players
+    this.timeboxes = _timeboxes
+    this.maxtime = _maxtime
 	
-    this.addPlayer = function (name) {
+    function addPlayer(name) {
         if (name && name != '') {
-            var p = new player(this.players.length + 1, name)
-            this.players.push(p)
+            var p = new player(_players.length + 1, name)
+            _players.push(p)
         }
     }
 
-    this.createTimebox = function (maxTime, fields) {
-        this.maxtime = maxTime
-        this.timeboxes.push(new timebox([1, maxTime, angular.copy(this.players), fields]))
+    function createTimebox (maxTime, fields) {
+        _maxtime = maxTime
+        _timeboxes.push(new Timebox(1, maxTime, _players.clone(), fields))
     }
 
-    this.init = function (players, fields, timeboxes) {
+    this.init = function (players, fields, matchDuration) {
         for (var i = 0; i < players.length; i++) {
-            this.addPlayer(players[i].trim())
+            addPlayer(players[i].trim())
         }
-		this.createTimebox(90, fields)
+        createTimebox(matchDuration, fields)
     }
 	
 	this.reinit = function() {
@@ -36,7 +40,7 @@
 	
 	this.setTimeboxes = function(timeboxes) {
 		for(var i=0;i<timeboxes.length;i++) {
-			this.timeboxes.push(new timebox(timeboxes[i]))
+			this.timeboxes.push(new Timebox(timeboxes[i]))
 		}
 	}
 

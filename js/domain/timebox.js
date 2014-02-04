@@ -1,4 +1,4 @@
-function timebox (t) { //id,duration,playerSubstitutes,playgroundField) {
+function Timebox (t) { //id,duration,playerSubstitutes,playgroundField) {
 
     this.id = t.id || t[0] || arguments[0]
     this.duration = t.duration || t[1] || arguments[1]

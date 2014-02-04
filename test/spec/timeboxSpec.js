@@ -2,7 +2,7 @@
     var timeBox
 
     beforeEach(function () {
-        timeBox = new timebox(1, 45, ['moi', 'lui'],
+        timeBox = new Timebox(1, 45, ['moi', 'lui'],
             [
                 [
                     { player: { id: 1, nom: 'raul' } },

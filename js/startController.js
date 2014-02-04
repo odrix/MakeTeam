@@ -16,7 +16,7 @@ App.controller('StartCtrl', function($scope, teamService, $location,$timeout) {
 		var players = $scope.playerList.split(reg)
         
 		if (teamService.timeboxes.length == 0)
-		    teamService.init(players, $scope.places.compo)
+		    teamService.init(players, $scope.places.compo,  90)
         else
             completePlayersList(players)
         $location.path("/composer", false)

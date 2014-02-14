@@ -61,6 +61,11 @@
 			return false;
 	}
 
+	$scope.newPlayerForm = function () {
+	    teamService.toggleDisplayNewPlayerForm()
+        //$scope.$apply()
+	}
+
     $scope.$on('$viewContentLoaded', function() {
         $scope.IntroOptions = {
             steps : [{

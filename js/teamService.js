@@ -2,7 +2,8 @@ App.service('teamService', function (){
     
 	var _players = [];
     var _timeboxes = [];
-	var _maxtime = 0;
+    var _maxtime = 0;
+    var _displayNewPlayerForm = false;
 	
 	_timeboxes.updateNextOut = function() {
         for(var i=0;i<this.length;i++) {
@@ -38,11 +39,15 @@ App.service('teamService', function (){
 
     return {
 		addPlayer:function (name){
-			if(name && name != '')
-			{
-				var p = { id: _players.length + 1, name: name}
-				_players.push(p)
-			}
+		    if (name && name != '') {
+		        var p = { id: _players.length + 1, name: name }
+		        _players.push(p)
+		        if (_timeboxes && _timeboxes.length > 0) {
+		            for (var i = 0; i < _timeboxes.length; i++) {
+		                _timeboxes[i].playerSubstitutes.push(p)
+		            }
+		        }
+		    }
 		},
 		getPlayers:function (){
 		  return _players;
@@ -109,6 +114,12 @@ App.service('teamService', function (){
         reinit: function() {
             _timeboxes.length = 0
             _players.length = 0
+        },
+        displayNewPlayerForm: function () {
+            return _displayNewPlayerForm
+        },
+        toggleDisplayNewPlayerForm: function () {
+            _displayNewPlayerForm = !_displayNewPlayerForm
         }
 	};
 });

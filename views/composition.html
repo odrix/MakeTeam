@@ -1,4 +1,11 @@
 <div ng-controller="TeamCtrl" id="composer">
+    <div ng-include="newPlayerForm"></div>
+    <!--<div id="playerForm" ng-show="displayNewPlayerForm()">
+        <span>Joueur: </span>
+        <input type="text" ng-model="newPlayer" name="txtNewPlayer" />
+        <button ng-click="addPlayer()">Ok</button>
+        {{newPlayer}}
+    </div>-->
     <div class="timeBox" ng-repeat="timebox in timeBoxes track by $index" animate="showDown" ng-switch="timebox.collapse">
         <div ng-switch-when="true">
             <div class="timeboxDuration">

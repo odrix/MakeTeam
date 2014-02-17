@@ -1,8 +1,8 @@
 <div ng-controller="TeamCtrl" id="composer">
-    <div ng-include="newPlayerForm"></div>
+    <div ng-include="'views/new_player_form.html'"></div>
     <!--<div id="playerForm" ng-show="displayNewPlayerForm()">
         <span>Joueur: </span>
-        <input type="text" ng-model="newPlayer" name="txtNewPlayer" />
+        <input type="text" ng-model="newPlayer" name="txtNewPlayer" focus="displayNewPlayerForm()" />
         <button ng-click="addPlayer()">Ok</button>
         {{newPlayer}}
     </div>-->

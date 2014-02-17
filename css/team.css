@@ -6,6 +6,18 @@ header a{font-size: 140%;margin:0 28px 0 18px;padding:10px;display: inline-block
 header span {width: 90px; height:100%;display: inline-block;border-left: solid 1px lightgray; padding:16px 6px 8px 9px; font-size: 90%;position:relative;top:6px;cursor: pointer;}
 header span:hover{font-size: 100%;color: lightsalmon;}
 
+#playerForm {
+    width: 300px;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    background: white;
+    padding: 11px 20px;
+    border: solid 1px #888;
+    z-index: 9000;
+    left: 385px;
+}
+
 .double {width:240px;}
 .clear {clear:both;}
 .help {color:#a2a2a2; font-size:70%;line-height:70%;}

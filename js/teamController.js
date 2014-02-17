@@ -2,8 +2,7 @@ App.controller('TeamCtrl', function($scope, teamService, $timeout) {
 		
 	$scope.timeBoxes = teamService.getTimeboxes()
 	$scope.players = teamService.getPlayers()
-	$scope.newPlayer = ''
-	$scope.newPlayerForm = 'views/new_player_form.html'
+    $scope.newPlayer = ''
 
 	$scope.newTimeBox = function (timebox){
 		teamService.duplicTimeboxAndUpdate(angular.copy(timebox))
@@ -31,6 +30,7 @@ App.controller('TeamCtrl', function($scope, teamService, $timeout) {
 		$scope.timeBoxes.updateNextOut()
     }
 
+
     $scope.displayNewPlayerForm = function () {
         return teamService.displayNewPlayerForm()
     }
@@ -40,4 +40,6 @@ App.controller('TeamCtrl', function($scope, teamService, $timeout) {
         $scope.newPlayer = ''
         teamService.toggleDisplayNewPlayerForm()
     }
+
+    
 });

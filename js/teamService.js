@@ -114,6 +114,7 @@ App.service('teamService', function (){
         reinit: function() {
             _timeboxes.length = 0
             _players.length = 0
+            _displayNewPlayerForm = false
         },
         displayNewPlayerForm: function () {
             return _displayNewPlayerForm

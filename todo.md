@@ -12,8 +12,7 @@ peut être après
 ----------------
 * introduction (demo)
 * autre chose que du foot (d'autre sport)
-* gestion de compte
-* sauvegarder la composition (dans le cloud)
+* gestion de compte)
 * partager les resultats par email (lien de  la composition dans l'email)
 * responsive
  * au moins les tablettes

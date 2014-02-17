@@ -17,7 +17,7 @@
         </script>
     <![endif]-->
 
-	
+	<script src="js/domain/helper.js"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.0.min.js"></script>
 	
     <script src="js/lib/intro.min.js"></script>
@@ -31,6 +31,7 @@
 	<script src="js/lib/angular-dragdrop.min.js"></script>
     <script src="js/lib/angular-local-storage.js"></script>
     <script src="js/lib/angular-intro.js"></script>
+	
 	
 	<script src="js/domain/player.js"></script>
 	<script src="js/domain/timebox.js"></script>
@@ -46,9 +47,7 @@
 	<script src="js/teamController.js"></script>
 	<script src="js/shareController.js"></script>
     <script src="js/menuController.js"></script>
-	
-	
-	
+		
 	<script src="js/animateDirective.js"></script>
     <script src="js/playgroundDirective.js"></script>
     <script src="js/focusDirective.js"></script>
@@ -71,15 +70,15 @@
         <span ng-click="save()" ng-hide="isNew()" title="Enregistrement uniquement en local">Enregistrer</span>
         <span ng-click="getLast()" ng-show="isNew()">Derni&egravere composition</span>
         <span ng-click="share()" ng-show="isAllPlaceOk()">Partager</span>
-        <span ng-hide="isConnected()" class="buttonConnect">se connecter</span>
+        <span ng-click="newPlayerForm()" ng-hide="isNew()">Ajouter joueur</span>
+		<span ng-hide="isConnected()" class="buttonConnect">se connecter</span>
         <span ng-click="logout()" class="buttonConnect" ng-show="isConnected()">deconnecter</span>
         <!--<span id="btnDemo" ng-click="CallMe()">demo</span>-->
-        <span ng-click="newPlayerForm()" ng-hide="isNew()">Ajouter joueur</span>
         <div id="connector">
             <span id="connectFacebook" class="buttonSocial" title="se connecter par Facebook" ng-click="login('facebook')"></span>
             <span id="connectTwitter" class="buttonSocial" title="se connecter par Twitter" ng-click="login('twitter')"></span>
             <span id="connectGooglePlus" class="buttonSocial" title="se connecter par Google" ng-click="login('google')"></span>
-            <span id="connectMicrosoft" class="buttonSocial" title="ne fonctionne pas" ng-click="login('microsoftaccount')"></span>
+            <!-- <span id="connectMicrosoft" class="buttonSocial" title="ne fonctionne pas" ng-click="login('microsoftaccount')"></span> -->
         </div>
 	</header>
 	<div ng-view></div>

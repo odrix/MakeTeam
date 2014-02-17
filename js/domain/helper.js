@@ -1,6 +1,7 @@
-﻿Object.prototype.clone = function(obj) {
-    // Handle the 3 simple types, and null or undefined
-    if (null == obj || "object" != typeof obj) return obj;
+﻿Object.clone = function(obj) {
+	
+	// Handle the 3 simple types, and null or undefined
+    if (null === obj || "object" !== typeof obj) return obj;
 
     // Handle Date
     if (obj instanceof Date) {
@@ -13,7 +14,7 @@
     if (obj instanceof Array) {
         var copy = [];
         for (var i = 0, len = obj.length; i < len; i++) {
-            copy[i] = clone(obj[i]);
+            copy[i] = Object.clone(obj[i]);
         }
         return copy;
     }
@@ -22,7 +23,7 @@
     if (obj instanceof Object) {
         var copy = {};
         for (var attr in obj) {
-            if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
+            if (obj.hasOwnProperty(attr)) copy[attr] = Object.clone(obj[attr]);
         }
         return copy;
     }

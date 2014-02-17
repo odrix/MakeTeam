@@ -23,7 +23,7 @@
 
     function createTimebox (maxTime, fields) {
         _maxtime = maxTime
-        _timeboxes.push(new Timebox(1, maxTime, _players.clone(), fields))
+        _timeboxes.push(new Timebox(1, maxTime, Object.clone(_players), fields))
     }
 
     this.init = function (players, fields, matchDuration) {

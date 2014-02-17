@@ -1,9 +1,9 @@
 Fonctionnalités
 ----------------
-* choisir sa liste de joueurs
+* choisir sa liste de joueurs et ajout de joueur(s)
 * visu du terrain de foot en background
 * marquer les changements dans le résultat
-* sauvegarder la composition (en local)
+* sauvegarder la composition (en local et dans le cloud - une fois connecter)
 
 Utilisation de :
 -----------------

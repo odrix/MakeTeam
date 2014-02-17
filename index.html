@@ -51,6 +51,8 @@
 	
 	<script src="js/animateDirective.js"></script>
     <script src="js/playgroundDirective.js"></script>
+    <script src="js/focusDirective.js"></script>
+    <script src="js/newPlayerFormDirective.js"></script>
 
     
 	<!-- <link media="all" rel="stylesheet" type="text/css" href="css/all.css" /> -->
@@ -73,6 +75,7 @@
         <span ng-hide="isConnected()" class="buttonConnect">se connecter</span>
         <span ng-click="logout()" class="buttonConnect" ng-show="isConnected()">deconnecter</span>
         <!--<span id="btnDemo" ng-click="CallMe()">demo</span>-->
+        <span ng-click="newPlayerForm()" ng-hide="isNew()">Ajouter joueur</span>
         <div id="connector">
             <span id="connectFacebook" class="buttonSocial" title="se connecter par Facebook" ng-click="login('facebook')"></span>
             <span id="connectTwitter" class="buttonSocial" title="se connecter par Twitter" ng-click="login('twitter')"></span>

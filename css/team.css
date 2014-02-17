@@ -18,6 +18,18 @@ header span:hover{font-size: 100%;color: lightsalmon;}
 #connectMicrosoft:hover {background-image:url("../images/social/windows.png");}
 
 #connector {margin-left:26px;display:inline-block;}
+#playerForm {
+    width: 300px;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    background: white;
+    padding: 11px 20px;
+    border: solid 1px #888;
+    z-index: 9000;
+    left: 385px;
+}
+
 
 .double {width:240px;}
 .clear {clear:both;}

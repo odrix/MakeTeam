@@ -2,6 +2,7 @@
     var _players = []
     var _timeboxes = []
     var _maxtime = 0
+	var _displayNewPlayerForm = false
 
 	this.id=""
     this.players = _players
@@ -12,6 +13,11 @@
         if (name && name != '') {
             var p = new player(_players.length + 1, name)
             _players.push(p)
+			if (_timeboxes && _timeboxes.length > 0) {
+				for (var i = 0; i < _timeboxes.length; i++) {
+					_timeboxes[i].playerSubstitutes.push(p)
+				}
+			}
         }
     }
 
@@ -30,6 +36,15 @@
 	this.reinit = function() {
         this.timeboxes.length = 0
         this.players.length = 0
+		_displayNewPlayerForm = false
+    }
+	
+	this.displayNewPlayerForm = function () {
+        return _displayNewPlayerForm
+    }
+    
+    this.toggleDisplayNewPlayerForm = function () {
+        _displayNewPlayerForm = !_displayNewPlayerForm
     }
 	
 	this.setPlayers = function (players){

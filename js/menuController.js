@@ -47,7 +47,6 @@
 
 	$scope.newPlayerForm = function () {
 	    teamService.toggleDisplayNewPlayerForm()
-        //$scope.$apply()
 	}
 
 });

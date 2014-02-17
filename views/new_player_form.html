@@ -1,5 +1,5 @@
-﻿<div id="playerForm" ng-show="displayNewPlayerForm()">
+﻿<form id="playerForm" ng-show="displayNewPlayerForm()" ng-submit="addPlayer()">
     <span>Joueur: </span>
     <input type="text" ng-model="$parent.newPlayer" name="txtNewPlayer" focus="displayNewPlayerForm()" />
-    <button ng-click="addPlayer()">Ok</button>
-</div>
+    <input type="submit" value="Ok" />
+</form>

@@ -1,23 +1,94 @@
-.headerline {background:black; color:#ececec; font-weight:bold;position:fixed;top:0;left:0;width:100%;z-index:10000;}
-.headerline a {color:inherit;text-decoration:none;}
-body {margin: 64px 24px;background: #ececec;}
-header a{font-size: 140%;margin:0 28px 0 18px;padding:10px;display: inline-block;  }
+.headerline {
+    background: black;
+    color: #ececec;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+}
 
-header span {width: 90px; height:100%;display: inline-block;border-left: solid 1px lightgray; padding:16px 6px 8px 9px; font-size: 90%;position:relative;top:6px;cursor: pointer;}
-header span:hover{font-size: 100%;color: lightsalmon;}
+    .headerline a {
+        color: inherit;
+        text-decoration: none;
+    }
 
-.buttonSocial {width:36px;height:36px;margin:2px;display:inline-block;border:none;padding:0;}
-#connectFacebook {background:url("../images/social/facebook_off.png") no-repeat;}
-#connectTwitter {background:url("../images/social/twitter_off.png") no-repeat;}
-#connectGooglePlus {background:url("../images/social/google_plus_off.png") no-repeat;}
-#connectMicrosoft {background:url("../images/social/windows_off.png") no-repeat;}
+body {
+    margin: 5% 2%;
+    background: #ececec;
+}
 
-#connectFacebook:hover {background-image:url("../images/social/facebook.png");}
-#connectTwitter:hover {background-image:url("../images/social/twitter.png");}
-#connectGooglePlus:hover {background-image:url("../images/social/google_plus.png");}
-#connectMicrosoft:hover {background-image:url("../images/social/windows.png");}
+header a {
+    font-size: 140%;
+    margin: 0 2%;
+    padding: 0.5%;
+    display: inline-block;
+}
 
-#connector {margin-left:26px;display:inline-block;}
+header span {
+    width: 9%;
+    height: 100%;
+    display: inline-block;
+    border-left: solid 1px lightgray;
+    padding: 1%;
+    font-size: 0.9em;
+    position: relative;
+    top: 0.5%;
+    cursor: pointer;
+}
+
+    header span:hover {
+        font-size: 100%;
+        color: lightsalmon;
+    }
+
+.buttonSocial {
+    width: 36px;
+    height: 36px;
+    margin: 2px;
+    display: inline-block;
+    border: none;
+    padding: 0;
+}
+
+#connectFacebook {
+    background: url("../images/social/facebook_off.png") no-repeat;
+}
+
+#connectTwitter {
+    background: url("../images/social/twitter_off.png") no-repeat;
+}
+
+#connectGooglePlus {
+    background: url("../images/social/google_plus_off.png") no-repeat;
+}
+
+#connectMicrosoft {
+    background: url("../images/social/windows_off.png") no-repeat;
+}
+
+#connectFacebook:hover {
+    background-image: url("../images/social/facebook.png");
+}
+
+#connectTwitter:hover {
+    background-image: url("../images/social/twitter.png");
+}
+
+#connectGooglePlus:hover {
+    background-image: url("../images/social/google_plus.png");
+}
+
+#connectMicrosoft:hover {
+    background-image: url("../images/social/windows.png");
+}
+
+#connector {
+    margin-left: 26px;
+    display: inline-block;
+}
+
 #playerForm {
     width: 300px;
     display: block;
@@ -31,157 +102,341 @@ header span:hover{font-size: 100%;color: lightsalmon;}
 }
 
 
-.double {width:240px;}
-.clear {clear:both;}
-.help {color:#a2a2a2; font-size:70%;line-height:70%;}
+.double {
+    width: 40%;
+}
 
-.players {padding:12px;}
-.players textarea{resize:none; width:400px; height:130px; }
-.players label {display:block;}
+.clear {
+    clear: both;
+}
+
+.help {
+    color: #a2a2a2;
+    font-size: 0.7em;
+    line-height: 0.7em;
+}
+
+.players {
+    font-size: 1.2em;
+}
+
+.players textarea {
+    resize: none;
+    width: 32%;
+    height: 130px;
+}
+
+.players button {
+    margin: 0.75em 0 0 30%;
+}
 
 .timeBox {
-	display: block;
-	border-bottom: solid 2px black;
-	padding:7px;
-	margin:9px;
-	background: inherit;
+    display: block;
+    border-bottom: solid 2px black;
+    padding: 7px;
+    margin: 9px;
+    background: inherit;
 }
 
-.teamList {float: left;width: 180px;}
-playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4px;background: #9ab26b;position: relative;}
-#composer playground {float: left;margin:36px 24px 9px;}
-.commande {float: left;width: 160px;}
+.teamList {
+    float: left;
+    width: 12%;
+}
 
-.marquageSol{margin:4px;border:solid 1px white;height:320px;}
-#composer .marquageSol:before{position: relative;top: 57px;left: 0;padding: 10px 18px;border: inherit;content: '';border-radius: 50%;} /* rond du gardien */
-#composer .marquageSol:after {content: '';border-radius: 50%;position: relative;top: 42px;left: 0;padding: 100px;border: inherit;z-index: 0;} /* rond central */
-.fieldPlay {display: inline-block;width: 136px;padding: 4px;font-size: 20px;z-index: 99;margin: 3px 3px;height:50px;}
+playground {
+    display: block;
+    text-align: center;
+    width: 600px;
+    margin: 0.5%;
+    padding: 4px;
+    background: #9ab26b;
+    position: relative;
+}
+
+#composer playground {
+    float: left;
+    margin: 36px 24px 9px;
+}
+
+.commande {
+    float: left;
+    width: 160px;
+}
+
+.marquageSol {
+    margin: 4px;
+    border: solid 1px white;
+    height: 320px;
+}
+
+#composer .marquageSol:before {
+    position: relative;
+    top: 57px;
+    left: 0;
+    padding: 10px 18px;
+    border: inherit;
+    content: '';
+    border-radius: 50%;
+}
+/* rond du gardien */
+#composer .marquageSol:after {
+    content: '';
+    border-radius: 50%;
+    position: relative;
+    top: 42px;
+    left: 0;
+    padding: 100px;
+    border: inherit;
+    z-index: 0;
+}
+/* rond central */
+.fieldPlay {
+    display: inline-block;
+    width: 23%;
+    padding: 0.9%;
+    font-size: 1.4em;
+    z-index: 99;
+    margin: 1%;
+    height: 50px;
+}
+
 .fieldPlay .empty {
-	padding: 16px 26px 0 24px;
-	color: #504F4F;
-}
-.row:first-child .fieldPlay:first-child  {border: solid 1px white;width:160px;height:72px;margin:-22px 0 6px 0;background: #9ab26b;padding:8px 0;}
-#composer .row:first-child .fieldPlay:first-child:before {position: relative;top: -4px;left: 0;padding: 7px 45px;border: inherit;z-index: 0;content: '';} /* petit zone du gardien */
-
-.drop-hover{background: #9ac26b;border-radius:50%;}
-.teamList .drop-hover {border: solid 2px orange;}
-
-.presentComponent{
-   display: block;
-   position: relative;
-   height: 40px;
-   width: 128px;
-   cursor: pointer;
-}
-.presentJersey{
-   display: block;
-   float: left;
-   position: relative;
-   height: 40px;
-   background-image: url(../images/jersey_sub_white.png);
-   background-repeat:no-repeat;
-   width: 60px;
-}
- .nop{
-   display: block;
-   float: left;
-   position: relative;
-   line-height: 40px;
-   height: 40px;
-   width: 60px;
-   text-align: left;
-   color: #504F4F;
-   text-decoration: none;
-   white-space: nowrap;
+    padding: 13% 0 0 0;
+    color: #504F4F;
 }
 
-.row:first-child .fieldPlay:first-child  .playerComponent {
-	top: -10px;
-	margin-left: 15px;
+.row:first-child .fieldPlay:first-child .empty {
+   margin-left: -28%;
 }
+
+.row:first-child .fieldPlay:first-child {
+    border: solid 1px white;
+    width: 40%;
+    height: 100%;
+    margin: -3.9% 0 0 0;
+    background: #9ab26b;
+    padding: 1.5% 0;
+}
+
+#composer .row:first-child .fieldPlay:first-child:before {
+    position: relative;
+    top: -4px;
+    left: 0;
+    padding: 7px 45px;
+    border: inherit;
+    z-index: 0;
+    content: '';
+}
+/* petit zone du gardien */
+
+.drop-hover {
+    background: #9ac26b;
+    border-radius: 50%;
+}
+
+.teamList .drop-hover {
+    border: solid 2px orange;
+}
+
+.presentComponent {
+    display: block;
+    cursor: pointer;
+    height: 40px;
+}
+
+.presentJersey {
+    display: inline-block;
+    background-image: url(../images/jersey_sub_white.png);
+    background-repeat: no-repeat;
+    width: 33.33%;
+    height: 100%;
+}
+
+.nop {
+    display: inline-block;
+    text-align: left;
+    color: #504F4F;
+    text-decoration: none;
+    white-space: nowrap;
+    height: 100%;
+}
+
+.row:first-child .fieldPlay:first-child .playerComponent {
+    margin: -11% 0 0 22%;
+    padding-bottom: 11%;
+}
+
 .player .playerComponent {
-   display: block;
-   position: relative;
-   height: 40px;
-   line-height: 14px;
-   width: 128px;
-   text-align: center;
-   text-decoration: none;
-   white-space: nowrap;
-   background-image: url(../images/jersey_white.png);
-   background-repeat:no-repeat;
-   cursor: pointer;
+    display: block;
+    position: relative;
+    line-height: 0.9em;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    background-image: url(../images/jersey_white.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
+
 .player .playerName {
-   display: block;
-   position: relative;
-   line-height: 8px;
-   width: 128px;
-   text-align: center;
-   color: #504F4F;
-   text-decoration: none;
-   white-space: nowrap;
-   margin-top: 15px;
+    display: block;
+    position: relative;
+    line-height: 0.2em;
+    text-align: center;
+    color: #504F4F;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-top: 10%;
 }
+
 .player .playerName span {
-	font-size: 18px;
+    font-size: 0.9em;
 }
 
-.dragging, .dragging:first-child{color: white;background: #9ac26b;border-radius:15px;height: 30px;line-height: 30px; border:none;width:128px;}
+.dragging, .dragging:first-child {
+    color: white;
+    background: #9ac26b;
+    border-radius: 15px;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+}
 
-.timeboxDuration {padding:4px;}
-.timeboxDuration  span{font-weight:bold;}
+.timeboxDuration {
+    padding: 4px;
+}
+
+.timeboxDuration span {
+    font-weight: bold;
+}
 
 
-.summaryPlayer {display:inline-block;width:260px;}
-.periode {display:inline-block;width:220px;}
+.summaryPlayer {
+    display: inline-block;
+    width: 260px;
+}
+
+.periode {
+    display: inline-block;
+    width: 220px;
+}
 
 #timeResume {
-	width: 220px;
-	position: fixed;
-	top: 51px;
-	right: 36px;
-	background: white;
-	padding: 9px;
-	border: solid 1px black;
+    width: 220px;
+    position: fixed;
+    top: 51px;
+    right: 36px;
+    background: white;
+    padding: 9px;
+    border: solid 1px black;
 }
 
 #timeResume h3 {
-	-webkit-margin-before: 0em;
+    -webkit-margin-before: 0em;
 }
 
-#partage {padding:6px;} 
-#partage .marquageSol:before{position: relative;top: 57px;left: 0;padding: 10px 18px;border: inherit;content: '';border-radius: 50%;} /* rond du gardien */
-#partage .marquageSol:after {content: '';border-radius: 50%;position: relative;top: 42px;left: 0;padding: 100px;border: inherit;z-index: 0;} /* rond central */
-#partage.row:first-child .fieldPlay:first-child  {border: solid 1px white;width:160px;height:72px;margin:-22px 0 6px 0;background: #9ab26b;padding:8px 0;}
-#partage .row:first-child .fieldPlay:first-child:before {position: relative;top: -4px;left: 0;padding: 7px 45px;border: inherit;z-index: 0;content: '';} /* petit zone du gardien */
-
-.nextSubstitute, span.nextSubstitute {background: #f1ef4c;color: #000000;}
-
-.button{
-   position: relative;
-   display: block;
-   vertical-align: top;
-   height: 48px;
-   font-size: 22px;
-   line-height: 47px;
-   letter-spacing: 1px;
-   background: #9ab26b;
-   color: #fff;
-   text-decoration: none;
-   padding: 0 17px 0 22px;
-   -webkit-border-radius: 4px;
-   -moz-border-radius: 4px;
-   border-radius: 4px;
+#partage {
+    padding: 6px;
 }
-.button:hover{background: #00a7f5;}
 
-.btn-up:before {background: url(../images/arrow-up.png) no-repeat;}
-.btn-down:before {background: url(../images/arrow-down.png) no-repeat;}
-.btn-up:before, .btn-down:before {content: '';position: absolute;width: 16px;height: 16px;margin-top: -8px;margin-left: -8px;}
+    #partage .marquageSol:before {
+        position: relative;
+        top: 57px;
+        left: 0;
+        padding: 10px 18px;
+        border: inherit;
+        content: '';
+        border-radius: 50%;
+    }
+    /* rond du gardien */
+    #partage .marquageSol:after {
+        content: '';
+        border-radius: 50%;
+        position: relative;
+        top: 42px;
+        left: 0;
+        padding: 100px;
+        border: inherit;
+        z-index: 0;
+    }
+    /* rond central */
+    #partage.row:first-child .fieldPlay:first-child {
+        border: solid 1px white;
+        width: 160px;
+        height: 72px;
+        margin: -22px 0 6px 0;
+        background: #9ab26b;
+        padding: 8px 0;
+    }
 
-.btn-up, .btn-down {width: 25px;padding: 0;height: 26px;display: inline-block;position: absolute;right: 300px;border:none;background: white;}
-.btn-up:hover, .btn-down:hover {background: white;}
+        #partage .row:first-child .fieldPlay:first-child:before {
+            position: relative;
+            top: -4px;
+            left: 0;
+            padding: 7px 45px;
+            border: inherit;
+            z-index: 0;
+            content: '';
+        }
+/* petit zone du gardien */
+
+.nextSubstitute, span.nextSubstitute {
+    background: #f1ef4c;
+    color: #000000;
+}
+
+.button {
+    position: relative;
+    display: block;
+    vertical-align: top;
+    height: 48px;
+    font-size: 22px;
+    line-height: 47px;
+    letter-spacing: 1px;
+    background: #9ab26b;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 17px 0 22px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+    .button:hover {
+        background: #00a7f5;
+    }
+
+.btn-up:before {
+    background: url(../images/arrow-up.png) no-repeat;
+}
+
+.btn-down:before {
+    background: url(../images/arrow-down.png) no-repeat;
+}
+
+.btn-up:before, .btn-down:before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    margin-left: -8px;
+}
+
+.btn-up, .btn-down {
+    width: 25px;
+    padding: 0;
+    height: 26px;
+    display: inline-block;
+    position: absolute;
+    right: 300px;
+    border: none;
+    background: white;
+}
+
+    .btn-up:hover, .btn-down:hover {
+        background: white;
+    }
 
 .btn-up,
 .btn-down,
@@ -189,57 +444,84 @@ playground {display:block;text-align: center;	width: 600px;margin:9px;padding: 4
 .btn-cancel,
 .btn-block,
 .btn-new,
-.btn-date{
-   font-size: 20px;
-   line-height: 48px;
-}
-.btn-confirm:before,
-.btn-cancel:before,
-.btn-block:before,
-.btn-new:before,
-.btn-date:before{
-   content: '';
-   position: absolute;
-   left: 13px;
-   top: 50%;
-   height: 16px;
-   width: 20px;
-   margin: -8px 0 0;
-   background: url(../images/ico-buttons.png) no-repeat;
-}
-.btn-confirm{padding: 0 22px 0 44px;}
-.btn-confirm:before{background-position: 0 0;}
-.btn-cancel{padding: 0 0 0 50px;background:#B24333;}
-.btn-cancel:before{
-   left: 18px;
-   background-position: 0 -26px;
-   margin: -8px 0 0;
-   width: 17px;
-   height: 17px;
-}
-.btn-block{padding: 0 34px 0 55px;}
-.btn-block:before{
-   left: 24px;
-   background-position: 0 -53px;
-   margin: -12px 0 0;
-   width: 22px;
-   height: 22px;
-}
-.btn-new{padding: 0 0 0 50px;}
-.btn-new:before{
-   left: 17px;
-   background-position: 0 -85px;
-   margin: -11px 0 0;
-   width: 20px;
-   height: 20px;
-}
-.btn-date{padding: 0 15px 0 57px;}
-.btn-date:before{
-   left: 16px;
-   background-position: 0 -115px;
-   margin: -16px 0 0;
-   width: 26px;
-   height: 30px;
+.btn-date {
+    font-size: 20px;
+    line-height: 48px;
 }
 
-.chrono {margin-left:-8px;margin-right:12px;}
+    .btn-confirm:before,
+    .btn-cancel:before,
+    .btn-block:before,
+    .btn-new:before,
+    .btn-date:before {
+        content: '';
+        position: absolute;
+        left: 13px;
+        top: 50%;
+        height: 16px;
+        width: 20px;
+        margin: -8px 0 0;
+        background: url(../images/ico-buttons.png) no-repeat;
+    }
+
+.btn-confirm {
+    padding: 0 22px 0 44px;
+}
+
+    .btn-confirm:before {
+        background-position: 0 0;
+    }
+
+.btn-cancel {
+    padding: 0 0 0 50px;
+    background: #B24333;
+}
+
+    .btn-cancel:before {
+        left: 18px;
+        background-position: 0 -26px;
+        margin: -8px 0 0;
+        width: 17px;
+        height: 17px;
+    }
+
+.btn-block {
+    padding: 0 34px 0 55px;
+}
+
+    .btn-block:before {
+        left: 24px;
+        background-position: 0 -53px;
+        margin: -12px 0 0;
+        width: 22px;
+        height: 22px;
+    }
+
+.btn-new {
+    padding: 0 0 0 50px;
+}
+
+    .btn-new:before {
+        left: 17px;
+        background-position: 0 -85px;
+        margin: -11px 0 0;
+        width: 20px;
+        height: 20px;
+    }
+
+.btn-date {
+    padding: 0 15px 0 57px;
+}
+
+    .btn-date:before {
+        left: 16px;
+        background-position: 0 -115px;
+        margin: -16px 0 0;
+        width: 26px;
+        height: 30px;
+    }
+
+.chrono {
+    margin-left: -8px;
+    margin-right: 12px;
+}

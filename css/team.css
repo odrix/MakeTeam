@@ -52,37 +52,15 @@ header span {
     padding: 0;
 }
 
-#connectFacebook {
-    background: url("../images/social/facebook_off.png") no-repeat;
-}
+#connectFacebook {background: url("../images/social/facebook_off.png") no-repeat;}
+#connectTwitter {background: url("../images/social/twitter_off.png") no-repeat;}
+#connectGooglePlus {background: url("../images/social/google_plus_off.png") no-repeat;}
+#connectMicrosoft {background: url("../images/social/windows_off.png") no-repeat;}
 
-#connectTwitter {
-    background: url("../images/social/twitter_off.png") no-repeat;
-}
-
-#connectGooglePlus {
-    background: url("../images/social/google_plus_off.png") no-repeat;
-}
-
-#connectMicrosoft {
-    background: url("../images/social/windows_off.png") no-repeat;
-}
-
-#connectFacebook:hover {
-    background-image: url("../images/social/facebook.png");
-}
-
-#connectTwitter:hover {
-    background-image: url("../images/social/twitter.png");
-}
-
-#connectGooglePlus:hover {
-    background-image: url("../images/social/google_plus.png");
-}
-
-#connectMicrosoft:hover {
-    background-image: url("../images/social/windows.png");
-}
+#connectFacebook:hover {background-image: url("../images/social/facebook.png");}
+#connectTwitter:hover {background-image: url("../images/social/twitter.png");}
+#connectGooglePlus:hover {background-image: url("../images/social/google_plus.png");}
+#connectMicrosoft:hover {background-image: url("../images/social/windows.png");}
 
 #connector {
     margin-left: 26px;
@@ -90,7 +68,7 @@ header span {
 }
 
 #playerForm {
-    width: 300px;
+    width: 16%;
     display: block;
     overflow: hidden;
     position: absolute;
@@ -98,7 +76,7 @@ header span {
     padding: 11px 20px;
     border: solid 1px #888;
     z-index: 9000;
-    left: 385px;
+    left: 18%;
 }
 
 
@@ -146,88 +124,38 @@ header span {
 playground {
     display: block;
     text-align: center;
-    width: 600px;
+    width: 32%;
+    height: 370px;
     margin: 0.5%;
-    padding: 4px;
-    background: #9ab26b;
+    padding: 1.5% 0;
     position: relative;
+    background:url('../images/terrain.png') no-repeat;
 }
 
 #composer playground {
     float: left;
-    margin: 36px 24px 9px;
+    margin: 3% 2% 1%;
 }
 
 .commande {
     float: left;
-    width: 160px;
+    width: 10%;
 }
 
-.marquageSol {
-    margin: 4px;
-    border: solid 1px white;
-    height: 320px;
-}
-
-#composer .marquageSol:before {
-    position: relative;
-    top: 57px;
-    left: 0;
-    padding: 10px 18px;
-    border: inherit;
-    content: '';
-    border-radius: 50%;
-}
-/* rond du gardien */
-#composer .marquageSol:after {
-    content: '';
-    border-radius: 50%;
-    position: relative;
-    top: 42px;
-    left: 0;
-    padding: 100px;
-    border: inherit;
-    z-index: 0;
-}
-/* rond central */
 .fieldPlay {
     display: inline-block;
-    width: 23%;
+    width: 25%;
     padding: 0.9%;
     font-size: 1.4em;
     z-index: 99;
-    margin: 1%;
-    height: 50px;
+    height: 70px;
 }
 
 .fieldPlay .empty {
-    padding: 13% 0 0 0;
+    padding: 13% 0 0 6%;
     color: #504F4F;
 }
 
-.row:first-child .fieldPlay:first-child .empty {
-   margin-left: -28%;
-}
-
-.row:first-child .fieldPlay:first-child {
-    border: solid 1px white;
-    width: 40%;
-    height: 100%;
-    margin: -3.9% 0 0 0;
-    background: #9ab26b;
-    padding: 1.5% 0;
-}
-
-#composer .row:first-child .fieldPlay:first-child:before {
-    position: relative;
-    top: -4px;
-    left: 0;
-    padding: 7px 45px;
-    border: inherit;
-    z-index: 0;
-    content: '';
-}
-/* petit zone du gardien */
 
 .drop-hover {
     background: #9ac26b;
@@ -261,10 +189,6 @@ playground {
     height: 100%;
 }
 
-.row:first-child .fieldPlay:first-child .playerComponent {
-    margin: -11% 0 0 22%;
-    padding-bottom: 11%;
-}
 
 .player .playerComponent {
     display: block;
@@ -276,6 +200,7 @@ playground {
     background-image: url(../images/jersey_white.png);
     background-repeat: no-repeat;
     cursor: pointer;
+    height: 50px;
 }
 
 .player .playerName {
@@ -283,7 +208,7 @@ playground {
     position: relative;
     line-height: 0.2em;
     text-align: center;
-    color: #504F4F;
+    color: black;
     text-decoration: none;
     white-space: nowrap;
     margin-top: 10%;
@@ -293,7 +218,7 @@ playground {
     font-size: 0.9em;
 }
 
-.dragging, .dragging:first-child {
+.dragging {
     color: white;
     background: #9ac26b;
     border-radius: 15px;
@@ -339,46 +264,6 @@ playground {
     padding: 6px;
 }
 
-    #partage .marquageSol:before {
-        position: relative;
-        top: 57px;
-        left: 0;
-        padding: 10px 18px;
-        border: inherit;
-        content: '';
-        border-radius: 50%;
-    }
-    /* rond du gardien */
-    #partage .marquageSol:after {
-        content: '';
-        border-radius: 50%;
-        position: relative;
-        top: 42px;
-        left: 0;
-        padding: 100px;
-        border: inherit;
-        z-index: 0;
-    }
-    /* rond central */
-    #partage.row:first-child .fieldPlay:first-child {
-        border: solid 1px white;
-        width: 160px;
-        height: 72px;
-        margin: -22px 0 6px 0;
-        background: #9ab26b;
-        padding: 8px 0;
-    }
-
-        #partage .row:first-child .fieldPlay:first-child:before {
-            position: relative;
-            top: -4px;
-            left: 0;
-            padding: 7px 45px;
-            border: inherit;
-            z-index: 0;
-            content: '';
-        }
-/* petit zone du gardien */
 
 .nextSubstitute, span.nextSubstitute {
     background: #f1ef4c;

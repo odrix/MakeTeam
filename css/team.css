@@ -9,10 +9,10 @@
     z-index: 10000;
 }
 
-    .headerline a {
-        color: inherit;
-        text-decoration: none;
-    }
+.headerline a {
+    color: inherit;
+    text-decoration: none;
+}
 
 body {
     margin: 5% 2%;
@@ -38,10 +38,10 @@ header span {
     cursor: pointer;
 }
 
-    header span:hover {
-        font-size: 100%;
-        color: lightsalmon;
-    }
+header span:hover {
+    font-size: 100%;
+    color: lightsalmon;
+}
 
 .buttonSocial {
     width: 36px;
@@ -68,7 +68,7 @@ header span {
 }
 
 #playerForm {
-    width: 16%;
+    width: 18%;
     display: block;
     overflow: hidden;
     position: absolute;
@@ -76,7 +76,8 @@ header span {
     padding: 11px 20px;
     border: solid 1px #888;
     z-index: 9000;
-    left: 18%;
+    left: 33.3%;
+    margin: -1.9%;
 }
 
 
@@ -228,7 +229,7 @@ playground {
 }
 
 .timeboxDuration {
-    padding: 4px;
+    padding: 1%;
 }
 
 .timeboxDuration span {
@@ -238,21 +239,21 @@ playground {
 
 .summaryPlayer {
     display: inline-block;
-    width: 260px;
+    width: 16%;
 }
 
 .periode {
     display: inline-block;
-    width: 220px;
+    width: 15%;
 }
 
 #timeResume {
-    width: 220px;
+    width: 12%;
     position: fixed;
-    top: 51px;
-    right: 36px;
+    top: 10%;
+    right: 2%;
     background: white;
-    padding: 9px;
+    padding: 0.5%;
     border: solid 1px black;
 }
 
@@ -353,60 +354,60 @@ playground {
     padding: 0 22px 0 44px;
 }
 
-    .btn-confirm:before {
-        background-position: 0 0;
-    }
+.btn-confirm:before {
+    background-position: 0 0;
+}
 
 .btn-cancel {
     padding: 0 0 0 50px;
     background: #B24333;
 }
 
-    .btn-cancel:before {
-        left: 18px;
-        background-position: 0 -26px;
-        margin: -8px 0 0;
-        width: 17px;
-        height: 17px;
-    }
+.btn-cancel:before {
+    left: 18px;
+    background-position: 0 -26px;
+    margin: -8px 0 0;
+    width: 17px;
+    height: 17px;
+}
 
 .btn-block {
     padding: 0 34px 0 55px;
 }
 
-    .btn-block:before {
-        left: 24px;
-        background-position: 0 -53px;
-        margin: -12px 0 0;
-        width: 22px;
-        height: 22px;
-    }
+.btn-block:before {
+    left: 24px;
+    background-position: 0 -53px;
+    margin: -12px 0 0;
+    width: 22px;
+    height: 22px;
+}
 
 .btn-new {
     padding: 0 0 0 50px;
 }
 
-    .btn-new:before {
-        left: 17px;
-        background-position: 0 -85px;
-        margin: -11px 0 0;
-        width: 20px;
-        height: 20px;
-    }
+.btn-new:before {
+    left: 17px;
+    background-position: 0 -85px;
+    margin: -11px 0 0;
+    width: 20px;
+    height: 20px;
+}
 
 .btn-date {
     padding: 0 15px 0 57px;
 }
 
-    .btn-date:before {
-        left: 16px;
-        background-position: 0 -115px;
-        margin: -16px 0 0;
-        width: 26px;
-        height: 30px;
-    }
+.btn-date:before {
+    left: 16px;
+    background-position: 0 -115px;
+    margin: -16px 0 0;
+    width: 26px;
+    height: 30px;
+}
 
 .chrono {
-    margin-left: -8px;
-    margin-right: 12px;
+    margin-left: -1%;
+    margin-right: 1%;
 }

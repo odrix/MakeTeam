@@ -81,13 +81,8 @@ header span:hover {
 }
 
 
-.double {
-    width: 40%;
-}
-
-.clear {
-    clear: both;
-}
+.double {width: 40%;}
+.clear {clear: both;}
 
 .help {
     color: #a2a2a2;
@@ -95,9 +90,7 @@ header span:hover {
     line-height: 0.7em;
 }
 
-.players {
-    font-size: 1.2em;
-}
+.players { font-size: 1.2em; }
 
 .players textarea {
     resize: none;
@@ -125,12 +118,17 @@ header span:hover {
 playground {
     display: block;
     text-align: center;
-    width: 32%;
-    height: 370px;
+    width: 40%;
     margin: 0.5%;
     padding: 1.5% 0;
     position: relative;
-    background:url('../images/terrain.png') no-repeat;
+}
+
+playground img.main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 100%;
 }
 
 #composer playground {
@@ -143,19 +141,9 @@ playground {
     width: 10%;
 }
 
-.fieldPlay {
-    display: inline-block;
-    width: 25%;
-    padding: 0.9%;
-    font-size: 1.4em;
-    z-index: 99;
-    height: 70px;
-}
 
-.fieldPlay .empty {
-    padding: 13% 0 0 6%;
-    color: #504F4F;
-}
+
+
 
 
 .drop-hover {
@@ -191,20 +179,25 @@ playground {
 }
 
 
-.player .playerComponent {
-    display: block;
-    position: relative;
-    line-height: 0.9em;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    background-image: url(../images/jersey_white.png);
-    background-repeat: no-repeat;
-    cursor: pointer;
-    height: 50px;
+.fieldPlay {
+    display: inline-block;
+    width: 23%;
+    padding: 0.9%;
+    font-size: 1.4em;
+    z-index: 99;
 }
 
-.player .playerName {
+.fieldPlay .tshirt {
+	position: absolute;
+	top:0;
+	left:0;
+	max-width:100%;
+}
+.fieldPlay .playerNumber {
+    color: #504F4F;
+	position: relative;
+}
+.fieldPlay .playerName {
     display: block;
     position: relative;
     line-height: 0.2em;
@@ -215,7 +208,7 @@ playground {
     margin-top: 10%;
 }
 
-.player .playerName span {
+.fieldPlay .playerName span {
     font-size: 0.9em;
 }
 

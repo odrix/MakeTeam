@@ -4,12 +4,13 @@
              data-drop="true" data-drag="true"
              jqyoui-droppable="{index:{{$index}}, onDrop:'updatePlayersDuration'}"
              jqyoui-draggable="{onStart:'checkAndAddDragClass', onStop:'removeDragClass'}"
-             data-jqyoui-options="{revert: 'invalid',opacity: 0.80,hoverClass: 'drop-hover',handle:'div.fieldPlay'}" >
+             data-jqyoui-options="{revert: 'invalid',opacity: 0.80,hoverClass: 'drop-hover'}" >
 				<img src="/images/jersey_white.png" class="tshirt" />
 				<div class="playerNumber" ng-show="place.player && place.player.name">{{place.no}}</div>
-				<div class="playerName" ng-show="place.player && place.player.name">
-					<span>{{place.player.name}}</span>
-					<img src="images/sub_off.png" title="Sort" ng-if="place.nextSubstitute == true" />
+				<div class="playerName" >
+					<span> {{place.player.name}} </span>
+					<img src="/images/sub_off.png" title="Sort" ng-if="place.nextSubstitute == true" />
 				</div>
         </div>
     </div>
+<!-- ,handle:'div.fieldPlay' -->

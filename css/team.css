@@ -44,42 +44,37 @@ header span:hover {
 }
 
 .buttonSocial {
-    width: 36px;
-    height: 36px;
-    margin: 2px;
+    margin: 0.9% 1.1%;
     display: inline-block;
     border: none;
     padding: 0;
+	width:12%;
 }
 
-#connectFacebook {background: url("../images/social/facebook_off.png") no-repeat;}
-#connectTwitter {background: url("../images/social/twitter_off.png") no-repeat;}
-#connectGooglePlus {background: url("../images/social/google_plus_off.png") no-repeat;}
-#connectMicrosoft {background: url("../images/social/windows_off.png") no-repeat;}
-
-#connectFacebook:hover {background-image: url("../images/social/facebook.png");}
-#connectTwitter:hover {background-image: url("../images/social/twitter.png");}
-#connectGooglePlus:hover {background-image: url("../images/social/google_plus.png");}
-#connectMicrosoft:hover {background-image: url("../images/social/windows.png");}
-
 #connector {
-    margin-left: 26px;
+    margin-left: 1.8%;
     display: inline-block;
+	position: absolute;
+	width: 18%;
+	top: 20%;
 }
 
 #playerForm {
-    width: 18%;
+    width: 21%;
     display: block;
     overflow: hidden;
     position: absolute;
     background: white;
-    padding: 11px 20px;
+    padding: 1% 2%;
     border: solid 1px #888;
     z-index: 9000;
     left: 33.3%;
     margin: -1.9%;
 }
 
+#playerForm  .btnOk{
+	width: 20%;
+}
 
 .double {width: 40%;}
 .clear {clear: both;}
@@ -98,15 +93,15 @@ header span:hover {
     height: 130px;
 }
 
-.players button {
+.players  .btnOk {
     margin: 0.75em 0 0 30%;
 }
 
 .timeBox {
     display: block;
     border-bottom: solid 2px black;
-    padding: 7px;
-    margin: 9px;
+    padding: 1%;
+    margin: 1%;
     background: inherit;
 }
 
@@ -128,6 +123,7 @@ playground img.main {
 	position: absolute;
 	top: 0;
 	left: 0;
+	width: 100%;
 	max-width: 100%;
 }
 
@@ -142,60 +138,54 @@ playground img.main {
 }
 
 
-
-
-
-
-.drop-hover {
+.drop-hover .tshirt {
     background: #9ac26b;
-    border-radius: 50%;
+    border-radius: 25%;
 }
 
 .teamList .drop-hover {
     border: solid 2px orange;
 }
 
-.presentComponent {
-    display: block;
-    cursor: pointer;
-    height: 40px;
+.teamList .player {
+	cursor: pointer;
 }
 
-.presentJersey {
+.teamList img {
     display: inline-block;
-    background-image: url(../images/jersey_sub_white.png);
-    background-repeat: no-repeat;
     width: 33.33%;
-    height: 100%;
 }
 
-.nop {
+.teamList .playerName {
     display: inline-block;
     text-align: left;
     color: #504F4F;
     text-decoration: none;
     white-space: nowrap;
-    height: 100%;
 }
 
 
 .fieldPlay {
     display: inline-block;
-    width: 23%;
-    padding: 0.9%;
+    width: 24%;
+    padding: 7.2% 0;
     font-size: 1.4em;
-    z-index: 99;
+    z-index: 95;
 }
 
 .fieldPlay .tshirt {
 	position: absolute;
 	top:0;
-	left:0;
+	left:25%;
+	width:50%;
 	max-width:100%;
 }
 .fieldPlay .playerNumber {
     color: #504F4F;
-	position: relative;
+	position: absolute;
+	top:10%;
+	left:0;
+	width:100%;
 }
 .fieldPlay .playerName {
     display: block;
@@ -206,6 +196,7 @@ playground img.main {
     text-decoration: none;
     white-space: nowrap;
     margin-top: 10%;
+	margin-bottom:-13%;
 }
 
 .fieldPlay .playerName span {
@@ -241,9 +232,9 @@ playground img.main {
 }
 
 #timeResume {
-    width: 12%;
+    width: 8%;
     position: fixed;
-    top: 10%;
+    top: 14%;
     right: 2%;
     background: white;
     padding: 0.5%;
@@ -254,15 +245,19 @@ playground img.main {
     -webkit-margin-before: 0em;
 }
 
-#partage {
-    padding: 6px;
-}
-
+#partage {padding: 1%;}
 
 .nextSubstitute, span.nextSubstitute {
     background: #f1ef4c;
     color: #000000;
 }
+
+.btn-up, .btn-down {
+    width: 1.2%;
+    position: absolute;
+    right: 13%;
+}
+
 
 .button {
     position: relative;
@@ -281,44 +276,11 @@ playground img.main {
     border-radius: 4px;
 }
 
-    .button:hover {
-        background: #00a7f5;
-    }
-
-.btn-up:before {
-    background: url(../images/arrow-up.png) no-repeat;
+.button:hover {
+	background: #00a7f5;
 }
 
-.btn-down:before {
-    background: url(../images/arrow-down.png) no-repeat;
-}
 
-.btn-up:before, .btn-down:before {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    margin-top: -8px;
-    margin-left: -8px;
-}
-
-.btn-up, .btn-down {
-    width: 25px;
-    padding: 0;
-    height: 26px;
-    display: inline-block;
-    position: absolute;
-    right: 300px;
-    border: none;
-    background: white;
-}
-
-    .btn-up:hover, .btn-down:hover {
-        background: white;
-    }
-
-.btn-up,
-.btn-down,
 .btn-confirm,
 .btn-cancel,
 .btn-block,

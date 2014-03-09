@@ -1,0 +1,10 @@
+{
+  "name": "MakeTeam",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "^0.4.1",
+    "grunt-contrib-jshint": "^0.8.0",
+    "grunt-contrib-less": "^0.10.0",
+    "grunt-contrib-watch": "^0.5.3"
+  }
+}

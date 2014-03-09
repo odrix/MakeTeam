@@ -1,0 +1,169 @@
+Linting Gruntfile.js ...[31mERROR[39m
+[31m[[39m[33mL7[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m   dev:{
+[31m[[39m[33mL8[39m[31m:[39m[33mC2[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+  [31m[7m  [27m[39m   options: {
+[31m[[39m[33mL10[39m[31m:[39m[33mC2[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+  [31m[7m  [27m[39m   },
+[31m[[39m[33mL11[39m[31m:[39m[33mC2[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+  [31m[7m  [27m[39m   files: {
+[31m[[39m[33mL13[39m[31m:[39m[33mC2[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+  [31m[7m  [27m[39m   }
+[31m[[39m[33mL17[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m  files: ['Gruntfile.js', 'js/**/*.js', '!js/lib/*.js', 'test/**/*.js', '!test/lib/*.js'],
+[31m[[39m[33mL18[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m  options:{
+[31m[[39m[33mL20[39m[31m:[39m[33mC2[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+  [31m[7m  [27m[39m  jQuery: true,
+[31m[[39m[33mL21[39m[31m:[39m[33mC2[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+  [31m[7m  [27m[39m  console: true,
+[31m[[39m[33mL22[39m[31m:[39m[33mC2[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+  [31m[7m  [27m[39m  module: true
+[31m[[39m[33mL27[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m  }
+[31m[[39m[33mL29[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m watch:{
+[31m[[39m[33mL45[39m[31m:[39m[33mC6[39m[31m][39m [33mW100[39m[31m:[39m [33mThis character may get silently deleted by one or more browsers.[39m
+  // [31m[7mD[27m[39m�finition des t�ches Grunt
+Linting js/animateDirective.js ...[31mERROR[39m
+[31m[[39m[33mL3[39m[31m:[39m[33mC30[39m[31m][39m [33mW069[39m[31m:[39m [33m['animate'] is better written in dot notation.[39m
+    element.addClass(attr['anim[31m[7ma[27m[39mte'])
+Linting js/appInit.js ...[31mERROR[39m
+[31m[[39m[33mL13[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m  when('/partager', {
+[31m[[39m[33mL16[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m  }).
+Linting js/domain/helper.js ...[31mERROR[39m
+[31m[[39m[33mL15[39m[31m:[39m[33mC18[39m[31m][39m [33mW004[39m[31m:[39m [33m'copy' is already defined.[39m
+        var copy [31m[7m=[27m[39m [];
+[31m[[39m[33mL24[39m[31m:[39m[33mC18[39m[31m][39m [33mW004[39m[31m:[39m [33m'copy' is already defined.[39m
+        var copy [31m[7m=[27m[39m {};
+Linting js/domain/team.js ...[31mERROR[39m
+[31m[[39m[33mL13[39m[31m:[39m[33mC26[39m[31m][39m [33mW041[39m[31m:[39m [33mUse '!==' to compare with ''.[39m
+        if (name && name [31m[7m![27m[39m= '') {
+[31m[[39m[33mL63[39m[31m:[39m[33mC56[39m[31m][39m [33mW041[39m[31m:[39m [33mUse '===' to compare with '0'.[39m
+        return this.timeboxes && this.timeboxes.length [31m[7m=[27m[39m= 0
+[31m[[39m[33mL88[39m[31m:[39m[33mC18[39m[31m][39m [33mW083[39m[31m:[39m [33mDon't make functions within a loop.[39m
+                }[31m[7m)[27m[39m
+[31m[[39m[33mL119[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    return {
+[31m[[39m[33mL121[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m        userId: this.userId,
+[31m[[39m[33mL122[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m        duartion: this.maxtime,
+[31m[[39m[33mL123[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m        players: JSON.stringify(this.players),
+[31m[[39m[33mL124[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m        timeboxes: JSON.stringify(this.timeboxes)
+[31m[[39m[33mL125[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    }
+[31m[[39m[33mL129[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    this.id = obj.id
+[31m[[39m[33mL130[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    this.userId = obj.userId
+[31m[[39m[33mL131[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    this.maxtime = obj.duartion
+[31m[[39m[33mL132[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    this.setPlayers(JSON.parse(obj.players))
+[31m[[39m[33mL133[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    this.setTimeboxes(JSON.parse(obj.timeboxes))
+Linting js/domain/timebox.js ...[31mERROR[39m
+[31m[[39m[33mL15[39m[31m:[39m[33mC31[39m[31m][39m [33mW041[39m[31m:[39m [33mUse '!==' to compare with 'undefined'.[39m
+                    if(result [31m[7m![27m[39m= undefined) return result
+[31m[[39m[33mL26[39m[31m:[39m[33mC27[39m[31m][39m [33mW041[39m[31m:[39m [33mUse '!==' to compare with 'undefined'.[39m
+        if(result != undefined[31m[7m)[27m[39m return result
+[31m[[39m[33mL34[39m[31m:[39m[33mC46[39m[31m][39m [33mW041[39m[31m:[39m [33mUse '===' to compare with 'null'.[39m
+            if(!place.player || place.player [31m[7m=[27m[39m= null || !place.player.id) {
+Linting js/menuController.js ...[31mERROR[39m
+[31m[[39m[33mL37[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    azureMobileClient.login(socialService, function () {
+[31m[[39m[33mL39[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m        $scope.$apply() // pour mettre a jour le boutton connecter/deconnecter
+[31m[[39m[33mL40[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    })
+[31m[[39m[33mL49[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    teamService.toggleDisplayNewPlayerForm()
+Linting js/modules/teamAzureService.js ...[31mERROR[39m
+[31m[[39m[33mL10[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    return client.azureMSC.currentUser != null
+[31m[[39m[33mL10[39m[31m:[39m[33mC44[39m[31m][39m [33mW041[39m[31m:[39m [33mUse '!==' to compare with 'null'.[39m
+      return client.azureMSC.currentUser != [31m[7mn[27m[39mull
+[31m[[39m[33mL15[39m[31m:[39m[33mC2[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+  [31m[7m  [27m[39m    //$cookieStore.put("azureUser", user)
+[31m[[39m[33mL16[39m[31m:[39m[33mC2[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+  [31m[7m  [27m[39m    callback(user);
+[31m[[39m[33mL31[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    client.getUser()
+[31m[[39m[33mL32[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    var teamTable = client.azureMSC.getTable("TeamMatch");
+[31m[[39m[33mL33[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    teamTable.where({
+[31m[[39m[33mL34[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m        userId: client.azureMSC.currentUser.userId
+[31m[[39m[33mL35[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    }).orderByDescending('__updatedAt').read().done(function (items) {
+[31m[[39m[33mL36[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m        callback(items);
+[31m[[39m[33mL37[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    })
+[31m[[39m[33mL41[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    client.getUser()
+[31m[[39m[33mL42[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    var teamTable = client.azureMSC.getTable("TeamMatch");
+[31m[[39m[33mL43[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    teamTable.orderByDescending('__updatedAt').take(1).read().done(function (items) {
+[31m[[39m[33mL48[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    }, function (err) {
+[31m[[39m[33mL49[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m        console.log("get last: " + err)
+[31m[[39m[33mL50[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    })
+[31m[[39m[33mL59[39m[31m:[39m[33mC2[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+  [31m[7m  [27m[39m    console.log("add team: " + err)
+[31m[[39m[33mL64[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    client.getUser()
+[31m[[39m[33mL65[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    var teamTable = client.azureMSC.getTable("TeamMatch")
+[31m[[39m[33mL66[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    teamTable.update(scope.serialize())
+[31m[[39m[33mL71[39m[31m:[39m[33mC2[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+  [31m[7m  [27m[39m  // client.azureMSC.currentUser = $cookieStore.get("azureUser");
+Linting js/modules/teamService.js ...[31mERROR[39m
+[31m[[39m[33mL6[39m[31m:[39m[33mC1[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+[31m[7m  [27m[39m    for (var i = 0; i < this.timeboxes.length; i++) {
+[31m[[39m[33mL12[39m[31m:[39m[33mC5[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+        [31m[7m  [27m[39m    for(var l=0;l<_team.timeboxes[iNext].playerSubstitutes.length;l++)
+[31m[[39m[33mL20[39m[31m:[39m[33mC14[39m[31m][39m [33mW083[39m[31m:[39m [33mDon't make functions within a loop.[39m
+      })[31m[7m [27m[39m
+[31m[[39m[33mL33[39m[31m:[39m[33mC14[39m[31m][39m [33mW083[39m[31m:[39m [33mDon't make functions within a loop.[39m
+      })[31m[7m [27m[39m
+Linting js/modules/teamStorageService.js ...[31mERROR[39m
+[31m[[39m[33mL9[39m[31m:[39m[33mC32[39m[31m][39m [33mW041[39m[31m:[39m [33mUse '===' to compare with ''.[39m
+      if (teamService.id == '')[31m[7m [27m[39m
+Linting js/startController.js ...[31mERROR[39m
+[31m[[39m[33mL8[39m[31m:[39m[33mC22[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+        {nom:"4-3-3",[31m[7m [27m[39m  compo:[[{no:1}], [{no:2},{no:4},{no:5},{no:3}], [{no:7},{no:6},{no:10}], [{no:8},{no:9},{no:11}]]},
+[31m[[39m[33mL9[39m[31m:[39m[33mC16[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+    {nom:"4-4-2",[31m[7m [27m[39m  compo:[[{no:1}], [{no:2},{no:4},{no:5},{no:3}], [{no:8},{no:6},{no:7},{no:11}], [{no:9},{no:10}]]}
+[31m[[39m[33mL18[39m[31m:[39m[33mC42[39m[31m][39m [33mW041[39m[31m:[39m [33mUse '===' to compare with '0'.[39m
+    if (teamService.timeboxes.length == 0)[31m[7m [27m[39m
+[31m[[39m[33mL19[39m[31m:[39m[33mC2[39m[31m][39m [33mW099[39m[31m:[39m [33mMixed spaces and tabs.[39m
+  [31m[7m  [27m[39m    teamService.init(players, $scope.places.compo,  90)
+Linting js/teamController.js ...[31mERROR[39m
+[31m[[39m[33mL23[39m[31m:[39m[33mC62[39m[31m][39m [33mW041[39m[31m:[39m [33mUse '===' to compare with '0'.[39m
+        if(ui.helper.find('.playerComponent.ng-show').length [31m[7m=[27m[39m= 0)
+Linting test/lib/jasmine-1.3.1/jasmine-html.js ...[31mERROR[39m
+[31m[[39m[33mL75[39m[31m:[39m[33mC22[39m[31m][39m [33mW041[39m[31m:[39m [33mUse '===' to compare with '0'.[39m
+    if (specs.length [31m[7m=[27m[39m= 0) {
+[31m[[39m[33mL88[39m[31m:[39m[33mC43[39m[31m][39m [33mW030[39m[31m:[39m [33mExpected an assignment or function call and instead saw an expression.[39m
+    reporterView && reporterView.complete([31m[7m)[27m[39m;
+Linting test/lib/jasmine-1.3.1/jasmine.js ...[31mERROR[39m
+[31m[[39m[33mL1481[39m[31m:[39m[33mC7[39m[31m][39m [33mW018[39m[31m:[39m [33mConfusing use of '!'.[39m
+  if ([31m[7m![27m[39m(precision === 0)) {
+[31m[[39m[33mL1559[39m[31m:[39m[33mC16[39m[31m][39m [33mW041[39m[31m:[39m [33mUse '!==' to compare with 'null'.[39m
+    return obj [31m[7m![27m[39m= null && obj[keyName] !== jasmine.undefined;
+[31m[[39m[33mL1792[39m[31m:[39m[33mC6[39m[31m][39m [33mW083[39m[31m:[39m [33mDon't make functions within a loop.[39m
+    }[31m[7m)[27m[39m(functionName);
+[31m[[39m[33mL2095[39m[31m:[39m[33mC8[39m[31m][39m [33mW083[39m[31m:[39m [33mDon't make functions within a loop.[39m
+      }[31m[7m;[27m[39m
+

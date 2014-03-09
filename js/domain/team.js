@@ -22,12 +22,12 @@
     }
 
     function createTimebox (maxTime, fields) {
-        _maxtime = maxTime
         _timeboxes.push(new Timebox(1, maxTime, Object.clone(_players), fields))
     }
 
     this.init = function (players, fields, matchDuration) {
-        for (var i = 0; i < players.length; i++) {
+        this.maxtime=matchDuration
+		for (var i = 0; i < players.length; i++) {
             addPlayer(players[i].trim())
         }
         createTimebox(matchDuration, fields)
@@ -90,7 +90,7 @@
 		}
 
     this.updateTimeBoxesDuration = function () {
-        for (var i = 0; i < this.timeboxes.length; i++) {
+        for (var i=0;i<this.timeboxes.length;i++) {
             this.timeboxes[i].duration = this.maxtime / this.timeboxes.length
         }
     }

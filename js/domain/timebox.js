@@ -12,7 +12,7 @@ function Timebox (t) { //id,duration,playerSubstitutes,playgroundField) {
                 for(var j=0;j<this.playgroundField[i].length;j++) {
                     var currentPlace = this.playgroundField[i][j]
                     var result = action(currentPlace, this)
-                    if(result != undefined) return result
+                    if(result !== undefined) return result
                 }
             }
         }
@@ -23,7 +23,7 @@ function Timebox (t) { //id,duration,playerSubstitutes,playgroundField) {
             for(var i=0;i<this.playerSubstitutes.length;i++) {
 				var currentSubstitute = this.playerSubstitutes[i]
 				var result = action(currentSubstitute, this)
-				if(result != undefined) return result
+				if(result !== undefined) return result
             }
         }
     }
@@ -31,7 +31,7 @@ function Timebox (t) { //id,duration,playerSubstitutes,playgroundField) {
     this.isAllPlaygroundFieldFill = function() {
         var result = true
         this.foreachPlacesDo(function(place) {
-            if(!place.player || place.player == null || !place.player.id) {
+            if(!place.player || place.player === null || !place.player.id) {
                 result =  false
             }
         })

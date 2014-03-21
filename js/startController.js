@@ -15,7 +15,7 @@ App.controller('StartCtrl', function($scope, teamService, $location,$timeout) {
 		var reg=new RegExp("[ ,;\n]+", "g");
 		var players = $scope.playerList.split(reg)
         
-		if (teamService.timeboxes.length == 0)
+		if (teamService.timeboxes.length === 0)
 		    teamService.init(players, $scope.places.compo,  90)
         else
             completePlayersList(players)

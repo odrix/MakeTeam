@@ -6,7 +6,7 @@ App.service('storageService', ['localStorageService', 'azureMobileClient',
 		}
 		
 		azureMobileClient.save = function(team) {
-			if (teamService.id == '')
+			if (teamService.id === '')
 				azureMobileClient.addTeam(team)
 			else
 				azureMobileClient.updateTeam(team)

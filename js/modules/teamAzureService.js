@@ -7,7 +7,7 @@
 	client.azureMSC = new WindowsAzure.MobileServiceClient("https://maketeam.azure-mobile.net/", "IrDVghdkCYNHXpCbkwuuTXPsXVfcbf94")
 	client.azureError = ""
 	client.isLoggedIn = function () {
-	    return client.azureMSC.currentUser != null
+	    return client.azureMSC.currentUser !== null
 	}
         
 	client.login = function(socialMediaService, callback) {

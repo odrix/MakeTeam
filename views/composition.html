@@ -6,15 +6,17 @@
                 <img src="images/time.png" class="chrono" />
                 <span class="periode"> Periode de {{$index * timebox.duration}} à {{($index+1) * timebox.duration}} minutes</span>
                 <span class="summaryPlayer">{{timebox.getNbPlacedPlayers()}} placés sur {{players.length}}</span>
-                <img src="/images/arrow-down.png" ng-click="timebox.collapse='false'" class="btn-down" title="Expand"></button>
+                <img src="images/arrow-down.png" ng-click="timebox.collapse='false'" class="btn-down" title="Expand"></button>
             </div>
         </div>
         <div ng-switch-default>
             <div class="teamList" ng-model='timebox.playerSubstitutes' data-drop="true" jqyoui-droppable="{onDrop:'updatePlayersDuration', multiple:true, hoverClass: 'drop-hover'}">
-                <h3>Remplaçant(s)</h3>
-                <div class="player" ng-show="subs" ng-repeat="subs in timebox.playerSubstitutes track by $index" ng-model="timebox.playerSubstitutes" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}}}">
-					<img src="/images/jersey_white.png" />
-					<div class="playerName">{{subs.name}}</div>
+                <h3 class="phone-hidden">Remplaçant(s)</h3>
+                <div class="extra" >
+                    <div class="player" ng-show="subs" ng-repeat="subs in timebox.playerSubstitutes track by $index" ng-model="timebox.playerSubstitutes" data-drag="true" data-jqyoui-options="{revert: 'invalid',appendTo:'body', scroll: false}" jqyoui-draggable="{index:{{$index}}}">
+                        <img src="images/jersey_white.png" />
+                        <div class="playerName">{{subs.name}}</div>
+                    </div>
                 </div>
             </div>
             <playground></playground>
@@ -23,7 +25,7 @@
                     Temps :
                     <span class="startTime">{{$index * timebox.duration}}</span> -
                     <span class="endTime">{{($index+1) * timebox.duration}}</span>
-                    <img src="/images/arrow-up.png" ng-click="timebox.collapse='true'" class="btn-up" title="Collapse" />
+                    <img src="images/arrow-up.png" ng-click="timebox.collapse='true'" class="btn-up tablet-hidden phone-hidden" title="Collapse" />
                 </div>
                 <button ng-click="newTimeBox(timebox)" class="button btn-new" title="Dupliquer période"></button>
                 <button ng-click="deleteTimeBox(timebox)" class="button btn-cancel" title="Supprimer la période" ng-hide="$index == 0"></button>
@@ -34,7 +36,7 @@
 	
 	
 	
-	<div id="timeResume">
+	<div id="timeResume" class="tablet-hidden phone-hidden">
 		<h3>Temps de jeu</h3>
 		<div class="player" ng-repeat="player in players | orderBy:'duration':true track by $index" >
 			{{player.name}} - {{player.duration}}

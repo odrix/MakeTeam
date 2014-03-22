@@ -13,7 +13,7 @@
   text-decoration: none;
 }
 body {
-  margin: 5% 2%;
+  margin: 12% 2%;
   background: #ececec;
 }
 header a {
@@ -80,12 +80,19 @@ header span:hover {
 .players {
   font-size: 1.2em;
 }
+.players select {
+  width: 50%;
+}
 .players textarea {
   resize: none;
-  width: 32%;
+  width: 100%;
   height: 130px;
 }
 .players .btnOk {
+  margin: 3%;
+  float: right;
+  padding: 3%;
+  font-size: larger;
   margin: 0.75em 0 0 30%;
 }
 .timeBox {
@@ -95,14 +102,10 @@ header span:hover {
   margin: 1%;
   background: inherit;
 }
-.teamList {
-  float: left;
-  width: 12%;
-}
 playground {
   display: block;
   text-align: center;
-  width: 40%;
+  width: 100%;
   margin: 0.5%;
   padding: 1.5% 0;
   position: relative;
@@ -120,17 +123,26 @@ playground img.main {
 }
 .commande {
   float: left;
-  width: 10%;
+  width: 100%;
 }
 .drop-hover .tshirt {
   background: #9ac26b;
   border-radius: 25%;
+}
+.teamList {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.teamList .extra {
+  width: 10000px;
 }
 .teamList .drop-hover {
   border: solid 2px orange;
 }
 .teamList .player {
   cursor: pointer;
+  float: left;
 }
 .teamList img {
   display: inline-block;
@@ -188,6 +200,8 @@ playground img.main {
 }
 .timeboxDuration {
   padding: 1%;
+  display: inline-block;
+  margin-right: 10%;
 }
 .timeboxDuration span {
   font-weight: bold;
@@ -228,7 +242,6 @@ span.nextSubstitute {
 }
 .button {
   position: relative;
-  display: block;
   vertical-align: top;
   height: 48px;
   font-size: 22px;
@@ -317,4 +330,66 @@ span.nextSubstitute {
 .chrono {
   margin-left: -1%;
   margin-right: 1%;
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /* Styles */
+}
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .players {
+    font-size: 1.4em;
+    width: 32%;
+  }
+  .players select {
+    width: 20%;
+  }
+  .players textarea {
+    height: 170px;
+  }
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  body {
+    margin: 5% 2%;
+  }
+  .players {
+    font-size: 1.2em;
+    width: 32%;
+  }
+  .players select {
+    width: 20%;
+  }
+  .players textarea {
+    height: 170px;
+  }
+  .players .btnOk {
+    padding: 2%;
+  }
+  .teamList {
+    float: left;
+    width: 12%;
+    overflow-x: initial;
+    overflow-y: initial;
+  }
+  .teamList .extra {
+    width: 100%;
+  }
+  playground {
+    width: 40%;
+  }
+  .commande {
+    width: 10%;
+  }
+  .timeboxDuration {
+    display: block;
+    margin-right: 0%;
+  }
+  .button {
+    display: block;
+  }
+}
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  /* Styles */
 }

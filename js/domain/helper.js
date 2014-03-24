@@ -5,18 +5,18 @@
 
     // Handle Date
     if (obj instanceof Date) {
-        var copy = new Date();
-        copy.setTime(obj.getTime());
-        return copy;
+        var copyDate = new Date();
+        copyDate.setTime(obj.getTime());
+        return copyDate;
     }
 
     // Handle Array
     if (obj instanceof Array) {
-        var copy = [];
+        var copyArray = [];
         for (var i = 0, len = obj.length; i < len; i++) {
-            copy[i] = Object.clone(obj[i]);
+            copyArray[i] = Object.clone(obj[i]);
         }
-        return copy;
+        return copyArray;
     }
 
     // Handle Object

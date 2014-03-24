@@ -214,4 +214,6 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-node_modules
+node_modules/
+.idea/*
+images/reserve/

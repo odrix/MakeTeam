@@ -72,7 +72,7 @@ jasmine.HtmlReporter = function(_doc) {
   self.reportRunnerStarting = function(runner) {
     var specs = runner.specs() || [];
 
-    if (specs.length == 0) {
+    if (specs.length === 0) {
       return;
     }
 

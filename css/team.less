@@ -1,0 +1,426 @@
+.headerline {
+    background: black;
+    color: #ececec;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+
+	a{
+		color: inherit;
+		text-decoration: none;
+	}	
+}
+
+
+body {
+    margin: 12% 2%;
+    background:#ececec;
+}
+
+header  {
+	a {
+		font-size: 140%;
+		margin: 0 2%;
+		padding: 0.5%;
+		display: inline-block;
+	}
+
+	.menuitem {
+		width: 9%;
+		display: inline-block;
+		border-left: solid 1px lightgray;
+		padding: 1%;
+		font-size: 0.9em;
+		position: relative;
+		top: 0.5%;
+		cursor: pointer;
+	}
+
+	span:hover {
+		font-size: 100%;
+		color: lightsalmon;
+	}
+}
+
+.buttonSocial {
+    margin: 0.9% 1.1%;
+    display: inline-block;
+    border: none;
+    padding: 0;
+	width:26%;
+}
+
+#connector {
+    margin-left: 1.8%;
+    display: inline-block;
+	position: absolute;
+	width: 18%;
+	top: 20%;
+}
+
+#playerForm {
+    width: 21%;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    background: white;
+    padding: 1% 2%;
+    border: solid 1px #888;
+    z-index: 9000;
+    left: 33.3%;
+    margin: -1.9%;
+	.btnOk{
+		width: 20%;
+	}
+}
+
+.double {width: 40%;}
+.clear {clear: both;}
+
+.help {
+    color: #a2a2a2;
+    font-size: 0.7em;
+    line-height: 0.7em;
+}
+
+.players { 
+	font-size: 1.2em; 
+
+    select {
+      width: 50%;
+    }
+
+	textarea {
+		resize: none;
+		width: 100%;
+		height: 130px;
+	}
+
+	.btnOk {
+      margin: 3%;
+      float: right;
+      padding: 3%;
+      font-size: larger;
+		margin: 0.75em 0 0 30%;
+	}
+}
+
+.timeBox {
+    display: block;
+    border-bottom: solid 2px black;
+    padding: 1%;
+    margin: 1%;
+    background: inherit;
+}
+
+playground {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin: 0.5%;
+    padding: 1.5% 0;
+    position: relative;
+
+	img.main {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+#composer playground {
+    float: left;
+    margin: 3% 2% 1%;
+}
+
+.commande {
+    float: left;
+    width: 100%;
+}
+
+
+.drop-hover .tshirt {
+    background: #9ac26b;
+    border-radius: 25%;
+}
+
+.teamList {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    .extra {
+      width: 10000px;
+    }
+
+	.drop-hover {
+		border: solid 2px orange;
+	}
+
+	.player {
+      cursor: pointer;
+      float: left;
+
+      img {
+        display: block;
+        margin: auto;
+        width: 64%;
+      }
+
+      .playerName {
+        display: block;
+        text-align: center;
+        color: #504F4F;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+    }
+}
+
+
+.fieldPlay {
+    display: inline-block;
+    width: 24%;
+    padding: 7.2% 0;
+    font-size: 1.4em;
+    z-index: 95;
+
+	.tshirt {
+		position: absolute;
+		top:0;
+		left:25%;
+		width:50%;
+		max-width:100%;
+	}
+	.playerNumber {
+		color: #504F4F;
+		position: absolute;
+		top:10%;
+		left:0;
+		width:100%;
+	}
+	.playerName {
+		display: block;
+		position: relative;
+		line-height: 0.2em;
+		text-align: center;
+		color: black;
+		text-decoration: none;
+		white-space: nowrap;
+		margin-top: 10%;
+		margin-bottom:-13%;
+		span {
+			font-size: 0.9em;
+		}
+	}
+}
+
+.dragging {
+    color: white;
+    background: #9ac26b;
+    border-radius: 15px;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+}
+
+.timeboxDuration {
+    padding: 1%;
+    display: inline-block;
+    margin-right: 10%;
+	span {
+		font-weight: bold;
+	}
+}
+
+
+.summaryPlayer {
+    display: inline-block;
+    width: 16%;
+}
+
+.periode {
+    display: inline-block;
+    width: 15%;
+}
+
+#timeResume {
+    width: 8%;
+    position: fixed;
+    top: 14%;
+    right: 2%;
+    background: white;
+    padding: 0.5%;
+    border: solid 1px black;
+	h3 {
+		-webkit-margin-before: 0em;
+	}
+}
+
+#partage {padding: 1%;}
+
+.nextSubstitute, span.nextSubstitute {
+    background: #f1ef4c;
+    color: #000000;
+}
+
+.btn-up, .btn-down {
+    width: 1.2%;
+    position: absolute;
+    right: 13%;
+}
+
+
+.button {
+    position: relative;
+    vertical-align: top;
+    height: 48px;
+    font-size: 22px;
+    line-height: 47px;
+    letter-spacing: 1px;
+    background: #9ab26b;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 17px 0 22px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.button:hover {
+	background: #00a7f5;
+}
+
+.chrono {
+    margin-left: -1%;
+    margin-right: 1%;
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+  /* Styles */
+}
+
+
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+  .tablet-hidden {
+    display: none !important;
+  }
+
+  .players {
+    font-size: 1.4em;
+    width: 32%;
+
+    select {
+      width: 20%;
+    }
+
+    textarea {
+      height: 170px;
+    }
+  }
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+  .tablet-hidden {
+    display: initial !important;
+  }
+
+  body {
+    margin: 5% 2%;
+  }
+
+  header {
+    .menuitem {
+      width: 12%;
+
+      img {
+        width: 16%;
+        :after {
+          content: ' ';
+        }
+      }
+    }
+  }
+
+  .buttonSocial {
+    width:12%;
+  }
+
+  .players {
+    font-size: 1.2em;
+    width: 32%;
+
+    select {
+      width: 20%;
+    }
+
+    textarea {
+      height: 170px;
+    }
+
+    .btnOk {
+      padding: 2%;
+    }
+  }
+
+  .teamList {
+    float: left;
+    width: 12%;
+    overflow-x: initial;
+    overflow-y: initial;
+
+    .extra {width: 100%;}
+
+    .player {
+      img {
+        display: inline-block;
+        width: 33.33%;
+      }
+
+      .playerName {
+        display: inline-block;
+        text-align: left;
+      }
+    }
+  }
+
+  playground {
+    width: 40%;
+  }
+
+  .commande {
+    width: 10%;
+  }
+
+  .timeboxDuration {
+    display: block;
+    margin-right: 0%;
+  }
+
+  .button {
+    display: block;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+  /* Styles */
+}
+

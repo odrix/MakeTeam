@@ -1,20 +1,17 @@
-<div ng-controller="StartCtrl" >
-	<h1>Bonjour, et Bienvenue !!</h1>
-
+<div ng-controller="StartCtrl" class="players">
+    <h1>Bonjour, et Bienvenue !!</h1>
     <div class="line">
         <label for="ddlTactique">Choix d'un type de composition</label>
-        <select name="ddlTactique" ng-model="places" ng-options="p.nom for p in placesPossible">
-        </select>
+        <select name="ddlTactique" ng-model="places" ng-options="p.nom for p in placesPossible"></select>
+    </div>
+    <div class="line">
+        <label for="txtplayers">Liste des joueurs (participant au match)</label>
+        <div class="help">liste de nom séparés par une virgule, point-virgule, espace ou même entrée (retour à la ligne)</div>
+        <textarea ng-model="playerList" id="txtplayers"></textarea>
     </div>
 
-	<div class="line players">
-		<label for="txtplayers">Liste des joueurs (participant au match)</label>
-		<div class="help">liste de nom séparés par une virgule, point-virgule, espace ou même entrée (retour à la ligne)</div>
-		<textarea ng-model="playerList" id="txtplayers"></textarea>
-	</div>
-	
-	<div class="line">
-		<button ng-click="validationPlayers()" class="btnValidationJoueurs">ok</button>
-	</div>
-	
+    <div class="line">
+        <button ng-click="validationPlayers()" class="btnOk btnValidationJoueurs">ok</button>
+    </div>
+
 </div>

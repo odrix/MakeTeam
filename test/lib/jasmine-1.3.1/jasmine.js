@@ -1478,7 +1478,7 @@ jasmine.Matchers.prototype.toBeGreaterThan = function(expected) {
  * @param {Number} precision, as number of decimal places
  */
 jasmine.Matchers.prototype.toBeCloseTo = function(expected, precision) {
-  if (!(precision === 0)) {
+  if ((precision !== 0)) {
     precision = precision || 2;
   }
   return Math.abs(expected - this.actual) < (Math.pow(10, -precision) / 2);
@@ -1556,7 +1556,7 @@ jasmine.Matchers.ObjectContaining.prototype.jasmineMatches = function(other, mis
   var env = jasmine.getEnv();
 
   var hasKey = function(obj, keyName) {
-    return obj != null && obj[keyName] !== jasmine.undefined;
+    return obj !== null && obj[keyName] !== jasmine.undefined;
   };
 
   for (var property in this.sample) {

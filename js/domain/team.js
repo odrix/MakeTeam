@@ -9,8 +9,8 @@
     this.timeboxes = _timeboxes
     this.maxtime = _maxtime
 	
-    function addPlayer(name) {
-        if (name && name != '') {
+     this.addPlayer = function(name) {
+        if (name && name !== '') {
             var p = new player(_players.length + 1, name)
             _players.push(p)
 			if (_timeboxes && _timeboxes.length > 0) {
@@ -60,7 +60,7 @@
 	}
 
 	this.isNew = function() {
-        return this.timeboxes && this.timeboxes.length == 0
+        return this.timeboxes && this.timeboxes.length === 0
     }
 	
     this.isAllPlaceOk = function () {

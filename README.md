@@ -15,3 +15,5 @@ Utilisation de :
 * Angular intro	(by [mendhak](https://github.com/mendhak/angular-intro.js))
 * Angular local-storage (by [grevory](https://github.com/grevory/angular-local-storage))
 * Jquery ui touch punch (by [furf](https://github.com/furf/jquery-ui-touch-punch/))
+
+* Windows 8 metro style (by [Visual Pharm](https://www.iconfinder.com/search/?q=iconset:windows-8-metro-style))

@@ -28,9 +28,8 @@ header  {
 		display: inline-block;
 	}
 
-	span {
+	.menuitem {
 		width: 9%;
-		height: 100%;
 		display: inline-block;
 		border-left: solid 1px lightgray;
 		padding: 1%;
@@ -51,7 +50,7 @@ header  {
     display: inline-block;
     border: none;
     padding: 0;
-	width:12%;
+	width:26%;
 }
 
 #connector {
@@ -164,22 +163,23 @@ playground {
 	}
 
 	.player {
-		cursor: pointer;
-        float: left;
-	}
+      cursor: pointer;
+      float: left;
 
-	img {
-		display: inline-block;
-		width: 33.33%;
-	}
+      img {
+        display: block;
+        margin: auto;
+        width: 64%;
+      }
 
-	.playerName {
-		display: inline-block;
-		text-align: left;
-		color: #504F4F;
-		text-decoration: none;
-		white-space: nowrap;
-	}
+      .playerName {
+        display: block;
+        text-align: center;
+        color: #504F4F;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+    }
 }
 
 
@@ -296,88 +296,6 @@ playground {
 	background: #00a7f5;
 }
 
-
-.btn-confirm,
-.btn-cancel,
-.btn-block,
-.btn-new,
-.btn-date {
-    font-size: 20px;
-    line-height: 48px;
-}
-
-    .btn-confirm:before,
-    .btn-cancel:before,
-    .btn-block:before,
-    .btn-new:before,
-    .btn-date:before {
-        content: '';
-        position: absolute;
-        left: 13px;
-        top: 50%;
-        height: 16px;
-        width: 20px;
-        margin: -8px 0 0;
-        background: url(../images/ico-buttons.png) no-repeat;
-    }
-
-.btn-confirm {
-    padding: 0 22px 0 44px;
-}
-
-.btn-confirm:before {
-    background-position: 0 0;
-}
-
-.btn-cancel {
-    padding: 0 0 0 50px;
-    background: #B24333;
-}
-
-.btn-cancel:before {
-    left: 18px;
-    background-position: 0 -26px;
-    margin: -8px 0 0;
-    width: 17px;
-    height: 17px;
-}
-
-.btn-block {
-    padding: 0 34px 0 55px;
-}
-
-.btn-block:before {
-    left: 24px;
-    background-position: 0 -53px;
-    margin: -12px 0 0;
-    width: 22px;
-    height: 22px;
-}
-
-.btn-new {
-    padding: 0 0 0 50px;
-}
-
-.btn-new:before {
-    left: 17px;
-    background-position: 0 -85px;
-    margin: -11px 0 0;
-    width: 20px;
-    height: 20px;
-}
-
-.btn-date {
-    padding: 0 15px 0 57px;
-}
-
-.btn-date:before {
-    left: 16px;
-    background-position: 0 -115px;
-    margin: -16px 0 0;
-    width: 26px;
-    height: 30px;
-}
-
 .chrono {
     margin-left: -1%;
     margin-right: 1%;
@@ -397,6 +315,10 @@ and (max-device-width : 480px) {
 and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : landscape) {
+  .tablet-hidden {
+    display: none !important;
+  }
+
   .players {
     font-size: 1.4em;
     width: 32%;
@@ -415,8 +337,29 @@ and (orientation : landscape) {
 /* Desktops and laptops ----------- */
 @media only screen
 and (min-width : 1224px) {
+  .tablet-hidden {
+    display: initial !important;
+  }
+
   body {
     margin: 5% 2%;
+  }
+
+  header {
+    .menuitem {
+      width: 12%;
+
+      img {
+        width: 16%;
+        :after {
+          content: ' ';
+        }
+      }
+    }
+  }
+
+  .buttonSocial {
+    width:12%;
   }
 
   .players {
@@ -443,6 +386,18 @@ and (min-width : 1224px) {
     overflow-y: initial;
 
     .extra {width: 100%;}
+
+    .player {
+      img {
+        display: inline-block;
+        width: 33.33%;
+      }
+
+      .playerName {
+        display: inline-block;
+        text-align: left;
+      }
+    }
   }
 
   playground {

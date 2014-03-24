@@ -62,14 +62,14 @@
 <body>
 	<header id="header" role="banner" class="line ma0 headerline" ng-controller="menuCtrl" ng-intro-options="IntroOptions" ng-intro-method="CallMe">
 		<a href="#/home" ng-click="new()">#Team maker</a>
-        <span ng-click="new()" ng-hide="isNew()">Nouveau</span>
-        <span ng-click="edit()" ng-show="canBeEdited();" title="retour au dernier enregistrement">Modifier</span>
-        <span ng-click="save()" ng-hide="isNew()" title="Enregistrement uniquement en local">Enregistrer</span>
-        <span ng-click="getLast()" ng-show="isNew()">Derni&egravere composition</span>
-        <span ng-click="share()" ng-show="isAllPlaceOk()">Partager</span>
-        <span ng-click="newPlayerForm()" ng-hide="isNew()">Ajouter joueur</span>
-		<span ng-hide="isConnected()" class="buttonConnect">se connecter</span>
-        <span ng-click="logout()" class="buttonConnect" ng-show="isConnected()">deconnecter</span>
+        <span ng-click="new()" ng-hide="isNew()" class="menuitem"><img src="images/edit_property.png" /><span class="phone-hidden"> Nouveau</span></span>
+        <!--<span ng-click="edit()" ng-show="canBeEdited();" class="menuitem" title="retour au dernier enregistrement">Modifier</span>-->
+        <span ng-click="save()" ng-hide="isNew()" class="menuitem" title="Enregistrement uniquement en local"><img src="images/save.png" /><span class="phone-hidden"> Enregistrer</span></span>
+        <span ng-click="getLast()" ng-show="isNew()" class="menuitem"><img src="images/external_link.png" /><span class="phone-hidden"> Derni&egrave;re &eacute;quipe</span></span>
+        <span ng-click="share()" ng-show="isAllPlaceOk()" class="menuitem"><img src="images/link.png" /><span class="phone-hidden"> Partager</span></span>
+        <span ng-click="newPlayerForm()" ng-hide="isNew()" class="menuitem"><img src="images/add_user.png" /><span class="phone-hidden"> Ajouter joueur</span></span>
+		<span ng-hide="isConnected()" class="buttonConnect menuitem"><img src="images/login.png" /><span class="phone-hidden"> se connecter</span></span>
+        <span ng-click="logout()" class="buttonConnect menuitem" ng-show="isConnected()"><img src="images/logout.png" /><span class="phone-hidden"> deconnecter</span></span>
         <!--<span id="btnDemo" ng-click="CallMe()">demo</span>-->
         <div id="connector">
 			<img src="images/social/facebook_off.png" id="connectFacebook" class="buttonSocial" title="se connecter par Facebook" ng-click="login('facebook')" onMouseOver="this.src='images/social/facebook.png'" onMouseOut="this.src='images/social/facebook_off.png'" />

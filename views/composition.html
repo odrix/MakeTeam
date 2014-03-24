@@ -27,8 +27,8 @@
                     <span class="endTime">{{($index+1) * timebox.duration}}</span>
                     <img src="images/arrow-up.png" ng-click="timebox.collapse='true'" class="btn-up tablet-hidden phone-hidden" title="Collapse" />
                 </div>
-                <button ng-click="newTimeBox(timebox)" class="button btn-new" title="Dupliquer période"></button>
-                <button ng-click="deleteTimeBox(timebox)" class="button btn-cancel" title="Supprimer la période" ng-hide="$index == 0"></button>
+                <img src="images/plus.png" title="Dupliquer période" ng-click="newTimeBox(timebox)"/>
+                <img src="images/cancel.png" title="Supprimer la période" ng-hide="$index == 0" ng-click="deleteTimeBox(timebox)"  />
             </div>
             <div class="clear"></div>
         </div>

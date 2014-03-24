@@ -28,7 +28,7 @@
     this.init = function (players, fields, matchDuration) {
         this.maxtime=matchDuration
 		for (var i = 0; i < players.length; i++) {
-            addPlayer(players[i].trim())
+            this.addPlayer(players[i].trim())
         }
         createTimebox(matchDuration, fields)
     }

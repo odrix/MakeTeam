@@ -28,20 +28,30 @@ module.exports = function(grunt) {
         "-W083":true
 	  }
 	},
-	 watch:{
-      scripts:{
-        files: 'js/**/*.js', 
-        tasks: ['jshint']
-      },
-      styles:{
-        files: 'css/**/*.less', 
-        tasks: ['less:dev']
-      }
+    jasmine: {
+        test: {
+            src: ['js/**/*.js', '!js/lib/*.js'],
+            options: {
+                vendor: 'js/lib/**/*.js',
+                specs: 'test/*.spec.js'
+            }
+        }
+    },
+    watch:{
+        scripts:{
+            files: 'js/**/*.js',
+            tasks: ['jshint', 'jasmine']
+        },
+        styles:{
+            files: 'css/**/*.less',
+            tasks: ['less:dev']
+        }
     }
   })
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-less')
+  grunt.loadNpmTasks('grunt-contrib-jasmine')
   grunt.loadNpmTasks('grunt-contrib-watch')
 
   // Définition des tâches Grunt

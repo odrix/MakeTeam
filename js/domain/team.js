@@ -79,15 +79,15 @@
     }
 	
 	this.getPlayerDuration = function(p) {
-			p.duration = 0
-            for(var i=0;i<this.timeboxes.length;i++) {
-                this.timeboxes[i].foreachPlacesDo(function (place, timebox) {
-                    if(place && place.player && place.player.id == p.id) {
-                        p.duration += timebox.duration
-                    }
-                })
-            }
-		}
+        p.duration = 0
+        for(var i=0;i<this.timeboxes.length;i++) {
+            this.timeboxes[i].foreachPlacesDo(function (place, timebox) {
+                if(place && place.player && place.player.id == p.id) {
+                    p.duration += timebox.duration
+                }
+            })
+        }
+    }
 
     this.updateTimeBoxesDuration = function () {
         for (var i=0;i<this.timeboxes.length;i++) {
